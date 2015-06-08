@@ -1,18 +1,18 @@
-from django.http import Http404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import password_change
-from django.http import HttpResponseRedirect
-from django.template import RequestContext
+from rest_framework.generics import GenericAPIView
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
 
-from bassculture.models.author import Author
-from duchemin.models.item import Item
-from duchemin.models.printer import Printer
-from duchemin.models.publisher import Publisher
-from duchemin.models.seller import Seller
-from duchemin.models.source import Source
+from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
+from bassculture.serializers.search import SearchSerializer
 
 
-def home(request):
+class HomeViewHTMLRenderer(CustomHTMLRenderer):
+    template_name = "main/home.html"
 
-    return render(request, 'main/home.html', data)
+
+class HomeView(GenericAPIView):
+    serializer_class = SearchSerializer
+    renderer_classes = (JSONRenderer, HomeViewHTMLRenderer)
+
+    def get(self, request, *args, **kwargs):
+        return Response({})
