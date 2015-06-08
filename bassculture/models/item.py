@@ -6,7 +6,8 @@ from django.db.models.signals import post_save, post_delete
 class Item(models.Model):
     class Meta:
         app_label = 'bassculture'
-    orientation_choices = (
+
+    ORIENTATION_CHOICES = (
         ('l', 'landscape'),
         ('p', 'portrait'),
     )
@@ -22,7 +23,7 @@ class Item(models.Model):
     rism = models.CharField(max_length=16)
     gore = models.CharField(max_length=16)
     pagination = models.CharField(max_length=8)
-    orientation = models.CharField(max_length=16, blank=True, null=True, choices=orientation_choices)
+    orientation = models.CharField(max_length=16, blank=True, null=True, choices=ORIENTATION_CHOICES)
     dimensions = models.CharField(max_length=8)
     library = models.CharField(max_length=40, blank=True, null=True)
     shelfmark = models.CharField(max_length=16)
