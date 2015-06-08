@@ -39,10 +39,6 @@ INSTALLED_APPS = (
     'bassculture',
     'django_extensions',
     'rest_framework',
-#    'static_precompiler',
-#    'mod_wsgi.server',
-    'bootstrap3',
-    'clear_cache',
 )
 
 
@@ -116,13 +112,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-BOOTSTRAP3 = {
-    
-    'include_jquery': True,
-    'jquery_url': 'http://code.jquery.com/jquery-1.11.3.min.js'
-
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
