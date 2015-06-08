@@ -7,9 +7,8 @@ class Seller(models.Model):
     class Meta:
         app_label = "bassculture"
 
-    seller_id = models.IntegerField(unique= True, db_index=True)
+    seller_id = models.IntegerField(unique=True, db_index=True)
     name = models.CharField("Seller", max_length=255, db_index=True)
-
 
     def __str__(self):
         return "{0}".format(self.name)

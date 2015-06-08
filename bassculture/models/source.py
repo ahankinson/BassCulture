@@ -23,19 +23,18 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="source", source_id="{0}".format(instance.source_id)).execute() # checks if the record already exists in solr
+    record = si.query(type="source", source_id="{0}".format(instance.source_id)).execute()  # checks if the record already exists in solr
 
-    if record: # if it does
+    if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])
 
     d = {
-        'url': 'http://localhost:8000/source/{0}'.format(instance.pk),
         'pk': '{0}'.format(instance.pk),
         'type': 'source',
         'id': str(uuid.uuid4()),
         'source_id': instance.source_id,
         'description': instance.description,
-        'title' : instance.title,
+        'title': instance.title,
     }
 
     si.add(d)

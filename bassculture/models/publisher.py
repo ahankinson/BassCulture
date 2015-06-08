@@ -10,7 +10,6 @@ class Publisher(models.Model):
     publisher_id = models.IntegerField(unique=True, db_index=True)
     name = models.CharField("Publisher", max_length=255)
 
-
     def __str__(self):
         return "{0}".format(self.name)
 
