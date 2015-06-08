@@ -132,3 +132,6 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 SOLR_SERVER = 'http://localhost:8080'
+IIP_SERVER = "http://localhost/fcgi-bin/iipsrv.fcgi"
+IIP_SERVER_IMAGE_PATH = "/tmp/img/"
+DIVA_OBJECT_DATA = "/static/json/"
