@@ -13,6 +13,7 @@ class ItemSellerSerializer(serializers.HyperlinkedModelSerializer):
         model = Seller
         fields = ('name',)
 
+
 class ItemPublisherSerializer(serializers.HyperlinkedModelSerializer):
     name = serializers.ReadOnlyField()
 
@@ -20,13 +21,14 @@ class ItemPublisherSerializer(serializers.HyperlinkedModelSerializer):
         model = Publisher
         fields = ('name',)
 
+
 class ItemPrinterSerializer(serializers.HyperlinkedModelSerializer):
     name = serializers.ReadOnlyField()
 
     class Meta:
         model = Printer
         fields = ('name',)
-            
+
 
 class ItemAuthorSerializer(serializers.HyperlinkedModelSerializer):
     full_name = serializers.ReadOnlyField()
@@ -43,6 +45,7 @@ class ItemListSerializer(serializers.HyperlinkedModelSerializer):
         model = Item
         fields = ('seller', 'authors', 'short_title', 'url',)
 
+
 class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
     authors = ItemAuthorSerializer(many=True)
     seller = ItemSellerSerializer()
@@ -54,4 +57,4 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('item_id', 'url', 'authors', 'seller', 'full_title',
             'date', 'rism', 'pagination', 'dimensions', 'library', 'shelfmark',
             'item_notes', 'edition', 'library', 'publisher', 'printer', 'gore', 'orientation',
-            'additional_items', 'item_notes',)
+            'additional_items', 'item_notes')
