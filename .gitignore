@@ -1,5 +1,6 @@
 bassculture/migrations/*
 *.pyc
 bc_env/*
-solr/*
+app_env/*
+solr/target/*
 __pycache__/*
