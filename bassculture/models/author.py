@@ -5,8 +5,7 @@ from django.db.models.signals import post_save, post_delete
 
 class Author(models.Model):
     class Meta:
-        verbose_name_plural = 'authors'
-        app_label = 'bassculture'  # app label
+        app_label = 'bassculture'
         ordering = ['surname']
 
     author_id = models.IntegerField(unique=True, db_index=True)

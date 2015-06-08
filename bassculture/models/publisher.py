@@ -5,9 +5,7 @@ from django.db.models.signals import post_save, post_delete
 
 class Publisher(models.Model):
     class Meta:
-        verbose_name = "Publisher"
-        verbose_name_plural = 'Publishers'
-        app_label = 'bassculture'  # app label
+        app_label = 'bassculture'
 
     publisher_id = models.IntegerField(unique=True, db_index=True)
     name = models.CharField("Publisher", max_length=255)

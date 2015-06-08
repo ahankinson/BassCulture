@@ -6,8 +6,6 @@ from django.db.models.signals import post_save, post_delete
 class Source(models.Model):
     class Meta:
         app_label = "bassculture"
-        verbose_name = "Source"
-        verbose_name_plural = "Sources"
 
     source_id = models.IntegerField(unique=True, db_index=True)
     title = models.CharField(max_length=255, db_index=True)

@@ -5,8 +5,6 @@ from django.db.models.signals import post_save, post_delete
 
 class Seller(models.Model):
     class Meta:
-        verbose_name_plural = "Sellers"
-        verbose_name = "Seller"
         app_label = "bassculture"
 
     seller_id = models.IntegerField(unique= True, db_index=True)
