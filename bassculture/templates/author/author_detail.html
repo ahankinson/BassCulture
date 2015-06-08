@@ -7,11 +7,12 @@
 {% block body %}
 
     <h1>{{ content.full_name }}</h1>
-
-{% for item in content.items %}
-    <ul>
-      <li><td><a href="{{ item.url }}">{{ item.short_title }}</a></td>
-    </ul>
-{% endfor %}
+    <table class="table">
+        {% for item in content.items %}
+        <tr>
+          <td><a href="{{ item.url }}">{{ item.short_title }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}
