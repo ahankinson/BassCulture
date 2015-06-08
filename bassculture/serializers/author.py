@@ -18,12 +18,7 @@ class AuthorItemSerializer(serializers.HyperlinkedModelSerializer):
 
 class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
     full_name = serializers.ReadOnlyField()
-    short_title = AuthorItemSerializer()
-
-
-class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
-    full_name = serializers.ReadOnlyField()
-    items = AuthorItemSerializer(many=True)
+    short_title = AuthorItemSerializer(many=True)
 
     class Meta:
         model = Author
