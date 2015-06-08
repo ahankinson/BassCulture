@@ -7,7 +7,7 @@ from bassculture.serializers.search import SearchSerializer
 
 
 class HomeViewHTMLRenderer(CustomHTMLRenderer):
-    template_name = "main/home.html"
+    template_name = "index.html"
 
 
 class HomeView(GenericAPIView):
