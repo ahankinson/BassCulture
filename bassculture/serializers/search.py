@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
+
 class SearchSerializer(serializers.Serializer):
-    
     class Meta:
         fields = ('url', 'source_id')
 
