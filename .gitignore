@@ -2,3 +2,4 @@ bassculture/migrations/*
 *.pyc
 bc_env/*
 solr/*
+__pycache__/*
