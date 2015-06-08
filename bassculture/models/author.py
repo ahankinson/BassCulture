@@ -13,8 +13,7 @@ class Author(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
-        return "%s, %s" % (self.surname, self.name)
-#       return "{0}, {1}".format(self.surname, self.name)
+        return u"{0}, {1}".format(self.surname, self.name)
 
     @property
     def full_name(self):
