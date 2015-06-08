@@ -51,7 +51,6 @@ def solr_index(sender, instance, created, **kwargs):
         si.delete_by_ids([x['id'] for x in record])
 
     d = {
-        'url': 'http://localhost:8000/item/{0}'.format(instance.pk),
         'type': 'item',
         'id': str(uuid.uuid4()),
         'item_id': instance.item_id,
