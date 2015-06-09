@@ -1,0 +1,34 @@
+# Sample Apache Virtual host configuration file for the BassCulture project.
+# Pay special attention to the `/srv/webapps/` paths, as these will need to be
+# configured to your own values.
+
+# The `LoadModule` directive should point to the mod_wsgi-py34.so file in the virtual
+# environment (e.g., the one installed via pip). 
+
+# Ensure the logging paths are correct.
+
+<VirtualHost *:8080>
+    ServerName bassculture.info
+    ServerAdmin webmaster@localhost
+    DocumentRoot /srv/webapps/BassCulture
+
+    Alias "/static" "/srv/webapps/BassCulture/bassculture/static"
+    <Directory "/srv/webapps/BassCulture/bassculture/static">
+        Require all granted
+    </Directory>
+
+    <Files wsgi.py>
+        Require all granted
+    </Files>
+
+    LoadModule wsgi_module /srv/webapps/BassCulture/app_env/lib/python3.4/site-packages/mod_wsgi/server/mod_wsgi-py34.so
+
+    ErrorDocument 404 /index.html
+    ErrorLog /usr/local/var/log/apache2/bassculture.info/error.log
+    CustomLog /usr/local/var/log/apache2/bassculture.info/access.log combined
+
+    WSGIDaemonProcess bassculture python-path=/srv/webapps/BassCulture:/srv/webapps/BassCulture/app_env/lib/python3.4/site-packages
+    WSGIProcessGroup bassculture
+    WSGIScriptAlias / /srv/webapps/BassCulture/wsgi.py
+
+</VirtualHost>
