@@ -3,4 +3,5 @@ bassculture/migrations/*
 bc_env/*
 app_env/*
 solr/target/*
-__pycache__/*
+**/__pycache__/*
+.DS_Store
