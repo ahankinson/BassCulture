@@ -10,57 +10,60 @@
 {% endblock %}
 
 {% block body %}
-    <div id="diva-wrapper"></div>
+    <div class="col-xs-4" style="height: 700px; overflow: scroll;">
+        <h3>Item detail</h3>
+        <h4>Author(s)</h4>
+        <ul>
+        {% for author in content.authors %}
+            <li>{{ author.full_name }}</li>
+        {% endfor %}
+        </ul>
 
-    <h3>Item detail</h3>
-    <h4>Author(s)</h4>
-    <ul>
-    {% for author in content.authors %}
-        <li>{{ author.full_name }}</li>
-    {% endfor %}
-    </ul>
+        <h4>Seller</h4>
+        <p>{{ content.seller.name }}</p>
 
-    <h4>Seller</h4>
-    <p>{{ content.seller.name }}</p>
+        <h4>Item notes</h4>
+        <p>{{ content.item_notes }}</p>
 
-    <h4>Item notes</h4>
-    <p>{{ content.item_notes }}</p>
+        <h4>Publisher</h4>
+        <p>{{ content.publisher.name }}</p>
 
-    <h4>Publisher</h4>
-    <p>{{ content.publisher.name }}</p>
+        <h4>Printer</h4>
+        <p>{{ content.printer.name }}</p>
 
-    <h4>Printer</h4>
-    <p>{{ content.printer.name }}</p>
+        <h4>Date</h4>
+        <p>{{ content.date }}</p>
 
-    <h4>Date</h4>
-    <p>{{ content.date }}</p>
+        <h4>RISM</h4>
+        <p>{{ content.rism }}</p>
 
-    <h4>RISM</h4>
-    <p>{{ content.rism }}</p>
+        <h4>Pagination</h4>
+        <p>{{ content.pagination }}</p>
 
-    <h4>Pagination</h4>
-    <p>{{ content.pagination }}</p>
+        <h4>Orientation</h4>
+        <p>{{ content.orientation }}</p>
 
-    <h4>Orientation</h4>
-    <p>{{ content.orientation }}</p>
+        <h4>Dimensions</h4>
+        <p>{{ content.dimensions }}</p>
 
-    <h4>Dimensions</h4>
-    <p>{{ content.dimensions }}</p>
+        <h4>Shelfmark</h4>
+        <p>{{ content.shelfmark }}</p>
 
-    <h4>Shelfmark</h4>
-    <p>{{ content.shelfmark }}</p>
+        <h4>Library</h4>
+        <p>{{ content.library }}</p>
 
-    <h4>Library</h4>
-    <p>{{ content.library }}</p>
+        <h4>Edition</h4>
+        <p>{{ content.edition }}</p>
 
-    <h4>Edition</h4>
-    <p>{{ content.edition }}</p>
+        <h4>Gore</h4>
+        <p>{{ content.gore }}</p>
 
-    <h4>Gore</h4>
-    <p>{{ content.gore }}</p>
-
-    <h4>Additional items</h4>
-    <p>{{ content.additional_items }}</p>
+        <h4>Additional items</h4>
+        <p>{{ content.additional_items }}</p>
+    </div>
+    <div class="col-xs-8">
+        <div id="diva-wrapper"></div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
@@ -70,9 +73,10 @@
         $('#diva-wrapper').diva({
             enableAutoHeight: true,
             fixedHeightGrid: false,
-            iipServerURL: {{ IIP_SERVER_URL }},
-            objectData: {{ DIVA_OBJECT_DATA }} + "/pyramid.json",
-            imageDir: {{IIP_SERVER_IMAGE_PATH }} + "/1/",
+            enableAutoTitle: false,
+            iipServerURL: "{{ IIP_SERVER }}",
+            objectData: "{{ DIVA_OBJECT_DATA }}" + "{{ content.item_id }}.json",
+            imageDir: "{{IIP_SERVER_IMAGE_PATH }}" + "/{{ content.item_id }}/",
             enableCanvas: true,
             enableDownload: true
         });
