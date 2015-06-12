@@ -41,6 +41,30 @@ INSTALLED_APPS = (
     'rest_framework',
 )
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            'templates'
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'bassculture.context_processors.diva_settings'
+            ],
+        },
+    },
+]
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -120,6 +144,7 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 SOLR_SERVER = 'http://localhost:8080'
-IIP_SERVER = "http://localhost/fcgi-bin/iipsrv.fcgi"
-IIP_SERVER_IMAGE_PATH = "/tmp/img/"
+
+IIP_SERVER = "http://bassculture.info/iipsrv"
+IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/wsgi/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
