@@ -145,6 +145,6 @@ STATIC_URL = '/static/'
 
 SOLR_SERVER = 'http://localhost:8080'
 
-IIP_SERVER = "http://bassculture.info/iipsrv"
-IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/wsgi/static/images/"
-DIVA_OBJECT_DATA = "/static/json/"
+IIP_SERVER = "http://local.hms.scot:8001/fcgi-bin/iipsrv.fcgi"
+IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
+DIVA_OBJECT_DATA = "/srv/webapps/BassCulture/bassculture/static/json/"

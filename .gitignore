@@ -1,7 +1,10 @@
 bassculture/migrations/*
+bassculture/static/images/*
 *.pyc
 bc_env/*
 app_env/*
 solr/target/*
 **/__pycache__/*
 .DS_Store
+
+fcgi-bin/*
