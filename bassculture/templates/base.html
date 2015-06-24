@@ -16,6 +16,20 @@
         {% endblock %}
     </head>
     <body>
+
+{% block bootstrap3_content %}
+    <div class="container">
+
+        <p>
+            <a href="{% url 'item-list' %}">items</a>
+            <a href="{% url 'source-list' %}">sources</a>
+            <a href="{% url 'author-list' %}">authors</a>
+
+        </p>
+
+    </div>
+{% endblock %}
+
         <div class="container-fluid">
             <div class="row">
             {% block body %}

@@ -13,7 +13,7 @@ class AuthorListSerializer(serializers.HyperlinkedModelSerializer):
 class AuthorItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Item
-        fields = ('url', 'short_title')
+        fields = ('url', 'short_title',)
 
 
 class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,3 +22,4 @@ class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Author
+        fields = ('short_title', 'full_name',)

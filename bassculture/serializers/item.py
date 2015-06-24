@@ -57,4 +57,4 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('item_id', 'url', 'authors', 'seller', 'full_title',
             'date', 'rism', 'pagination', 'dimensions', 'library', 'shelfmark',
             'item_notes', 'edition', 'library', 'publisher', 'printer', 'gore', 'orientation',
-            'additional_items', 'item_notes')
+            'additional_items', 'item_notes',)

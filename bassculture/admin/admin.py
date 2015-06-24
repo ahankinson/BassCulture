@@ -7,6 +7,7 @@ from bassculture.models.seller import Seller
 from bassculture.models.publisher import Publisher
 from django.forms import TextInput, Textarea
 from django.db import models
+from django.contrib import admin
 
 
 @admin.register(Item)

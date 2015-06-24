@@ -6,5 +6,6 @@ app_env/*
 solr/target/*
 **/__pycache__/*
 .DS_Store
-
 fcgi-bin/*
+solr/logs/solr.log
+solr/*
