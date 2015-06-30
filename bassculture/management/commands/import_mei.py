@@ -33,11 +33,12 @@ class Command(BaseCommand):
                 t = Tune()
                 # t.item = Item.objects.get(shelfmark=shelfmark)
                 t.start_page = int(page)
-                t.title = title
+                t.name = title
                 t.alternate_spellings = alt_spelling
 
-                f = open(filepath, 'r')
+                f = open(filepath, encoding='utf-16', mode='r')
                 mfile = File(f)
-                t.mei_file = mfile
+                t.mei_file.save(subfile, mfile)
 
                 t.save()
+                f.close()
