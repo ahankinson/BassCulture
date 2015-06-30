@@ -7,6 +7,7 @@ class Item(models.Model):
     class Meta:
         app_label = 'bassculture'
 
+    short_title = models.ForeignKey("bassculture.Source", related_name="sources", blank=True, null=True)
     pagination = models.CharField(max_length=8)
     dimensions = models.CharField(max_length=8)
     library = models.CharField(max_length=40, blank=True, null=True)

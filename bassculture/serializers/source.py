@@ -31,6 +31,7 @@ class SourcePrinterSerializer(serializers.HyperlinkedModelSerializer):
 class SourceDetailSerializer(serializers.HyperlinkedModelSerializer):
     authors = SourceAuthorSerializer(many=True)
     full_title = serializers.ReadOnlyField()
+    short_title = serializers.ReadOnlyField()
     publisher = SourcePublisherSerializer()
     printer = SourcePrinterSerializer()
 
