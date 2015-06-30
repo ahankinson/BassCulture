@@ -7,35 +7,28 @@ class Source(models.Model):
     class Meta:
         app_label = "bassculture"
 
+
+    ORIENTATION_CHOICES = (
+        ('l', 'landscape'),
+        ('p', 'portrait'),
+    )
+
     source_id = models.IntegerField(unique=True, db_index=True)
-    title = models.CharField(max_length=255, db_index=True)
+    full_title = models.CharField(max_length=255)
+    short_title = models.CharField(max_length=255)
+    authors = models.ManyToManyField("bassculture.Author", blank=True, related_name="sources")
     description = models.TextField(blank=True, null=True)
     source_notes = models.TextField(blank=True, null=True)
+    publisher = models.ForeignKey("bassculture.Publisher", related_name="sources", blank=True, null=True)
+    printer = models.ForeignKey("bassculture.Printer", related_name="sources", blank=True, null=True)
+    edition = models.CharField(max_length=16)
+    orientation = models.CharField(max_length=16, blank=True, null=True, choices=ORIENTATION_CHOICES)
+    date = models.CharField(max_length=16)
+    link = models.URLField(blank=True, null=True)
+    link_label = models.TextField(blank=True, null=True)
+    rism = models.CharField(max_length=16)
+    gore = models.CharField(max_length=16)
+    locations = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return "{0}".format(self.title)
-
-
-@receiver(post_save, sender=Source)
-def solr_index(sender, instance, created, **kwargs):
-    import uuid
-    from django.conf import settings
-    import scorched
-
-    si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="source", source_id="{0}".format(instance.source_id)).execute()  # checks if the record already exists in solr
-
-    if record:  # if it does
-        si.delete_by_ids([x['id'] for x in record])
-
-    d = {
-        'pk': '{0}'.format(instance.pk),
-        'type': 'source',
-        'id': str(uuid.uuid4()),
-        'source_id': instance.source_id,
-        'description': instance.description,
-        'title': instance.title,
-    }
-
-    si.add(d)
-    si.commit()
+        return "{0}".format(self.short_title)
