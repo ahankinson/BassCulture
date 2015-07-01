@@ -6,7 +6,6 @@ class Author(models.Model):
         app_label = 'bassculture'
         ordering = ['surname']
 
-    author_id = models.IntegerField(unique=True, db_index=True)
     name = models.CharField(max_length=255)
 
     def __str__(self):
