@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'bassculture',
     'django_extensions',
     'rest_framework',
+    'haystack'
 )
 
 TEMPLATES = [
@@ -100,28 +101,19 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # other finders..
-#    'static_precompiler.finders.StaticPrecompilerFinder',
+    # 'static_precompiler.finders.StaticPrecompilerFinder',
 )
 
-#SESSION_COOKIE_SECURE = True
-
-#SECURE_CONTENT_TYPE_NOSNIFF = True
-
-#CSRF_COOKIE_SECURE = True
-
-#CSRF_COOKIE_HTTPONLY = True
-
-#SECURE_HSTS_SECONDS = '0'
-
-#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-#ALLOWED_HOSTS = '*'
-
-#SECURE_BROWSER_XSS_FILTER = True
-
-#SECURE_SSL_REDIRECT = True
-
-#X_FRAME_OPTIONS = 'DENY'
+# SESSION_COOKIE_SECURE = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_HTTPONLY = True
+# SECURE_HSTS_SECONDS = '0'
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# ALLOWED_HOSTS = '*'
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_SSL_REDIRECT = True
+# X_FRAME_OPTIONS = 'DENY'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -141,9 +133,15 @@ USE_TZ = True
 
 STATIC_ROOT = (os.path.join(PROJECT_DIR, 'static'))
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploads')
+MEDIA_URL = "/uploads/"
 
-SOLR_SERVER = 'http://localhost:8080'
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
 
 IIP_SERVER = "http://local.hms.scot:8001/fcgi-bin/iipsrv.fcgi"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
