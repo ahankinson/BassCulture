@@ -31,13 +31,3 @@ class SourceAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['surname', 'name']
     search_fields = ['surname', 'name']
-
-
-@admin.register(Printer)
-class PrintedAdmin(admin.ModelAdmin):
-    search_fields = ['printer']
-
-
-@admin.register(Publisher)
-class PublishedAdmin(admin.ModelAdmin):
-    search_fields = ['publisher']
