@@ -7,9 +7,7 @@ class Author(models.Model):
         ordering = ['surname']
 
     author_id = models.IntegerField(unique=True, db_index=True)
-    surname = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    short_title = models.ManyToManyField("bassculture.Item", blank=True, related_name="items")
 
     def __str__(self):
         return u"{0}, {1}".format(self.surname, self.name)
