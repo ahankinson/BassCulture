@@ -9,7 +9,7 @@ from django.db import models
 
 @admin.register(Tune)
 class TuneAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'position', 'start_page', 'alternate_spellings']
 
 
 @admin.register(Item)
