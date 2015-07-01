@@ -12,9 +12,9 @@ class Command(BaseCommand):
         print(kwargs)
         location = kwargs['location']
 
-        Author.objects.all().delete()
-        Item.objects.all().delete()
-        Source.objects.all().delete()
+        # Author.objects.all().delete()
+        # Item.objects.all().delete()
+        # Source.objects.all().delete()
 
         with open(location) as csvfile:
             reader = csv.DictReader(csvfile)
