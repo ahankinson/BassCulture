@@ -13,7 +13,7 @@ class Source(models.Model):
     source_id = models.CharField(max_length=128, blank=True, null=True)
     full_title = models.CharField(max_length=500)
     short_title = models.CharField(max_length=255)
-    authors = models.ForeignKey("bassculture.Author", blank=True, related_name="sources")
+    author = models.ForeignKey("bassculture.Author", blank=True, related_name="sources")
     description = models.TextField(blank=True, null=True)
     source_notes = models.TextField(blank=True, null=True)
     publisher = models.TextField(blank=True, null=True)
