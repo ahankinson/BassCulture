@@ -12,35 +12,30 @@ class Command(BaseCommand):
         print(kwargs)
         location = kwargs['location']
 
+        Author.objects.all().delete()
+        Item.objects.all().delete()
+        Source.objects.all().delete()
+
         with open(location) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 self.this_source = None
                 self.this_author = None
-                self.create_author(row)
                 self.create_source(row)
                 self.create_item(row)
 
-    def create_author(self, row):
-        print("Resetting Authors")
-        Author.objects.all().delete()
 
-        d = {
-            'name':row['author'],
-        }
-
-        a = Author(**d)
-        a.save()
-
-        self.this_author = a
 
     def create_source(self, row):
         print("Cleaning source table")
-        Source.objects.all().delete()
 
 
         print("Creating source " + row['source_id'])
-        author = self.this_author
+        author, auth_created = Author.objects.get_or_create(name=row['author'])
+        if auth_created:
+            author.biographical_info = row['biographical_info']
+            author.save()
+
 
         if row['orientation'] == "Portrait":
             orientation = "p"
@@ -52,7 +47,7 @@ class Command(BaseCommand):
         d = {
             'source_id':row['source_id'],
             'full_title':row['full_title'],
-            'short_title':row['short_title'],
+            'short_title':row['short_title'].strip(),
             'authors':author,
             'description':row['source_description'],
             'source_notes':row['source_detailed_notes'],
@@ -75,7 +70,6 @@ class Command(BaseCommand):
 
     def create_item(self, row):
         print("Resetting Items")
-        Item.objects.all().delete()
 
         source = self.this_source
 

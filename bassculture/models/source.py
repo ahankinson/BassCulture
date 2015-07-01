@@ -28,4 +28,7 @@ class Source(models.Model):
     locations = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return "{0}".format(self.short_title)
+        if self.short_title:
+            return "{0}".format(self.short_title)
+        else:
+            return "{0}".format(self.id)
