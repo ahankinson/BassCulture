@@ -5,10 +5,10 @@ class Item(models.Model):
     class Meta:
         app_label = 'bassculture'
 
-    pagination = models.CharField(max_length=8)
-    dimensions = models.CharField(max_length=8)
+    pagination = models.CharField(max_length=16)
+    dimensions = models.CharField(max_length=16)
     library = models.CharField(max_length=40, blank=True, null=True)
-    shelfmark = models.CharField(max_length=16)
+    shelfmark = models.CharField(max_length=32)
     item_notes = models.TextField(blank=True, null=True)
     source = models.ForeignKey("bassculture.Source")
     seller = models.TextField()
