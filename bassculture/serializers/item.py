@@ -7,7 +7,7 @@ class ItemListSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('seller', 'url', 'source',)
+        fields = ('seller', 'url', 'source_title', 'author_name',)
 
 class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
 
