@@ -24,10 +24,8 @@ class ItemAdmin(admin.ModelAdmin):
 class SourceAdmin(admin.ModelAdmin):
     list_display = ['short_title', 'edition', 'date']
     search_fields = ['full_title']
-    filter_vertical = ['authors']
 
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ['surname', 'name']
-    search_fields = ['surname', 'name']
+    pass
