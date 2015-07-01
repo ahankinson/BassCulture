@@ -13,5 +13,4 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('url', 'seller', 'pagination', 'dimensions', 'library', 'shelfmark',
-            'item_notes',)
+        fields = ('url', 'seller', 'pagination', 'dimensions', 'library', 'shelfmark', 'item_notes',)
