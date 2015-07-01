@@ -7,7 +7,7 @@ class Author(models.Model):
 
     name = models.CharField(max_length=255)
     biographical_info = models.TextField(blank=True, null=True)
-    short_title = models.ManyToManyField("bassculture.Item", blank=True, related_name="items")
+    short_title = models.ManyToManyField("bassculture.Source", blank=True, related_name="sources")
 
     def __str__(self):
         return u"{0}".format(self.name)
