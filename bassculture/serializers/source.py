@@ -7,14 +7,9 @@ class SourceListSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Source
-
-class SourceAuthorSerializer(serializers.HyperlinkedModelSerializer):
-
-    class Meta:
-        model = Author
+        fields = ('short_title', 'authors', 'date', 'rism', 'locations',)
 
 class SourceDetailSerializer(serializers.HyperlinkedModelSerializer):
-    authors = SourceAuthorSerializer(many=True)
     full_title = serializers.ReadOnlyField()
     short_title = serializers.ReadOnlyField()
 
