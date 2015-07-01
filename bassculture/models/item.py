@@ -11,7 +11,7 @@ class Item(models.Model):
     library = models.CharField(max_length=40, blank=True, null=True)
     shelfmark = models.CharField(max_length=32)
     item_notes = models.TextField(blank=True, null=True)
-    source = models.ForeignKey("bassculture.Source")
+    source = models.ForeignKey("bassculture.Source", related_name="items")
     seller = models.TextField()
 
     @property
