@@ -7,8 +7,8 @@ class Tune(models.Model):
         app_label = "bassculture"
 
     def upload_to(instance, filename):
-        return "{0}".format(os.path.join('Af36', 'mei', filename))
-        return "{0}".format(instance.item.shelfmark)
+        # this will work when we get the item stuff sorted out.
+        return "{0}".format(os.path.join(instance.item.shelfmark, 'mei', filename))
 
     name = models.CharField(max_length=256)
     position = models.IntegerField(blank=True, null=True)
