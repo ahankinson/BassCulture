@@ -10,7 +10,8 @@
     <table class="table_bc">
     {% for item in content %}
     <tr>
-        <td><a href="{{ item.url }}">{{ item }}</a></td>
+        <td><a href="{{ item.url }}">{{ item.author_name }}</a></td>
+        <td><a href="{{ item.url }}">{{ item.source_title }}</a></td>
     </tr>
     {% endfor %}
     </table>
