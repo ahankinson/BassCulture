@@ -80,6 +80,7 @@ class Command(BaseCommand):
         source = self.this_source
 
         d = {
+            'folder':row['folder'],
             'pagination':row['pagination'],
             'dimensions':row['dimensions'],
             'library':row['library_name'],
