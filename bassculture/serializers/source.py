@@ -1,17 +1,25 @@
 from rest_framework import serializers
 from bassculture.models.source import Source
 from bassculture.models.author import Author
+from bassculture.models.item import Item
 
 class SourceListSerializer(serializers.HyperlinkedModelSerializer):
-    short_title = serializers.ReadOnlyField()
-
     class Meta:
         model = Source
-        fields = ('short_title', 'authors', 'date', 'rism', 'locations',)
+
+
+class SourceAuthorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Author
+
+
+class SourceItemSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Item
 
 class SourceDetailSerializer(serializers.HyperlinkedModelSerializer):
-    full_title = serializers.ReadOnlyField()
-    short_title = serializers.ReadOnlyField()
+    # author = SourceAuthorSerializer()
+    items = SourceItemSerializer(many=True)
 
     class Meta:
         model = Source
