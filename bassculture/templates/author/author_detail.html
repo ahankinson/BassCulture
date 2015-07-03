@@ -1,18 +1,16 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Bass Culture | {{ content.full_name }}</title>
+<title>Bass Culture | {{ content.name }}</title>
 {% endblock %}
 
 {% block body %}
 
-    <h1>{{ content.full_name }}</h1>
+    <h1>{{ content.name }}</h1>
     <table class="table">
-        {% for item in content.items %}
         <tr>
-          <td><a href="{{ item.url }}">{{ content.short_title }}</a></td>
+          <td>{{ content.biographical_info }}</a></td>
         </tr>
-        {% endfor %}
     </table>
 
 {% endblock %}
