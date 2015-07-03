@@ -6,11 +6,20 @@
 
 {% block body %}
 
-    <h1>{{ content.name }}</h1>
-    <table class="table">
+    <h2>{{ content.name }}</h2>
+    <h3>Biographical info</h3>
         <tr>
           <td>{{ content.biographical_info }}</a></td>
         </tr>
+
+    <h3>Sources authored by {{ content.name }}</h3>
+
+    <table class="table">
+    {% for sources in content.sources %}
+    <tr>
+        <td><a href="{{ sources.url }}">{{ sources.short_title }}</a></td>
+    </tr>
+    {% endfor %}
     </table>
 
 {% endblock %}

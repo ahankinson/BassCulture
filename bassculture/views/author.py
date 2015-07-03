@@ -4,7 +4,9 @@ from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
 from bassculture.models.author import Author
+from bassculture.models.source import Source
 from bassculture.serializers.author import AuthorListSerializer
+from bassculture.serializers.author import AuthorSourceSerializer
 from bassculture.serializers.author import AuthorDetailSerializer
 
 
