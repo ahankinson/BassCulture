@@ -6,11 +6,9 @@ class SourceListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Source
 
-
 class SourceAuthorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Author
-
 
 class SourceDetailSerializer(serializers.HyperlinkedModelSerializer):
     author = SourceAuthorSerializer()

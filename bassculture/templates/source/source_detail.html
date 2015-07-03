@@ -7,5 +7,17 @@
 {% block body %}
     <h1>{{ content.short_title }}</h1>
 
+        <p><b>Full title:</b> {{ content.full_title }}</p>
+        <p><b>Author:</b> {{ content.author.name }}</p>
+        <p><b>Description:</b> {{ content.description }}</p>
+        <p><b>Notes:</b> {{ content.source_notes }}</p>
+        <p><b>Printer:</b> {{ content.printer }}</p>
+        <p><b>Edition:</b> {{ content.edition }}</p>
+        <p><b>Orientation:</b> {{ content.orientation }}</p>
+        <p><b>Date:</b> {{ content.date }}</p>
+        <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
+        <p><b>RISM:</b> {{ content.rism }}</p>
+        <p><b>Gore:</b> {{ content.gore }}</p>
+        <p><b>Locations:</b> {{ content.locations|linebreaks }}</p>
 
 {% endblock %}
