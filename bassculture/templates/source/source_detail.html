@@ -9,7 +9,7 @@
 
         <p><b>Full title:</b> {{ content.full_title }}</p>
         <p><b>Author:</b> {{ content.author.name }}</p>
-        <p><b>Description:</b> {{ content.description }}</p>
+        <p><b>Description:</b> {{ content.description|linebreaks }}</p>
         <p><b>Notes:</b> {{ content.source_notes }}</p>
         <p><b>Printer:</b> {{ content.printer }}</p>
         <p><b>Edition:</b> {{ content.edition }}</p>
