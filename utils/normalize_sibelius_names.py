@@ -2,6 +2,8 @@ import os
 import re
 import shutil
 import argparse
+import pdb
+
 
 def main(sibelius_directory):
     if not sibelius_directory.endswith('/'):
@@ -18,6 +20,8 @@ def main(sibelius_directory):
         identifier = " ".join(name[0:])
         shelfmark_matcher = re.compile(r'(?P<src>[a-zA-Z0-9\.\-_]+)_(?P<pnum>[0-9]+)\.(?P<name>[a-zA-Z0-9\.])\.sib')
         for fl in files:
+            if fl.startswith('.'):
+                continue
             front = fl.split('.')[0]
             shelf = "_".join(front.split("_")[:-1])
             # print(len(front.split('_')))
@@ -29,8 +33,6 @@ def main(sibelius_directory):
             print(fl, " --> ", new_filename)
             shutil.move(os.path.join(root, fl), os.path.join(root, new_filename))
 
-
-
     return True
 
 if __name__ == "__main__":
@@ -40,4 +42,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args.sib)
-
