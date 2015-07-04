@@ -9,4 +9,4 @@ solr/target/*
 fcgi-bin/*
 solr/logs/solr.log
 solr/*
-images_original/*
+images/*
