@@ -18,8 +18,16 @@ class Item(models.Model):
     def source_title(self):
         return "{0}".format(self.source.short_title)
 
+    @property
+    def source_date(self):
+        return "{0}".format(self.source.date)
+
+    @property
+    def source_edition(self):
+        return "{0}".format(self.source.edition)
+
     def author_name(self):
-        return "{0}".format(self.source.authors)
+        return "{0}".format(self.source.author)
 
     def __str__(self):
         return "{0} {1}".format(self.library, self.shelfmark)
