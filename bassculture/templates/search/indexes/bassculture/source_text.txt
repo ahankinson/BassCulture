@@ -1,0 +1,3 @@
+{{ object.name }}
+{{ object.item.library }}
+{{ object.alternate_spellings }}
