@@ -6,6 +6,9 @@ class SearchSerializer(serializers.Serializer):
     title = serializers.ReadOnlyField()
     content_type = serializers.ReadOnlyField()
     source_title = serializers.ReadOnlyField()
+    alternate_spellings = serializers.ReadOnlyField()
+    source_date = serializers.ReadOnlyField()
+    source_edition = serializers.ReadOnlyField()
 
     def record_url(self, obj, *args, **kwargs):
         request = self.context.get('request', None)
