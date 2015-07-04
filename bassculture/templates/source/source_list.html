@@ -8,9 +8,16 @@
     <h1>Source List</h1>
 
     <table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Edition</th>
+    </tr>
         {% for source in content %}
         <tr>
             <td><a href="{{ source.url }}">{{ source.short_title }}</a></td>
+            <td>{{ source.date }}</td>
+            <td>{{ source.edition }}</td>
         </tr>
         {% endfor %}
     </table>

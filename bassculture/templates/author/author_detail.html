@@ -15,9 +15,16 @@
     <h3>Sources authored by {{ content.name }}</h3>
 
     <table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Edition</th>
+    </tr>
     {% for sources in content.sources %}
     <tr>
         <td><a href="{{ sources.url }}">{{ sources.short_title }}</a></td>
+        <td>{{ sources.date }}</td>
+        <td>{{ sources.edition }}</td>
     </tr>
     {% endfor %}
     </table>

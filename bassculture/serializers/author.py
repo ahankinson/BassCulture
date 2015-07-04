@@ -9,10 +9,12 @@ class AuthorListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Author
 
+
 class AuthorSourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Source
-        fields = ('short_title', 'url',)
+        fields = ('short_title', 'url', 'date', 'edition',)
+
 
 class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
     name = serializers.ReadOnlyField()
