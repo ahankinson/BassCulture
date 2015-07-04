@@ -5,13 +5,21 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Item list</h1>
+    <h1>List of digitised sources</h1>
 
     <table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Date</th>
+        <th>Edition</th>
+    </tr>
     {% for item in content %}
     <tr>
-        <td><a href="{{ item.url }}">{{ item.author_name }}</a></td>
         <td><a href="{{ item.url }}">{{ item.source_title }}</a></td>
+        <td>{{ item.author_name }}</a></td>
+        <td>{{ item.source_date }}</a></td>
+        <td>{{ item.source_edition }}</a></td>
     </tr>
     {% endfor %}
     </table>
