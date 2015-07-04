@@ -1,28 +1,58 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2>Search</h2>
-    {% if content.results %}
-    <h3>Results</h3>
-
-    {% for facet, values in content.facets.fields.items %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Search</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <form id="search-form" action="/search" method="get">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+    <div class="col-md-8">
+        {% if content.results %}
+            <h3>Results</h3>
+            <p>{{ content.count }} result{{ content.count|pluralize }} found.</p>
+            <div>
+                {% for result in content.results %}
+                <div>
+                    <h4><a href="{{ result.url }}">{{ result.title }}</a></h4>
+                    <p>In: <b>{{ result.source_title }} ({{ result.source_date }}, {{ result.source_edition }} edition)</b></p>
+                </div>
+                <hr />
+                {% endfor %}
+            </div>
+            <nav>
+                <ul class="pager">
+                    <li class="previous {% if not content.previous %}disabled{% endif %}"><a href="{{ content.previous }}"><span aria-hidden="true">&larr;</span> Previous </a></li>
+                    <li class="next {% if not content.next %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        {% for facet, values in content.facets.fields.items %}
         <p>{{ facet }}</p>
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
+            <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
-    {% endfor %}
-
-    {% for result in content.results %}
-    <p>
-        <a href="{{ result.url }}">{{ result.title }}</a>
-    </p>
-    {% empty %}
-    <p>No results found.</p>
-    {% endfor %}
-
-    {% endif %}
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
