@@ -9,6 +9,7 @@ from django.db import models
 
 @admin.register(Tune)
 class TuneAdmin(admin.ModelAdmin):
+    search_fields = ['name']
     list_display = ['name', 'position', 'start_page', 'alternate_spellings']
 
 
