@@ -14,6 +14,7 @@ class TuneAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
+    list_display = ['library', 'shelfmark', 'folder']
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '80%'})},
         models.TextField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})},

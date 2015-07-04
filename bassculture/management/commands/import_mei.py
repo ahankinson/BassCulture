@@ -21,14 +21,24 @@ class Command(BaseCommand):
             for subfile in f:
                 if subfile.startswith('.'):
                     continue
+                if os.path.splitext(subfile)[-1] != '.mei':
+                    continue
                 print('Importing: ' + subfile)
                 # fparse = re.compile(r'(?P<src>[a-zA-Z0-9\-_\.]+)__(?P<pnum>[0-9]+)\.(?P<name>[a-zA-Z0-9])\.mei')
                 filepath = os.path.join(td, subfile)
                 page = subfile.split("__")[1].split('.')[0]
                 tree = etree.parse(filepath)
-                itemStmt = tree.findall('.//mei:fileDesc/mei:titleStmt/mei:title[@type="subtitle"]', ns)[0].text
+                itemStmt_el = tree.findall('.//mei:fileDesc/mei:titleStmt/mei:title[@type="subtitle"]', ns)
+                itemStmt = None
+                if itemStmt_el:
+                    itemStmt = itemStmt_el[0].text
+
                 title = tree.findall('.//mei:work/mei:titleStmt/mei:title', ns)[0].text
-                alt_spelling = tree.findall('.//mei:work/mei:notesStmt', ns)[0].text
+                alt_spelling_el = tree.findall('.//mei:work/mei:notesStmt/annot', ns)
+                alt_spelling = None
+                if alt_spelling_el:
+                    alt_spelling = alt_spelling_el[0].text
+
                 item = Item.objects.get(folder=os.path.basename(td))
                 print(os.path.basename(td), " ", item)
 
@@ -36,7 +46,9 @@ class Command(BaseCommand):
                 t.item = item
                 t.start_page = int(page)
                 t.name = title
-                t.alternate_spellings = alt_spelling
+                if alt_spelling:
+                    t.alternate_spellings = alt_spelling
+
                 # save now before adding the meifiles so that we can get the item's shelfmark for the file saving path.
                 t.save()
 
