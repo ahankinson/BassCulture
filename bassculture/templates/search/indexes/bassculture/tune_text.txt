@@ -1,3 +1,5 @@
+{{ object.name }}
 {{ object.item.source.short_title }}
 {{ object.item.library }}
+{{ object.item.source.full_title }}
 {{ object.alternate_spellings }}
