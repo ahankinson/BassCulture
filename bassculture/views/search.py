@@ -33,7 +33,12 @@ class SearchView(GenericAPIView):
     pagination_class = FacetedQueryPagination
 
     def get(self, request, *args, **kwargs):
-        q = self.queryset.filter(text=request.GET.get('q', None)).facet('author', mincount=1).facet('source_title', mincount=1)
+        q = request.GET.get('q', None)
+        if not q:
+
+            return Response()
+
+        q = self.queryset.filter(text=q)
         page = self.paginate_queryset(q)
 
         if page is not None:
