@@ -22,21 +22,23 @@
 
 
     <ul>
-
+    
         <h3>Digitised items</h3>
 
-        {% if item
+    {% if not content.items %}
+
+    <p>Thus source has not been digitised.</p>
+
+    {% else %}
+
     {% for item in content.items %}
 
         <li><a href="{{ content.link }}">{{ content.short_title }}</a></li>
 
+    </ul>
+
     {% endfor %}
 
-    else 
-    <p>nothing here</p>
-
-    endif%}
-
-    </ul>
+    {% endif %}
 
 {% endblock %}
