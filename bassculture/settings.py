@@ -33,7 +33,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.admindocs',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -147,3 +146,5 @@ HAYSTACK_CONNECTIONS = {
 IIP_SERVER = "http://local.hms.scot:8001/fcgi-bin/iipsrv.fcgi"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
+
+SEARCH_FACETS = ["author", "short_title"]
