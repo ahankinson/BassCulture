@@ -34,7 +34,7 @@ class Command(BaseCommand):
                     itemStmt = itemStmt_el[0].text
 
                 title = tree.findall('.//mei:work/mei:titleStmt/mei:title', ns)[0].text
-                alt_spelling_el = tree.findall('.//mei:work/mei:notesStmt/annot', ns)
+                alt_spelling_el = tree.findall('.//mei:work/mei:notesStmt/mei:annot', ns)
                 alt_spelling = None
                 if alt_spelling_el:
                     alt_spelling = alt_spelling_el[0].text
