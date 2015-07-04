@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+<ul>
+{% for tune in content %}
+    <li>{{ tune.name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block body %}
+    {{ content.name }}
+    <div id="notation"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/verovio-toolkit.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        var vrvToolkit = new verovio.toolkit();
+        $.get('{{ content.mei_file }}', function (data)
+        {
+            var svg = vrvToolkit.renderData( data + "\n", "" );
+            $("#notation").html(svg);
+        }, 'text');
+
+    </script>
+{% endblock %}
