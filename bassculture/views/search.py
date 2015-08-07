@@ -55,11 +55,11 @@ class SearchView(GenericAPIView):
     #     serializer = self.get_serializer(q, many=True)
     #     return Response(serializer.data)
 
-def get(self, request, *args, **kwargs):
-    querydict = request.GET
-    si = scorched.SolrInterface(settings.SOLR_SERVER)
-    resp = si.query(source_id=querydict.get('source_id')).execute()
-    records = [r for r in resp]
-    s = self.get_serializer(records, many=True)
+    def get(self, request, *args, **kwargs):
+        querydict = request.GET
+        si = scorched.SolrInterface(settings.SOLR_SERVER)
+        resp = si.query(source_id=querydict.get('source_id')).execute()
+        records = [r for r in resp]
+        s = self.get_serializer(records, many=True)
 
-    return Response(s.data)
+        return Response(s.data)
