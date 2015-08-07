@@ -136,14 +136,6 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploads')
 MEDIA_URL = "/uploads/"
 
-# HAYSTACK_CONNECTIONS = {
-#     'default': {
-#         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-#         'URL': 'http://54.175.165.60:8080/bassculture-solr/'
-#     },
-# }
-
-
 SOLR_SERVER = ''
 IIP_SERVER = "http://bassculture.info/iipsrv"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
