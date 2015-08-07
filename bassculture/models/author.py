@@ -7,12 +7,19 @@ class Author(models.Model):
     class Meta:
         app_label = 'bassculture'
 
-    name = models.TextField(max_length=255)
+    surname = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     biographical_info = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return u"{0}".format(self.name)
+        return u"{0}, {1}".format(self.surname, self.name)
 
+    @property
+    def full_name(self):
+        if self.name:
+            return u"{0}, {1}".format(self.surname, self.name)
+        else:
+            return u"{0}".format(self.surname)
 
 @receiver(post_save, sender=Author)
 def solr_index(sender, instance, created, **kwargs):
@@ -24,7 +31,7 @@ def solr_index(sender, instance, created, **kwargs):
     record = si.query(type="author", author_id="{0}".format(instance.author_id)
                       ).execute()  # checks if the record exists in solr
 
-    if record:  # if it does
+    if record:  # if it exists
         si.delete_by_ids([x['id'] for x in record])
 
     d = {
