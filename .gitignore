@@ -10,3 +10,4 @@ fcgi-bin/*
 solr/logs/solr.log
 solr/*
 images/*
+sib/*
