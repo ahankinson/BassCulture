@@ -7,17 +7,20 @@ class Author(models.Model):
     class Meta:
         app_label = 'bassculture'
 
-    surname = models.CharField(max_length=255)
-    name = models.CharField(max_length=255)
+    author_surname = models.CharField(max_length=255)
+    author_firstname = models.CharField(max_length=255)
+    extra_info = models.CharField(max_length=16)
     biographical_info = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return u"{0}, {1}".format(self.surname, self.name)
+        return u"{0}, {1}, {2}".format(self.surname, self.name,
+                                       self.extra_info)
 
     @property
     def full_name(self):
         if self.name:
-            return u"{0}, {1}".format(self.surname, self.name)
+            return u"{0}, {1}, {2}".format(self.surname, self.name,
+                                           self.extra_info)
         else:
             return u"{0}".format(self.surname)
 
@@ -39,8 +42,9 @@ def solr_index(sender, instance, created, **kwargs):
         'type': 'author',
         'id': str(uuid.uuid4()),
         'author_id': instance.author_id,
-        'name': instance.name,
-        'surname': instance.surname
+        'name': instance.author_firstname,
+        'surname': instance.author_surname,
+        'extra_info': instance.author_extra_info,
     }
 
     si.add(d)
