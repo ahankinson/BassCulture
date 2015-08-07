@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'bassculture',
     'django_extensions',
     'rest_framework',
-    'haystack'
+    'scorched'
 )
 
 TEMPLATES = [
@@ -136,13 +136,14 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploads')
 MEDIA_URL = "/uploads/"
 
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
-    },
-}
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+#         'URL': 'http://54.175.165.60:8080/bassculture-solr/'
+#     },
+# }
 
+SOLR_SERVER = "http://54.175.165.60:8080/bassculture-solr/"
 IIP_SERVER = "http://local.hms.scot:8001/fcgi-bin/iipsrv.fcgi"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
