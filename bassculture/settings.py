@@ -18,7 +18,7 @@ PROJECT_DIR = os.path.dirname(__file__)
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r*v$obtdmh1dsk82#9*@k=6#+a#-^8!h#fke=d^om#u6v@s%4#'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,6 +136,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploads')
 MEDIA_URL = "/uploads/"
 
+<<<<<<< HEAD
 # HAYSTACK_CONNECTIONS = {
 #     'default': {
 #         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
@@ -145,6 +146,10 @@ MEDIA_URL = "/uploads/"
 
 SOLR_SERVER = "http://54.175.165.60:8080/bassculture-solr/"
 IIP_SERVER = "http://local.hms.scot:8001/fcgi-bin/iipsrv.fcgi"
+=======
+SOLR_SERVER = ''
+IIP_SERVER = "http://bassculture.info/iipsrv"
+>>>>>>> b1e9c57088ed39b1258c6517641f3d9e526de908
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
 
