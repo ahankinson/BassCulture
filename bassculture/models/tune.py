@@ -25,7 +25,7 @@ class Tune(models.Model):
         return "{0}".format(self.name)
 
 
-@receiver(post_save, sender=Source)
+@receiver(post_save, sender=Tune)
 def solr_index(sender, instance, created, **kwargs):
     import uuid
     from django.conf import settings
