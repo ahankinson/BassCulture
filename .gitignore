@@ -11,3 +11,4 @@ solr/logs/solr.log
 solr/*
 images/*
 sib/*
+bassculture/settings.py
