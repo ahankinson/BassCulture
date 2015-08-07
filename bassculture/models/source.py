@@ -57,7 +57,7 @@ def solr_index(sender, instance, created, **kwargs):
         'id': str(uuid.uuid4()),
         'source_id': instance.source_id,
         'description': instance.description,
-        'title': instance.title,
+        'short_title': instance.short_title,
     }
 
     si.add(d)
