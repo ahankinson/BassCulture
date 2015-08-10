@@ -5,6 +5,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.compat import OrderedDict
 import scorched
+from django.conf import settings
 # from haystack.query import SearchQuerySet
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
@@ -57,7 +58,7 @@ class SearchView(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         querydict = request.GET
-        si = scorched.SolrInterface("localhost:8983/solr/")
+        si = scorched.SolrInterface(settings.SOLR_SERVER)
         resp = si.query(source_id=querydict.get('source_id')).execute()
         records = [r for r in resp]
         s = self.get_serializer(records, many=True)

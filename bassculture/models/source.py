@@ -1,6 +1,7 @@
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import post_save, post_delete
+from django.conf import settings
 
 
 class Source(models.Model):
@@ -44,7 +45,7 @@ def solr_index(sender, instance, created, **kwargs):
     from django.conf import settings
     import scorched
 
-    si = scorched.SolrInterface("localhost:8983/solr/")
+    si = scorched.SolrInterface(settings.SOLR_SERVER)
     record = si.query(type="source", source_id="{0}".format(instance.source_id)
                       ).execute()  # checks if the record exists in solr
 
