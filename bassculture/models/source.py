@@ -44,7 +44,7 @@ def solr_index(sender, instance, created, **kwargs):
     from django.conf import settings
     import scorched
 
-    si = scorched.SolrInterface(settings.SOLR_SERVER)
+    si = scorched.SolrInterface("localhost:8983/solr/")
     record = si.query(type="source", source_id="{0}".format(instance.source_id)
                       ).execute()  # checks if the record exists in solr
 

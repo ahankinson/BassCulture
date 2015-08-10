@@ -57,7 +57,7 @@ class SearchView(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         querydict = request.GET
-        si = scorched.SolrInterface(settings.SOLR_SERVER)
+        si = scorched.SolrInterface("localhost:8983/solr/")
         resp = si.query(source_id=querydict.get('source_id')).execute()
         records = [r for r in resp]
         s = self.get_serializer(records, many=True)
