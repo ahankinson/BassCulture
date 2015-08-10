@@ -5,7 +5,6 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.compat import OrderedDict
 import scorched
-from django.conf import settings
 # from haystack.query import SearchQuerySet
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer

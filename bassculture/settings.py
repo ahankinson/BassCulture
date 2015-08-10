@@ -144,7 +144,7 @@ MEDIA_URL = "/uploads/"
 # }
 
 
-SOLR_SERVER = "http://localhost:8983/solr/"
+SOLR_SERVER = "http://localhost:8983/solr/HMS/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
