@@ -144,7 +144,6 @@ MEDIA_URL = "/uploads/"
 # }
 
 
-# SOLR_SERVER = "http://54.175.165.60:8080/bassculture-solr/"
 SOLR_SERVER = "http://localhost:8983/solr/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
