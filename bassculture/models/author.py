@@ -44,7 +44,7 @@ def solr_index(sender, instance, created, **kwargs):
         'pk': '{0}'.format(instance.pk),
         'type': 'author',
         'id': str(uuid.uuid4()),
-        # 'author_id': instance.id,
+        'author_id': instance.id,
         'author_surname': instance.author_surname,
         'author_firstname': instance.author_firstname,
         'author_extrainfo': instance.author_extrainfo,

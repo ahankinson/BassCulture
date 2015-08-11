@@ -8,7 +8,7 @@ class Item(models.Model):
     class Meta:
         app_label = 'bassculture'
 
-    item_id = models.CharField(max_length=128, blank=True, null=True)
+    # item_id = models.CharField(max_length=128, blank=True, null=True)
     folder = models.CharField(max_length=128, blank=True, null=True)
     pagination = models.CharField(max_length=16)
     dimensions = models.CharField(max_length=16)
@@ -44,7 +44,7 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="item", item_id="{0}".format(instance.item_id)).execute()  # checks if the record already exists in solr
+    record = si.query(type="item", item_id="{0}".format(instance.id)).execute()  # checks if the record already exists in solr
 
     if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])
@@ -52,7 +52,7 @@ def solr_index(sender, instance, created, **kwargs):
     d = {
         'type': 'item',
         'id': str(uuid.uuid4()),
-        'item_id': instance.item_id,
+        'item_id': instance.id,
         'item_notes': instance.item_notes,
     }
 
