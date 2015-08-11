@@ -19,10 +19,10 @@ class Author(models.Model):
 
     @property
     def full_name(self):
-        if self.name:
-            return u"{0}, {1}, {2}".format(self.author_firstname,
-                                           self.author_surname,
-                                           self.author_extrainfo)
+        if self.author_firstname:
+            return u"{0} {1} {2}".format(self.author_firstname,
+                                         self.author_surname,
+                                         self.author_extrainfo)
         else:
             return u"{0}".format(self.author_surname)
 

@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Bass Culture | {{ content.name }}</title>
+<title>Bass Culture | {{ content.full_name }}</title>
 {% endblock %}
 
 {% block body %}
 
-    <h2>{{ content.name }}</h2>
+    <h2>{{ content.full_name }}</h2>
     <h3>Biographical info</h3>
         <p>
           {{ content.biographical_info }}
         </p>
 
-    <h3>Sources authored by {{ content.author_surname }}</h3>
+    <h3>Sources authored by {{ content.full_name }}</h3>
 
     <table class="table">
     <tr>

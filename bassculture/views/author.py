@@ -22,11 +22,13 @@ class AuthorList(generics.ListCreateAPIView):
     model = Author
     queryset = Author.objects.all()
     serializer_class = AuthorListSerializer
-    renderer_classes = (JSONRenderer, AuthorListHTMLRenderer, BrowsableAPIRenderer)
+    renderer_classes = (JSONRenderer,
+                        AuthorListHTMLRenderer, BrowsableAPIRenderer)
 
 
 class AuthorDetail(generics.RetrieveUpdateDestroyAPIView):
     model = Author
     queryset = Author.objects.all()
     serializer_class = AuthorDetailSerializer
-    renderer_classes = (JSONRenderer, AuthorDetailHTMLRenderer, BrowsableAPIRenderer)
+    renderer_classes = (JSONRenderer,
+                        AuthorDetailHTMLRenderer, BrowsableAPIRenderer)
