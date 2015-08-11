@@ -7,8 +7,9 @@
 {% block body %}
     <h2>{{ content.short_title }}</h2>
 
+
         <p><b>Full title:</b> {{ content.full_title }}</p>
-        <p><b>Author:</b> {{ content.author.name }}</p>
+        <p><b>Author:</b> {{ content.author.author_firstname }} {{ content.author.author_surname }} {{ content.author.author_extrainfo }}</p>
         <p><b>Description:</b> {{ content.description|linebreaks }}</p>
         <p><b>Notes:</b> {{ content.source_notes|urlize }}</p>
         <p><b>Printer:</b> {{ content.printer }}</p>

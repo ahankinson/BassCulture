@@ -28,10 +28,13 @@ class Command(BaseCommand):
         print("Cleaning source table")
 
         print("Creating source " + row['source_id'])
-        author, auth_created = Author.objects.get_or_create(author=row['author_surname'])
+        author, auth_created = Author.objects.get_or_create(id=Source.author)
         if auth_created:
-            author.biographical_info = row['biographical_info']
-            author.save()
+                # author.author_surname = row['author_surname'],
+                author.author_firstname = row['author_firstname'],
+                author.author_extrainfo = row['extra_info'],
+                author.biographical_info = row['biographical_info'],
+                author.save()
 
         if row['orientation'] == "Portrait":
             orientation = "p"

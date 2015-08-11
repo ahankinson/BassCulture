@@ -4,7 +4,7 @@ from bassculture.models.source import Source
 
 
 class AuthorListSerializer(serializers.HyperlinkedModelSerializer):
-    name = serializers.ReadOnlyField()
+    author_surname = serializers.ReadOnlyField()
 
     class Meta:
         model = Author
@@ -22,4 +22,5 @@ class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Author
-        fields = ('biographical_info', 'author', 'sources',)
+        fields = ('biographical_info', 'author_surname',
+                  'author_firstname', 'author_extrainfo', 'sources',)
