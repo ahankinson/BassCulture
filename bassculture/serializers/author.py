@@ -17,7 +17,7 @@ class AuthorSourceSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
-    author = serializers.ReadOnlyField()
+    # author = serializers.ReadOnlyField()
     sources = AuthorSourceSerializer(many=True)
 
     class Meta:
