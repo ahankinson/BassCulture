@@ -32,7 +32,7 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="source", source_id="{0}".format(instance.source_id)
+    record = si.query(type="item", source_id="{0}".format(instance.item_id)
                       ).execute()  # checks if the record exists in solr
 
     if record:  # if it does
