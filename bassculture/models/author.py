@@ -15,7 +15,9 @@ class Author(models.Model):
     biographical_info = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return u"{0}".format(self.author_surname)
+        return u"{0} {1} {2}".format(self.author_firstname,
+                                     self.author_surname,
+                                     self.author_extrainfo)
 
     @property
     def full_name(self):
