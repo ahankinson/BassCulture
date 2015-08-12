@@ -20,4 +20,4 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
                   'shelfmark', 'item_notes', 'source_edition', 'source_date',
                   'item_notes', 'source_title', 'source_printer',
                   'source_publisher', 'source_author', 'source_rism',
-                  'source_orientation', 'source_gore',)
+                  'source_orientation', 'source_gore', 'id',)

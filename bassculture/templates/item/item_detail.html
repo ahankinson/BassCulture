@@ -71,8 +71,8 @@
             fixedHeightGrid: false,
             enableAutoTitle: false,
             iipServerURL: "{{ IIP_SERVER }}",
-            objectData: "{{ DIVA_OBJECT_DATA }}" + "{{ content.item_id }}.json",
-            imageDir: "{{IIP_SERVER_IMAGE_PATH }}" + "/{{ content.item_id }}/",
+            objectData: "{{ DIVA_OBJECT_DATA }}" + "{{ content.id }}.json",
+            imageDir: "{{ IIP_SERVER_IMAGE_PATH }}" + "{{ content.id }}",
             enableCanvas: true,
             enableDownload: true
         });
