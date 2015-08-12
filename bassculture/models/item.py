@@ -23,15 +23,36 @@ class Item(models.Model):
         return "{0}".format(self.source.short_title)
 
     @property
+    def source_author(self):
+        return "{0}".format(self.source.author)
+
+    @property
     def source_date(self):
         return "{0}".format(self.source.date)
+
+    @property
+    def source_publisher(self):
+        return "{0}".format(self.source.publisher)
 
     @property
     def source_edition(self):
         return "{0}".format(self.source.edition)
 
-    def author_name(self):
-        return "{0}".format(self.source.author)
+    @property
+    def source_printer(self):
+        return "{0}".format(self.source.printer)
+
+    @property
+    def source_rism(self):
+        return "{0}".format(self.source.rism)
+
+    @property
+    def source_orientation(self):
+        return "{0}".format(self.source.orientation)
+
+    @property
+    def source_gore(self):
+        return "{0}".format(self.source.gore)
 
     def __str__(self):
         return "{0} {1}".format(self.library, self.shelfmark)

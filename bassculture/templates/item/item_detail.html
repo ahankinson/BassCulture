@@ -11,37 +11,35 @@
 
 {% block body %}
     <div class="col-xs-4" style="height: 700px; overflow: scroll;">
+
+    <h2>{{ content.source_title }}</h2>
         <h3>Item detail</h3>
         <h4>Author(s)</h4>
-        <ul>
-        {% for author in content.authors %}
-            <li>{{ author.name }}</li>
-        {% endfor %}
-        </ul>
+        <p>{{ content.source_author }}</p>
 
         <h4>Seller</h4>
-        <p>{{ content.seller.name }}</p>
+        <p>{{ content.seller }}</p>
 
         <h4>Item notes</h4>
         <p>{{ content.item_notes }}</p>
 
         <h4>Publisher</h4>
-        <p>{{ content.publisher.name }}</p>
+        <p>{{ content.source_publisher }}</p>
 
         <h4>Printer</h4>
-        <p>{{ content.printer.name }}</p>
+        <p>{{ content.source_printer }}</p>
 
         <h4>Date</h4>
-        <p>{{ content.date }}</p>
+        <p>{{ content.source_date }}</p>
 
         <h4>RISM</h4>
-        <p>{{ content.rism }}</p>
+        <p>{{ content.source_rism }}</p>
 
         <h4>Pagination</h4>
         <p>{{ content.pagination }}</p>
 
         <h4>Orientation</h4>
-        <p>{{ content.orientation }}</p>
+        <p>{{ content.source_orientation }}</p>
 
         <h4>Dimensions</h4>
         <p>{{ content.dimensions }}</p>
@@ -53,13 +51,11 @@
         <p>{{ content.library }}</p>
 
         <h4>Edition</h4>
-        <p>{{ content.edition }}</p>
+        <p>{{ content.source_edition }}</p>
 
         <h4>Gore</h4>
-        <p>{{ content.gore }}</p>
+        <p>{{ content.source_gore }}</p>
 
-        <h4>Additional items</h4>
-        <p>{{ content.additional_items }}</p>
     </div>
     <div class="col-xs-8">
         <div id="diva-wrapper"></div>
