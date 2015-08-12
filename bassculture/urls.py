@@ -33,6 +33,7 @@ urlpatterns = patterns('',
 
                        url(r'^sources/$', SourceList.as_view(),
                            name="source-list"),
+
                        url(r'^source/(?P<pk>[a-zA-Z0-9]+)/$',
                            SourceDetail.as_view(), name="source-detail"),
 
