@@ -13,6 +13,15 @@
     <div class="col-xs-4" style="height: 700px; overflow: scroll;">
 
     <h2>{{ content.source_title }}</h2>
+
+    <h3>Tunes</h3>
+        
+        {% for tune in content.tunes %}
+
+        <li><a href="{{ tune.url }}">{{ tune.name }}</a></li>
+
+        {% endfor %}
+
         <h3>Item detail</h3>
         <h4>Author(s)</h4>
         <p>{{ content.source_author }}</p>

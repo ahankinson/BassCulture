@@ -8,7 +8,6 @@ class Item(models.Model):
     class Meta:
         app_label = 'bassculture'
 
-    # item_id = models.CharField(max_length=128, blank=True, null=True)
     folder = models.CharField(max_length=128, blank=True, null=True)
     pagination = models.CharField(max_length=16)
     dimensions = models.CharField(max_length=16)

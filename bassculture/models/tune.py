@@ -19,7 +19,8 @@ class Tune(models.Model):
     start_page = models.IntegerField(blank=True, null=True)
     alternate_spellings = models.CharField(max_length=256, blank=True,
                                            null=True)
-    item = models.ForeignKey("bassculture.Item", blank=True, null=True)
+    item = models.ForeignKey("bassculture.Item", blank=True, null=True,
+                             related_name="tunes")
 
     def __str__(self):
         return "{0}".format(self.name)

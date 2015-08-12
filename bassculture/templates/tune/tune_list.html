@@ -4,7 +4,7 @@
 {% block body %}
 <ul>
 {% for tune in content %}
-    <li>{{ tune.name }}</li>
+    <li><a href="{{ tune.url }}"> {{ tune.name|title }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

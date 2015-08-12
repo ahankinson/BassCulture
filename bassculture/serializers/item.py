@@ -1,7 +1,14 @@
 from rest_framework import serializers
-from bassculture.models.author import Author
-from bassculture.models.source import Source
+# from bassculture.models.author import Author
+# from bassculture.models.source import Source
 from bassculture.models.item import Item
+from bassculture.models.tune import Tune
+
+
+class ItemTunesSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Tune
 
 
 class ItemListSerializer(serializers.HyperlinkedModelSerializer):
@@ -13,6 +20,7 @@ class ItemListSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
+    tunes = ItemTunesSerializer(many=True)
 
     class Meta:
         model = Item
@@ -20,4 +28,4 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
                   'shelfmark', 'item_notes', 'source_edition', 'source_date',
                   'item_notes', 'source_title', 'source_printer',
                   'source_publisher', 'source_author', 'source_rism',
-                  'source_orientation', 'source_gore', 'id',)
+                  'source_orientation', 'source_gore', 'id', 'tunes',)
