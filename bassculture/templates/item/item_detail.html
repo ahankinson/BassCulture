@@ -18,7 +18,7 @@
         
         {% for tune in content.tunes|dictsort:"start_page" %}
 
-        <li><a href="{{ tune.url }}">{{ tune.name }}</a></li>
+        <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
 
         {% endfor %}
 
