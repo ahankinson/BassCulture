@@ -64,7 +64,8 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="item", item_id="{0}".format(instance.id)).execute()  # checks if the record already exists in solr
+    record = si.query(type="item", item_id="{0}".format(instance.id)
+                      ).execute()  # checks if the record already exists in solr
 
     if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])

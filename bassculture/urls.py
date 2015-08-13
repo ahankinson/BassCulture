@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 
                        url(r'^$', HomeView.as_view(), name='home'),
 
-                       url(r'^search/$', SearchView.as_view(), name="search"),
+                       url(r'^search/$', SearchView.as_view(), name="search-view"),
 
                        url(r'^authors/$', AuthorList.as_view(),
                            name="author-list"),
