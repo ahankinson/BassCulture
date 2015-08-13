@@ -16,7 +16,7 @@
 
     <h3>Tunes</h3>
         
-        {% for tune in content.tunes %}
+        {% for tune in content.tunes|dictsort:"start_page" %}
 
         <li><a href="{{ tune.url }}">{{ tune.name }}</a></li>
 
