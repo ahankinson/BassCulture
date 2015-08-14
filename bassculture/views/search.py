@@ -58,8 +58,8 @@ class SearchView(GenericAPIView):
 
     def get(self, request, *args, **kwargs):
         querydict = request.GET
-        if not querydict:
-            return Response({"results": []})
+        # if not querydict:
+        #     return Response({"results": []})
         si = scorched.SolrInterface(settings.SOLR_SERVER)
         response = si.query(source_id=querydict.get('q')).execute()
         records = [r for r in response]

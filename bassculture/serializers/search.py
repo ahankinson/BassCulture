@@ -1,5 +1,6 @@
 import os
 from rest_framework import serializers
+from bassculture.models.author import Author
 
 
 class SearchSerializer(serializers.Serializer):
