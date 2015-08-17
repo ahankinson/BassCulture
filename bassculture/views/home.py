@@ -5,7 +5,6 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.reverse import reverse
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
-from bassculture.serializers.search import SearchSerializer
 
 
 class HomeViewHTMLRenderer(CustomHTMLRenderer):
@@ -13,7 +12,6 @@ class HomeViewHTMLRenderer(CustomHTMLRenderer):
 
 
 class HomeView(GenericAPIView):
-    serializer_class = SearchSerializer
     renderer_classes = (JSONRenderer, HomeViewHTMLRenderer,
                         renderers.BrowsableAPIRenderer)
 
