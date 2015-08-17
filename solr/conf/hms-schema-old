@@ -411,6 +411,8 @@
   <field name="description" type="text_general" indexed="true" stored="false"/>
   <field name="detailed_notes" type="text_general" indexed="true" stored="false"/>
   <field name="dimensions" type="string"/>
+  <field name="extrainfo" type="strings"/>
+  <field name="firstname" type="strings"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
   <field name="item_id" type="string" indexed="true" stored="true"/>
   <field name="item_notes" type="string" indexed="true" stored="true"/>
