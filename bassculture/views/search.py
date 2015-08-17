@@ -9,7 +9,6 @@ from rest_framework.settings import api_settings
 import scorched
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
-from bassculture.serializers.search import SearchRecordSerializer
 
 class SearchResultsPagination(LimitOffsetPagination):
     def get_paginated_response(self, data):
@@ -40,7 +39,6 @@ class SearchViewHTMLRenderer(CustomHTMLRenderer):
 
 
 class SearchView(GenericAPIView):
-    serializer_class = SearchRecordSerializer
     renderer_classes = (JSONRenderer, SearchViewHTMLRenderer)
     pagination_class = SearchResultsPagination
 
