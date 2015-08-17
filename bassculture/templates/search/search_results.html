@@ -1,11 +1,19 @@
-{% if content.results.numFound > 0 %}
+{% if content.count > 0 %}
     {% for result in content.results %}
-        <div class="row">
-            <div class="search-result">
-                <p>{{ result }} - {{ result.id }}</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% if result.type == 'source' %}
+                <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                <dl>
+                    <dt>Full title: </dt>
+                    <dd>{{ result.full_title }}</dd>
+                </dl>
             </div>
         </div>
-    {% endfor %}
+ {% endfor %}
 {% else %}
     <h5>No Results found.</h5>
 {% endif %}
