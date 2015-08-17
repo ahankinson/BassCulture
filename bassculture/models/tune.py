@@ -33,8 +33,7 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="tune", id="{0}".format(instance.id)
-                      ).execute()  # checks if the record exists in solr
+    record = si.query(type="tune", pk="{0}".format(instance.pk)).execute()  # checks if the record exists in solr
 
     if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])
@@ -45,6 +44,8 @@ def solr_index(sender, instance, created, **kwargs):
         'id': str(uuid.uuid4()),
         'alternate_spellings': instance.alternate_spellings,
         'name': instance.name,
+        'source_title': instance.item.source_title,
+        'source_author': instance.item.source_author
     }
 
     si.add(d)
