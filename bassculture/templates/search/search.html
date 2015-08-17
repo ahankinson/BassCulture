@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load bootstrap3 %}
 
 {% block body %}
     <div class="row">
@@ -12,9 +13,10 @@
             <form role = "form" id="search-form" action="/search" method="get">
                 <div class="form-group">
                     <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
+                    {% buttons submit='Go!' reset="Cancel" %}{% endbuttons %}
+<!--                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                    </span> -->
                 </div>
             </form>
         </div>
@@ -22,23 +24,22 @@
     <hr />
     <div class="row">
     <div class="col-md-8">
-
         {% if content.results %}
-            <h3>Results</h3>
+<!--             <h3>Results</h3>
             <p>{{ content.count }} result{{ content.count|pluralize }} found.</p>
-            <div>
-                {% for result in content.results %}
+             --><div>
+<!--                 {% for result in content.results %}
                 <div>
                     <h4><a href="{{ result.url }}">{{ result.title }}</a></h4>
                     <p>In: <b>{{ result.source_title }} ({{ result.source_date }}, {{ result.source_edition }} edition)</b></p>
                 </div>
-                {% endfor %}
+                {% endfor %} -->
 
                 <hr />
-<!--             <h3>Results</h3>
+            <h3>Results</h3>
             {% include "search/search_results.html" %}
 
-            </div> -->
+            </div>
         {% endif %}
 
             <nav>

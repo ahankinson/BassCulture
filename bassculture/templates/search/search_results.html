@@ -1,8 +1,8 @@
 {% if content.results.numFound > 0 %}
-    {% for result in content.results.results %}
+    {% for result in content.results %}
         <div class="row">
             <div class="search-result">
-                <p>{{ result.type }} - {{ result.id }}</p>
+                <p>{{ result }} - {{ result.id }}</p>
             </div>
         </div>
     {% endfor %}
