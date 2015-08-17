@@ -7,6 +7,5 @@ solr/target/*
 **/__pycache__/*
 .DS_Store
 fcgi-bin/*
-solr/*
 images/*
 sib/*
