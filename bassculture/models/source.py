@@ -14,7 +14,7 @@ class Source(models.Model):
         )
 
     source_id = models.CharField(max_length=128, blank=True, null=True)
-    full_title = models.CharField(max_length=500)
+    full_title = models.TextField()
     short_title = models.CharField(max_length=255)
     author = models.ForeignKey("bassculture.Author", blank=True, null=True,
                                related_name="sources")
@@ -26,10 +26,10 @@ class Source(models.Model):
     orientation = models.CharField(max_length=16, blank=True, null=True,
                                    choices=ORIENTATION_CHOICES)
     date = models.CharField(max_length=128)
-    link = models.URLField(blank=True, null=True)
+    link = models.URLField(max_length=255, blank=True, null=True)
     link_label = models.TextField(blank=True, null=True)
-    rism = models.CharField(max_length=32, blank=True, null=True)
-    gore = models.CharField(max_length=16, blank=True, null=True)
+    rism = models.CharField(max_length=128, blank=True, null=True)
+    gore = models.CharField(max_length=128, blank=True, null=True)
     locations = models.TextField(blank=True, null=True)
 
     def __str__(self):
@@ -46,8 +46,7 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="source", id="{0}".format(instance.pk)
-                      ).execute()  # checks if the record exists in solr
+    record = si.query(type="source", pk="{0}".format(instance.pk)).execute()  # checks if the record exists in solr
 
     if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])
@@ -59,6 +58,10 @@ def solr_index(sender, instance, created, **kwargs):
         'source_id': instance.source_id,
         'description': instance.description,
         'short_title': instance.short_title,
+        'full_title': instance.full_title,
+        'author': instance.author.full_name,
+        'description': instance.description,
+        'publisher': instance.publisher
     }
 
     si.add(d)
