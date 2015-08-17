@@ -1,28 +1,38 @@
+import os
 from django.conf import settings
-from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from rest_framework.pagination import PageNumberPagination
+from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.compat import OrderedDict
+from rest_framework.settings import api_settings
 import scorched
-# from haystack.query import SearchQuerySet
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
-from bassculture.serializers.search import SearchSerializer
+from bassculture.serializers.search import SearchRecordSerializer
 
+class SearchResultsPagination(LimitOffsetPagination):
+    def get_paginated_response(self, data):
+        """
+        :param data: serialized data
+        :param solr_response: the raw Solr response
+        :return: Response object
+        """
+        self.solr_response = data['solr_response']
+        self.offset = self.solr_response.result.start
+        self.limit = len(data['records'])
+        self.count = self.solr_response.result.numFound
+        self.request = data['request']
 
-# [haystack leftover]
-# class FacetedQueryPagination(PageNumberPagination):
-#    page_size = 20
+        resp = Response(OrderedDict([
+            ('count', self.count),
+            ('next', self.get_next_link()),
+            ('previous', self.get_previous_link()),
+            ('results', data['records']),
+            ('facets', self.solr_response.facet_counts.facet_fields)
+        ]))
 
-#   def get_paginated_response(self, data):
-#        return Response(OrderedDict([
-#            ('count', self.page.paginator.count),
-#            ('next', self.get_next_link()),
-#            ('previous', self.get_previous_link()),
-#            ('results', data)
-#        ]))
+        return resp
 
 
 class SearchViewHTMLRenderer(CustomHTMLRenderer):
@@ -30,39 +40,39 @@ class SearchViewHTMLRenderer(CustomHTMLRenderer):
 
 
 class SearchView(GenericAPIView):
-    serializer_class = SearchSerializer
+    serializer_class = SearchRecordSerializer
     renderer_classes = (JSONRenderer, SearchViewHTMLRenderer)
-
-
-# [haystack leftover]
-#    queryset = SearchQuerySet()
-#    pagination_class = FacetedQueryPagination
-
-    # def get(self, request, *args, **kwargs):
-    #     q = request.GET.get('q', None)
-    #     if not q:
-
-    #         return Response()
-
-    #     q = self.queryset.filter(text=q)
-    #     page = self.paginate_queryset(q)
-
-    #     if page is not None:
-    #         serializer = self.get_serializer(page, many=True)
-    #         resp = self.get_paginated_response(serializer.data)
-    #         resp.data['facets'] = q.facet_counts()
-    #         return resp
-
-    #     serializer = self.get_serializer(q, many=True)
-    #     return Response(serializer.data)
+    pagination_class = SearchResultsPagination
 
     def get(self, request, *args, **kwargs):
         querydict = request.GET
-        # if not querydict:
-        #     return Response({"results": []})
-        si = scorched.SolrInterface(settings.SOLR_SERVER)
-        response = si.query(querydict.get('q')).execute()
-        records = [r for r in response]
-        s = self.get_serializer(records, many=True)
+        offset = querydict.get('offset', 0)
 
-        return Response(s.data)
+        fq = {}
+        for f in settings.SEARCH_FACETS:
+            if querydict.get(f, None):
+                fq[f] = querydict.get(f)
+
+        si = scorched.SolrInterface(settings.SOLR_SERVER)
+        response = si.query(querydict.get('q'))\
+                     .filter(**fq)\
+                     .paginate(start=int(offset), rows=api_settings.PAGE_SIZE)\
+                     .facet_by(fields=settings.SEARCH_FACETS, mincount=1)\
+                     .execute()
+
+        records = []
+        for result in response:
+            type = result['type']
+            pk = result['pk']
+            # # This should always be relative to the root, not the current path.
+            result['url'] = request.build_absolute_uri(os.path.join('/', type, pk))
+            records.append(result)
+
+        d = {
+            'records': records,
+            'solr_response': response,
+            'request': request
+        }
+        resp = self.get_paginated_response(d)
+
+        return resp
