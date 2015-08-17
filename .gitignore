@@ -9,3 +9,4 @@ solr/target/*
 fcgi-bin/*
 images/*
 sib/*
+/solr/data
