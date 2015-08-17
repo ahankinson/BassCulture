@@ -1,5 +1,4 @@
 bassculture/migrations/*
-bassculture/solr/*
 bassculture/static/images/*
 *.pyc
 bc_env/*
