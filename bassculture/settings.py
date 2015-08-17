@@ -31,8 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'bootstrap3',
-    'django_admin_bootstrapped',
+    # 'bootstrap3',
+    # 'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,7 +152,7 @@ MEDIA_URL = "/uploads/"
 #     },
 # }
 
-DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
+# DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
 SOLR_SERVER = "http://localhost:8983/solr/HMS/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"

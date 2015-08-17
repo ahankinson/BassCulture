@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
 
 {% block body %}
     <div class="row">
@@ -10,13 +9,12 @@
     <hr />
     <div class="row">
         <div class="col-md-8">
-            <form role = "form" id="search-form" action="/search" method="get">
+            <form role = "form" id="search-form" action="/select" method="get">
                 <div class="form-group">
                     <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
-                    {% buttons submit='Go!' reset="Cancel" %}{% endbuttons %}
-<!--                     <span class="input-group-btn">
+                        <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
-                    </span> -->
+                    </span>
                 </div>
             </form>
         </div>
