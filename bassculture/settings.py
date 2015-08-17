@@ -152,7 +152,6 @@ MEDIA_URL = "/uploads/"
 #     },
 # }
 
-# DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
 SOLR_SERVER = "http://localhost:8983/solr/HMS/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
 IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
