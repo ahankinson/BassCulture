@@ -1,32 +1,30 @@
 from django.db import models
 from django.dispatch import receiver
-from django.db.models.signals import post_save, post_delete
-from django.conf import settings
+from django.db.models.signals import post_save
 
 
 class Author(models.Model):
     class Meta:
         app_label = 'bassculture'
-        # unique_together = ("author_surname", "author_firstname", "author_extrainfo")
 
-    author_surname = models.CharField(max_length=255)
-    author_firstname = models.CharField(max_length=255)
-    author_extrainfo = models.CharField(max_length=16)
+    surname = models.CharField(max_length=255)
+    firstname = models.CharField(max_length=255)
+    extrainfo = models.CharField(max_length=255, blank=True, null=True)
     biographical_info = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return u"{0} {1} {2}".format(self.author_firstname,
-                                     self.author_surname,
-                                     self.author_extrainfo)
+        return u"{0} {1} {2}".format(self.firstname,
+                                     self.surname,
+                                     self.extrainfo)
 
     @property
     def full_name(self):
-        if self.author_firstname:
-            return u"{0} {1} {2}".format(self.author_firstname,
-                                         self.author_surname,
-                                         self.author_extrainfo)
+        if self.firstname:
+            return u"{0} {1} {2}".format(self.firstname,
+                                         self.surname,
+                                         self.extrainfo)
         else:
-            return u"{0}".format(self.author_surname)
+            return u"{0}".format(self.surname)
 
 
 @receiver(post_save, sender=Author)
@@ -36,19 +34,20 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="author", id="{0}".format(instance.id)
-                      ).execute()  # checks if the record exists in solr
+    # checks if the record exists in solr
+    record = si.query(type="author", pk="{0}".format(instance.pk)).execute()
 
     if record:  # if it exists
         si.delete_by_ids([x['id'] for x in record])
+    print("adding: " + instance.surname)
 
     d = {
-        'pk': '{0}'.format(instance.id),
+        'pk': '{0}'.format(instance.pk),
         'type': 'author',
         'id': str(uuid.uuid4()),
-        'author_surname': instance.author_surname,
-        'author_firstname': instance.author_firstname,
-        'author_extrainfo': instance.author_extrainfo,
+        'surname': instance.surname,
+        'firstname': instance.firstname,
+        'extrainfo': instance.extrainfo,
         'biographical_info': instance.biographical_info,
     }
 
