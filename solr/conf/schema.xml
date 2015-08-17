@@ -50,29 +50,36 @@
    <field name="type" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="pk" type="string" indexed="true" stored="true"/>
-   <field name="source_id" type="string" indexed="true" stored="true"/>
-   <field name="item_id" type="string" indexed="true" stored="true"/>
-   <field name="author_id" type="string" indexed="true" stored="true"/>
-   <field name="item_notes" type="text_general" indexed="true" stored="true"/>
-   <field name="seller" type="string" indexed="true" stored="true" />
-   <field name="surname" type="string" indexed="true" stored="true"/>
-   <field name="firstname" type="string" indexed="true" stored="true"/>
-   <field name="extrainfo" type="string" indexed="true" stored="true"/>
-   <field name="biographical_info" type="text_general" indexed="true" stored="true"/>
    <field name="url" type="string" indexed="false" stored="true"/>
-   <field name="title" type="string" indexed="true" stored="true" />
    <field name="created" type="date" indexed="true" stored="true"/>
    <field name="updated" type="date" indexed="true" stored="true"/>
+
+    <!-- author -->
+    <field name="author_id" type="string" indexed="true" stored="true"/>
+    <field name="firstname" type="string" indexed="true" stored="true"/>
+    <field name="extrainfo" type="string" indexed="true" stored="true"/>
+    <field name="biographical_info" type="text_general" indexed="true" stored="true"/>
+    <field name="surname" type="string" indexed="true" stored="true"/>
+
+    <!-- source -->
+   <field name="source_id" type="string" indexed="true" stored="true"/>
+   <field name="short_title" type="string" indexed="true" stored="true" />
+   <field name="full_title" type="text_general" indexed="true" stored="true" />
+   <field name="publisher" type="string" indexed="true" stored="true" />
+   <field name="author" type="string" indexed="true" stored="true" />
    <field name="description" type="text_general" indexed="true" stored="false"/>
-   <field name="detailed_notes" type="text_general" indexed="true" stored="false"/>
-   <field name="link" type="string" indexed="false" stored="true"/>
-   <field name="link_label" type="text_general" indexed="false" stored="true"/>
+   <field name="orientation" type="string"/>
+
+    <!-- item -->
+   <field name="item_id" type="string" indexed="true" stored="true"/>
+   <field name="item_notes" type="text_general" indexed="true" stored="true"/>
+   <field name="seller" type="text_general" indexed="true" stored="true" />
    <field name="library" type="text_general" indexed="true" stored="true"/>
    <field name="shelfmark" type="string"/>
-   <field name="orientation" type="string"/>
    <field name="pagination" type="string"/>
    <field name="dimensions" type="string"/>
-   <field name="date" type="string"/>
+
+   <!-- tune -->
    <field name="name" type="string" indexed="true" stored="true"/>
    <field name="alternate_spellings" type="string" stored="true"/>
 
@@ -147,7 +154,7 @@
            If you don't need it, consider removing it and the corresponding copyField directive.
       -->
     <field name="_version_" type="long" indexed="true" stored="true"/>
-    <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+    <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true"/>
     <copyField source="*" dest="_text_"/>
 
 
@@ -414,7 +421,7 @@
 	 removes stop words from case-insensitive "stopwords.txt"
 	 (empty by default), and down cases.  At query time only, it
 	 also applies synonyms. -->
-    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
+    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
       <analyzer type="index">
         <tokenizer class="solr.StandardTokenizerFactory"/>
         <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
