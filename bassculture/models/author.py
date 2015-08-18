@@ -42,7 +42,8 @@ def solr_index(sender, instance, created, **kwargs):
     print("adding: " + instance.surname)
 
     d = {
-        'pk': '{0}'.format(instance.pk),
+        # 'pk': '{0}'.format(instance.pk),
+        'pk': str(instance.pk),
         'type': 'author',
         'id': str(uuid.uuid4()),
         'surname': instance.surname,
