@@ -71,7 +71,7 @@ class Command(BaseCommand):
 
     def create_item(self, row):
         d = {
-            # 'folder': row['folder'],
+            'folder': row['folder'],
             'pagination': row['pagination'],
             'dimensions': row['dimensions'],
             'library': row['library_name'],

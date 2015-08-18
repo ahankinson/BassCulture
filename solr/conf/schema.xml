@@ -45,7 +45,7 @@
     that avoids logging every request
 -->
 
-<schema name="example-data-driven-schema" version="1.5">
+<schema name="HMS-schema" version="1.5">
 
    <field name="type" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
@@ -71,6 +71,7 @@
    <field name="orientation" type="string"/>
 
     <!-- item -->
+   <field name="folder" type="string" indexed="true" stored="false"/>
    <field name="item_id" type="string" indexed="true" stored="true"/>
    <field name="item_notes" type="text_general" indexed="true" stored="true"/>
    <field name="seller" type="text_general" indexed="true" stored="true" />

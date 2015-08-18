@@ -14,6 +14,7 @@ class Tune(models.Model):
                             filename))
 
     name = models.CharField(max_length=256)
+    folder = models.CharField(max_length=8)
     position = models.IntegerField(blank=True, null=True)
     mei_file = models.FileField(upload_to=upload_to, blank=True, null=True)
     start_page = models.IntegerField(blank=True, null=True)
