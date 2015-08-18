@@ -5,12 +5,45 @@
                 {% if result.type == 'source' %}
                 <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
                 {% endif %}
+                {% if result.type == 'tune' %}
+                <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name }}</a></h3>
+                {% endif %}
+                {% if result.type == 'item' %}
+                <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.item_title }}</a></h3>
+                {% endif %}
             </div>
             <div class="panel-body">
+
+                {% if result.type == 'tune' %}
+                <p>Go to the digitised item</p>
                 <dl>
-                    <dt>Full title: </dt>
-                    <dd>{{ result.full_title }}</dd>
+                    <dt>From: </dt>
+                    <dd>{{ result.item_title_t }}, by {{ result.item_author_t }}
+                    </dd>
                 </dl>
+                {% endif %}
+
+                {% if result.type == 'author' %}
+                <dl>
+                    <dt>Name: </dt>
+                    <dd>{{ result.full_name }}</dd>
+                </dl>
+                {% endif %}
+
+                {% if result.type == 'source' %}
+                <dl>
+                    <dt>Author: </dt>
+                    <dd>{{ result.author }}</dd>
+                </dl>
+                {% endif %}
+                
+                {% if result.type == 'item' %}
+                <dl>
+                    <dt>Author: </dt>
+                    <dd>{{ result.item_author }}</dd>
+                </dl>
+                {% endif %}
+
             </div>
         </div>
  {% endfor %}

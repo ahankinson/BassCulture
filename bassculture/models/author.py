@@ -49,7 +49,7 @@ def solr_index(sender, instance, created, **kwargs):
         'surname': instance.surname,
         'firstname': instance.firstname,
         'extrainfo': instance.extrainfo,
-        'biographical_info': instance.biographical_info,
+        'biographical_info': instance.biographical_info
     }
 
     si.add(d)

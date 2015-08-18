@@ -18,11 +18,11 @@ class Item(models.Model):
     seller = models.TextField()
 
     @property
-    def source_title(self):
+    def item_title(self):
         return "{0}".format(self.source.short_title)
 
     @property
-    def source_author(self):
+    def item_author(self):
         return "{0}".format(self.source.author)
 
     @property
@@ -73,10 +73,10 @@ def solr_index(sender, instance, created, **kwargs):
         'pk': str(instance.pk),
         'type': 'item',
         'id': str(uuid.uuid4()),
-        'item_id': instance.id,
         'item_notes': instance.item_notes,
         'seller': instance.seller,
-        'source_title': instance.source.short_title,
+        'item_title': instance.item_title,
+        'item_author': instance.item_author
     }
 
     si.add(d)

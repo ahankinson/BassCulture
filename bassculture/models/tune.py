@@ -26,6 +26,14 @@ class Tune(models.Model):
     def __str__(self):
         return "{0}".format(self.name)
 
+    @property
+    def item_title_t(self):
+        return "{0}".format(self.item.item_title)
+
+    @property
+    def item_author_t(self):
+        return "{0}".format(self.item.item_author)
+
 
 @receiver(post_save, sender=Tune)
 def solr_index(sender, instance, created, **kwargs):
@@ -45,9 +53,9 @@ def solr_index(sender, instance, created, **kwargs):
         'id': str(uuid.uuid4()),
         'alternate_spellings': instance.alternate_spellings,
         'name': instance.name,
-        'source_title': instance.item.source_title,
-        'source_author': instance.item.source_author
-    }
+        'item_author_t': instance.item_author_t,
+        'item_title_t': instance.item_title_t
+        }
 
     si.add(d)
     si.commit()
