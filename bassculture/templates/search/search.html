@@ -8,7 +8,7 @@
     </div>
     <hr />
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <form role = "form" id="search-form" action="/search" method="get">
                 <div class="form-group">
                     <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
@@ -19,22 +19,14 @@
             </form>
         </div>
     </div>
-    <hr />
     <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         {% if content.results %}
-<!--             <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found.</p>
-             --><div>
-<!--                 {% for result in content.results %}
-                <div>
-                    <h4><a href="{{ result.url }}">{{ result.title }}</a></h4>
-                    <p>In: <b>{{ result.source_title }} ({{ result.source_date }}, {{ result.source_edition }} edition)</b></p>
-                </div>
-                {% endfor %} -->
-
+            <div>
                 <hr />
             <h3>Results</h3>
+            <p>{{ content.count }} result{{ content.count|pluralize }} found.</p>
+
             {% include "search/search_results.html" %}
 
             </div>
