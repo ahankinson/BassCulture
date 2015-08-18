@@ -13,18 +13,34 @@
     <div class="col-xs-4" style="height: 700px; overflow: scroll;">
 
     <h2>{{ content.item_title }}</h2>
-
-    <h3>Tunes</h3>
-        
-        {% for tune in content.tunes|dictsort:"start_page" %}
-
-        <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
-
-        {% endfor %}
-
-        <h3>Item detail</h3>
-        <h4>Author(s)</h4>
-        <p>{{ content.item_author }}</p>
+        <h4>by {{ content.item_author }}</h4>
+<hr />
+<div class="tunes">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Show tunes</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Item details</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>
 
         <h4>Seller</h4>
         <p>{{ content.seller }}</p>
@@ -64,6 +80,17 @@
 
         <h4>Gore</h4>
         <p>{{ content.source_gore }}</p>
+
+        </p>
+                </div>
+            </div>
+</div>
+</div>
+
+
+
+
+        
 
     </div>
     <div class="col-xs-8">
