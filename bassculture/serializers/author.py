@@ -22,5 +22,5 @@ class AuthorDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Author
-        fields = ('full_name', 'biographical_info', 'author_surname',
-                  'author_firstname', 'author_extrainfo', 'sources',)
+        fields = ('full_name', 'biographical_info', 'surname',
+                  'firstname', 'extrainfo', 'sources',)
