@@ -9,7 +9,10 @@
                 <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name }}</a></h3>
                 {% endif %}
                 {% if result.type == 'item' %}
-                <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.item_title }}</a></h3>
+                <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.source_title }}</a></h3>
+                {% endif %}
+                {% if result.type == 'author' %}
+                <h3 class="panel-title"> <span class="label label-primary">Author</span> <a href="{{ result.url }}">{{ result.surname }}</a></h3>
                 {% endif %}
             </div>
             <div class="panel-body">
@@ -18,7 +21,7 @@
                 <p>Go to the digitised item</p>
                 <dl>
                     <dt>From: </dt>
-                    <dd>{{ result.item_title_t }}, by {{ result.item_author_t }}
+                    <dd>{{ result.source_titlet }}, by {{ result.source_authort }}
                     </dd>
                 </dl>
                 {% endif %}
@@ -26,9 +29,8 @@
                 {% if result.type == 'author' %}
                 <dl>
                     <dt>Name: </dt>
-                    <dd>{{ result.full_name }}</dd>
+                    <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</dd>
                 </dl>
-                </div>
                 {% endif %}
 
                 {% if result.type == 'source' %}
@@ -41,7 +43,7 @@
                 {% if result.type == 'item' %}
                 <dl>
                     <dt>Author: </dt>
-                    <dd>{{ result.item_author }}</dd>
+                    <dd>{{ result.source_author }}</dd>
                 </dl>
                 {% endif %}
 

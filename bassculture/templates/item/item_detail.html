@@ -12,8 +12,8 @@
 {% block body %}
     <div class="col-xs-4" style="height: 700px; overflow: scroll;">
 
-    <h2>{{ content.item_title }}</h2>
-        <h4>by {{ content.item_author }}</h4>
+    <h2>{{ content.source_title }}</h2>
+        <h4>by {{ content.source_author }}</h4>
 <hr />
 <div class="tunes">
     <div class="panel-group" id="accordion">
@@ -40,57 +40,50 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
                 <div class="panel-body">
-                    <p>
 
-        <h4>Seller</h4>
-        <p>{{ content.seller }}</p>
+                    <h4>Seller</h4>
+                    <p>{{ content.seller }}</p>
 
-        <h4>Item notes</h4>
-        <p>{{ content.item_notes }}</p>
+                    <h4>Item notes</h4>
+                    <p>{{ content.item_notes }}</p>
 
-        <h4>Publisher</h4>
-        <p>{{ content.source_publisher }}</p>
+                    <h4>Publisher</h4>
+                    <p>{{ content.source_publisher }}</p>
 
-        <h4>Printer</h4>
-        <p>{{ content.source_printer }}</p>
+                    <h4>Printer</h4>
+                    <p>{{ content.source_printer }}</p>
 
-        <h4>Date</h4>
-        <p>{{ content.source_date }}</p>
+                    <h4>Date</h4>
+                    <p>{{ content.source_date }}</p>
 
-        <h4>RISM</h4>
-        <p>{{ content.source_rism }}</p>
+                    <h4>RISM</h4>
+                    <p>{{ content.source_rism }}</p>
 
-        <h4>Pagination</h4>
-        <p>{{ content.pagination }}</p>
+                    <h4>Pagination</h4>
+                    <p>{{ content.pagination }}</p>
 
-        <h4>Orientation</h4>
-        <p>{{ content.source_orientation }}</p>
+                    <h4>Orientation</h4>
+                    <p>{{ content.source_orientation }}</p>
 
-        <h4>Dimensions</h4>
-        <p>{{ content.dimensions }}</p>
+                    <h4>Dimensions</h4>
+                    <p>{{ content.dimensions }}</p>
 
-        <h4>Shelfmark</h4>
-        <p>{{ content.shelfmark }}</p>
+                    <h4>Shelfmark</h4>
+                    <p>{{ content.shelfmark }}</p>
 
-        <h4>Library</h4>
-        <p>{{ content.library }}</p>
+                    <h4>Library</h4>
+                    <p>{{ content.library }}</p>
 
-        <h4>Edition</h4>
-        <p>{{ content.source_edition }}</p>
+                    <h4>Edition</h4>
+                    <p>{{ content.source_edition }}</p>
 
-        <h4>Gore</h4>
-        <p>{{ content.source_gore }}</p>
+                    <h4>Gore</h4>
+                    <p>{{ content.source_gore }}</p>
 
-        </p>
                 </div>
             </div>
 </div>
 </div>
-
-
-
-
-        
 
     </div>
     <div class="col-xs-8">
@@ -100,7 +93,7 @@
 
 {% block scripts %}
     <script src="{% static 'js/diva.min.js' %}" type="text/javascript" charset="utf-8"></script>
-    <script src="{% static 'js/basscultures.js' %}" type="text/javascript"></script>
+<!--     <script src="{% static 'js/basscultures.js' %}" type="text/javascript"></script> -->
     <script type="text/javascript">
         $('#diva-wrapper').diva({
             enableAutoHeight: true,

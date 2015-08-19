@@ -26,6 +26,6 @@ class ItemDetailSerializer(serializers.HyperlinkedModelSerializer):
         model = Item
         fields = ('url', 'seller', 'pagination', 'dimensions', 'library',
                   'shelfmark', 'item_notes', 'source_edition', 'source_date',
-                  'item_notes', 'item_title', 'source_printer',
-                  'source_publisher', 'item_author', 'source_rism',
+                  'item_notes', 'source_title', 'source_printer',
+                  'source_publisher', 'source_author', 'source_rism',
                   'source_orientation', 'source_gore', 'id', 'tunes',)
