@@ -4,14 +4,14 @@
             <div class="panel-heading">
                 {% if result.type == 'source' %}
                 <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
-                {% endif %}
-                {% if result.type == 'tune' %}
+
+                {% elif result.type == 'tune' %}
                 <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name|title }}</a></h3>
-                {% endif %}
-                {% if result.type == 'item' %}
+
+                {% elif result.type == 'item' %}
                 <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.source_title }}</a></h3>
-                {% endif %}
-                {% if result.type == 'author' %}
+
+                {% else %}
                 <h3 class="panel-title"> <span class="label label-primary">Author</span> <a href="{{ result.url }}">{{ result.surname }}</a></h3>
                 {% endif %}
             </div>
@@ -24,23 +24,20 @@
                     <dd>{{ result.source_title }}, by {{ result.source_author }}
                     </dd>
                 </dl>
-                {% endif %}
 
-                {% if result.type == 'author' %}
+                {% elif result.type == 'author' %}
                 <dl>
                     <dt>Name: </dt>
                     <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</dd>
                 </dl>
-                {% endif %}
 
-                {% if result.type == 'source' %}
+                {% elif result.type == 'source' %}
                 <dl>
                     <dt>Author: </dt>
                     <dd>{{ result.author }}</dd>
                 </dl>
-                {% endif %}
                 
-                {% if result.type == 'item' %}
+                {% else %}
                 <dl>
                     <dt>Author: </dt>
                     <dd>{{ result.source_author }}</dd>
