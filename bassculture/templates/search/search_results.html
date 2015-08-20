@@ -17,10 +17,9 @@
             </div>
             <div class="panel-body">
                 {% if result.type == 'tune' %}
-                <p><a href="{% url 'item-detail' result.item_pk %}">Go to the digitised item</a></p>
                 <dl>
                     <dt>From: </dt>
-                    <dd>{{ result.source_title }}, by {{ result.source_author }}
+                    <dd>{{ result.source_title }}, by {{ result.source_author }} (<a href="{% url 'item-detail' result.item_pk %}">Go to the digitised item</a>)
                     </dd>
                 </dl>
 
