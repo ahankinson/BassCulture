@@ -85,8 +85,6 @@
    <!-- tune -->
    <field name="name" type="string" indexed="true" stored="true"/>
    <field name="alternate_spellings" type="string" indexed="true" stored="true"/>
-   <field name="source_authort" type="string" indexed="true" stored="true"/>
-   <field name="source_titlet" type="string" indexed="true" stored="true"/>
 
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and 

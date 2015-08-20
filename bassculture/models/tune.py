@@ -27,11 +27,11 @@ class Tune(models.Model):
         return "{0}".format(self.name)
 
     @property
-    def source_titlet(self):
+    def source_title(self):
         return "{0}".format(self.item.source_title)
 
     @property
-    def source_authort(self):
+    def source_author(self):
         return "{0}".format(self.item.source_author)
 
 
@@ -42,7 +42,9 @@ def solr_index(sender, instance, created, **kwargs):
     import scorched
 
     si = scorched.SolrInterface(settings.SOLR_SERVER)
-    record = si.query(type="tune", pk="{0}".format(instance.pk)).execute()  # checks if the record exists in solr
+    record = si.query(type="tune",
+                      pk="{0}".format(instance.pk)).execute()
+    # checks if the record exists in solr
 
     if record:  # if it does
         si.delete_by_ids([x['id'] for x in record])
@@ -53,8 +55,8 @@ def solr_index(sender, instance, created, **kwargs):
         'id': str(uuid.uuid4()),
         'alternate_spellings': instance.alternate_spellings,
         'name': instance.name,
-        'source_authort': instance.source_authort,
-        'source_titlet': instance.source_titlet
+        'source_author': instance.source_author,
+        'source_title': instance.source_title
         }
 
     si.add(d)

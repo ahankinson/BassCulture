@@ -6,7 +6,7 @@
                 <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
                 {% endif %}
                 {% if result.type == 'tune' %}
-                <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name }}</a></h3>
+                <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name|title }}</a></h3>
                 {% endif %}
                 {% if result.type == 'item' %}
                 <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.source_title }}</a></h3>
@@ -18,10 +18,10 @@
             <div class="panel-body">
 
                 {% if result.type == 'tune' %}
-                <p>Go to the digitised item</p>
+                <p>Go to the digitised item </p>
                 <dl>
                     <dt>From: </dt>
-                    <dd>{{ result.source_titlet }}, by {{ result.source_authort }}
+                    <dd>{{ result.source_title }}, by {{ result.source_author }}
                     </dd>
                 </dl>
                 {% endif %}
