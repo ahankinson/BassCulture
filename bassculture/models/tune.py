@@ -31,6 +31,10 @@ class Tune(models.Model):
         return "{0}".format(self.item.source_title)
 
     @property
+    def item_pk(self):
+        return "{0}".format(self.item.pk)
+
+    @property
     def source_author(self):
         return "{0}".format(self.item.source_author)
 
@@ -56,7 +60,8 @@ def solr_index(sender, instance, created, **kwargs):
         'alternate_spellings': instance.alternate_spellings,
         'name': instance.name,
         'source_author': instance.source_author,
-        'source_title': instance.source_title
+        'source_title': instance.source_title,
+        'item_pk': instance.item_pk
         }
 
     si.add(d)
