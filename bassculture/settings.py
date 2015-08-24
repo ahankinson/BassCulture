@@ -69,13 +69,6 @@ TEMPLATES = [
     },
 ]
 
-
-MESSAGE_TAGS = {
-            messages.SUCCESS: 'alert-success success',
-            messages.WARNING: 'alert-warning warning',
-            messages.ERROR: 'alert-danger error'
-}
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -90,7 +83,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'bassculture.urls'
 
 WSGI_APPLICATION = 'bassculture.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -154,7 +146,22 @@ MEDIA_URL = "/uploads/"
 
 SOLR_SERVER = "http://localhost:8983/solr/HMS/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
-IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
+# IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
+IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/wsgi/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
 
-SEARCH_FACETS = ["author", "short_title"]
+
+SEARCH_PARAM_MAP = {
+    'q': 'q',
+    'a': 'author',
+    't': 'tune',
+    's': 'source',
+}
+
+SEARCH_FACETS = [
+
+    "firstname",
+    "short_title",
+    "surname"
+
+]

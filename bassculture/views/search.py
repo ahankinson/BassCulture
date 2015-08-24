@@ -53,7 +53,7 @@ class SearchView(GenericAPIView):
                 fq[f] = querydict.get(f)
 
         si = scorched.SolrInterface(settings.SOLR_SERVER)
-        response = si.query(querydict.get('q'))\
+        response = si.query(querydict.get('q')) \
                      .filter(**fq)\
                      .paginate(start=int(offset), rows=api_settings.PAGE_SIZE)\
                      .facet_by(fields=settings.SEARCH_FACETS, mincount=1)\

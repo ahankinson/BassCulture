@@ -539,7 +539,7 @@
   
 
 
-  <!-- Search Components
+  Search Components
 
        Search components are registered to SolrCore and used by 
        instances of SearchHandler (which can access them by name)
@@ -553,7 +553,7 @@
        <searchComponent name="stats"     class="solr.StatsComponent" />
        <searchComponent name="debug"     class="solr.DebugComponent" />
        
-     -->
+    
 
   <!-- Terms Component
 

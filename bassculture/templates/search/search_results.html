@@ -41,10 +41,10 @@
                     <dd>{{ result.source_author }}</dd>
                 </dl>
                 {% endif %}
-
             </div>
         </div>
- {% endfor %}
-{% else %}
-    <h5>No Results found.</h5>
-{% endif %}
+
+    {% endfor %}
+    {% else %}
+        <h5>No Results found.</h5>
+    {% endif %}
