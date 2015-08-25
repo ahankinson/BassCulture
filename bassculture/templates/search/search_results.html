@@ -1,4 +1,3 @@
-{% if content.count > 0 %}
     {% for result in content.results %}
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -45,6 +44,3 @@
         </div>
 
     {% endfor %}
-    {% else %}
-        <h5>No Results found.</h5>
-    {% endif %}
