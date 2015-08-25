@@ -47,8 +47,7 @@
     </div>
 
     <div class="col-md-4">
-    <p>{{ content.facets }}</p>
-<!--         {% for facet, values in content.facets.fields.items %}
+        {% for facet, values in content.facets_fields.items %}
         <p>{{ facet }}</p>
         <ul>
             {% for name, count in values %}
@@ -56,7 +55,7 @@
             {% endfor %}
         </ul>
         {% endfor %}
-    </div> -->
+    </div>
     </div>
 {% endblock %}
 
