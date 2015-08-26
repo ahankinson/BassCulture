@@ -7,7 +7,6 @@ from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.compat import OrderedDict
 from rest_framework.settings import api_settings
 import scorched
-from bassculture.templatetags import tags
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
 
