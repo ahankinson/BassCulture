@@ -34,6 +34,13 @@
             {% include "search/search_results.html" %}
 
             </div>
+        </div>
+        <div class="col-md-4">
+
+        {% include "search/faceting.html" %}
+
+        </div>
+    </div>
         {% else %}
                 <h5>No results found</h5>
         {% endif %}
@@ -44,17 +51,6 @@
                     <li class="next {% if not content.next %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
                 </ul>
             </nav>
-    </div>
-
-    <div class="col-md-4">
-        {% for facet, values in content.facets_fields.items %}
-        <p>{{ facet }}</p>
-        <ul>
-            {% for name, count in values %}
-            <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
-            {% endfor %}
-        </ul>
-        {% endfor %}
     </div>
     </div>
 {% endblock %}

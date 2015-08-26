@@ -1,8 +1,9 @@
+    {% load tags %}
     {% for result in content.results %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 {% if result.type == 'source' %}
-                <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
+                <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title|ampersand }}</a></h3>
 
                 {% elif result.type == 'tune' %}
                 <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name|title }}</a></h3>

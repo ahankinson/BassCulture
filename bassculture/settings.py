@@ -24,7 +24,7 @@ SECRET_KEY = 'r*v$obtdmh1dsk82#9*@k=6#+a#-^8!h#fke=d^om#u6v@s%4#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'rest_framework',
     'scorched',
+    'bassculture.templatetags',
 )
 
 TEMPLATES = [
@@ -160,8 +161,8 @@ SEARCH_PARAM_MAP = {
 
 SEARCH_FACETS = [
 
-    "firstname",
     "short_title",
-    "surname"
+    "surname",
+    'type',
 
 ]

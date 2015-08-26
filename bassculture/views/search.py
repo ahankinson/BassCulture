@@ -7,6 +7,7 @@ from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.compat import OrderedDict
 from rest_framework.settings import api_settings
 import scorched
+from bassculture.templatetags import tags
 
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
 
@@ -29,11 +30,8 @@ class SearchResultsPagination(LimitOffsetPagination):
             ('next', self.get_next_link()),
             ('previous', self.get_previous_link()),
             ('results', data['records']),
-            ('facets_fields', self.solr_response.facet_counts.facet_fields),
-            ('facets_counts', self.solr_response.facet_counts)
+            ('facets', self.solr_response.facet_counts.facet_fields),
         ]))
-
-
 
         return resp
 
@@ -73,7 +71,7 @@ class SearchView(GenericAPIView):
         d = {
             'records': records,
             'solr_response': response,
-            'request': request
+            'request': request,
         }
         resp = self.get_paginated_response(d)
 
