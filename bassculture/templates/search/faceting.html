@@ -3,34 +3,39 @@
 <div class="panel panel-default">
 
 
-        {% for facet, values in content.facets.items %}
+{% for facet, values in content.facets.items %}
+
     {% if facet == 'type' %}
-    <h3>Filter by type</h3>
-    <ul>
-        {% for name, count in values %}
-            <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> ({{ count }})</li>
-        {% endfor %}
+        {% if values|length > 1 %}
+        <h3>Filter by type</h3>
+        <ul>
+            {% for name, count in values %}
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> ({{ count }})</li>
+            {% endfor %}
+        </ul>
         {% endif %}
-    </ul>
-        {% if facet == 'short_title'  and count > '0' %}
-    <h3>Filter by source</h3>
-    <ul>
-        {% for name, count in values %}
-        {% if values.count == '' %}
-        <p>Hello</p>
-        {% else %}
-            <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
     {% endif %}
-        {% if facet == 'surname' and count > '0' %}
-    <h3>Filter by author</h3>
-    <ul>
-        {% for name, count in values %}
-            <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
-        {% endfor %}
-    </ul>
+
+    {% if facet == 'short_title' %}
+        {% if values|length > 0 %}
+        <h3>Filter by source</h3>
+        <ul>
+            {% for name, count in values %}
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endif %}
+
+    {% if facet == 'surname' %}
+        {% if values|length > 0 %}
+        <h3>Filter by author</h3>
+        <ul>
+            {% for name, count in values %}
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     {% endif %}
 
 {% endfor %}
