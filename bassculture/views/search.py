@@ -30,6 +30,7 @@ class SearchResultsPagination(LimitOffsetPagination):
             ('previous', self.get_previous_link()),
             ('results', data['records']),
             ('facets', self.solr_response.facet_counts.facet_fields),
+            ('params', self.solr_response.params),
         ]))
 
         return resp
