@@ -12,15 +12,19 @@
         {% endfor %}
         {% endif %}
     </ul>
-        {% if facet == 'short_title' %}
+        {% if facet == 'short_title'  and count > '0' %}
     <h3>Filter by source</h3>
     <ul>
         {% for name, count in values %}
+        {% if values.count == '' %}
+        <p>Hello</p>
+        {% else %}
             <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
+            {% endif %}
         {% endfor %}
     </ul>
-    {% endif%}
-        {% if facet == 'surname' %}
+    {% endif %}
+        {% if facet == 'surname' and count > '0' %}
     <h3>Filter by author</h3>
     <ul>
         {% for name, count in values %}
