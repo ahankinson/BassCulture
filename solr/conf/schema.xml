@@ -74,8 +74,8 @@
    <field name="folder" type="string" indexed="true" stored="false"/>
    <field name="source_title" type="string" indexed="true" stored="true"/>
    <field name="source_author" type="string" indexed="true" stored="true"/>
-   <field name="item_id" type="string" indexed="true" stored="true"/>
-   <field name="item_notes" type="text_general" indexed="true" stored="true"/>
+<!--    <field name="item_id" type="string" indexed="true" stored="true"/>
+ -->   <field name="item_notes" type="text_general" indexed="true" stored="true"/>
    <field name="seller" type="text_general" indexed="true" stored="true" />
    <field name="library" type="text_general" indexed="true" stored="true"/>
    <field name="shelfmark" type="string"/>

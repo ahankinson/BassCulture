@@ -30,7 +30,7 @@
             <div>
                 <hr />
             <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q }}"</p>
+            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q }}" in {{ content.params.fq }}</p>
 
             {% include "search/search_results.html" %}
 

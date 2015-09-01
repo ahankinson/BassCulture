@@ -1,5 +1,5 @@
 #Written by CorePropertiesLocator
-#Thu Aug 13 14:21:02 UTC 2015
+#Fri Aug 14 10:37:39 UTC 2015
 name=HMS
 config=solrconfig.xml
 schema=schema.xml
