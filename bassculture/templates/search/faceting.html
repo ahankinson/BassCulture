@@ -5,23 +5,20 @@
 {% for facet, values in content.facets.items %}
 
     {% if facet == 'type' %}
-
-        <h3>Filter by type</h3>
         {% if values|length > 1 %}
+        <h3>Filter by type</h3>
         <ul>
             {% for name, count in values %}
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
-        {% elif values|length == 1 %}
-        <p>Your search only returned results of the same type </p>
         {% endif %}
     {% endif %}
 
 
     {% if facet == 'source_title' %}
-        <h3>Filter by source title</h3>
         {% if values|length > 1 %}
+        <h3>Filter by source title</h3>
         <ul>
             {% for name, count in values %}
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
@@ -29,8 +26,6 @@
         </ul>
         {% elif values|length == 1 %}
         <p>Your search returned only results belonging to the same source-title</p>
-        {% else %}
-        <p>No source-title found amongst your results</p>
         {% endif %}
     {% endif %}
 
@@ -50,9 +45,9 @@
     {% endif %}
  -->
     {% if facet == 'source_author' %}
+        {% if values|length > 1 %}
         <h3>Filter by source author</h3>
 
-        {% if values|length > 1 %}
         <ul>
             {% for name, count in values %}
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
@@ -60,8 +55,6 @@
         </ul>
         {% elif values|length == 1 %}
         <p>Your search only returned only results belonging to the same source-author </p>
-        {% else %}
-        <p>No source-authors found amongst your results</p>
         {% endif %}
     {% endif %}
 
