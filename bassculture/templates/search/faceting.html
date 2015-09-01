@@ -18,8 +18,24 @@
         {% endif %}
     {% endif %}
 
-    {% if facet == 'short_title' %}
-        <h3>Filter by source</h3>
+
+    {% if facet == 'source_title' %}
+        <h3>Filter by source title</h3>
+        {% if values|length > 1 %}
+        <ul>
+            {% for name, count in values %}
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
+            {% endfor %}
+        </ul>
+        {% elif values|length == 1 %}
+        <p>Your search returned only results belonging to the same source-title</p>
+        {% else %}
+        <p>No source-title found amongst your results</p>
+        {% endif %}
+    {% endif %}
+
+<!--     {% if facet == 'short_title' %}
+        <h3>Filter sources</h3>
         {% if values|length > 1 %}
         <ul>
             {% for name, count in values %}
@@ -32,8 +48,24 @@
         <p>No sources found amongst your results</p>
         {% endif %}
     {% endif %}
+ -->
+    {% if facet == 'source_author' %}
+        <h3>Filter by source author</h3>
 
-    {% if facet == 'surname' %}
+        {% if values|length > 1 %}
+        <ul>
+            {% for name, count in values %}
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
+            {% endfor %}
+        </ul>
+        {% elif values|length == 1 %}
+        <p>Your search only returned only results belonging to the same source-author </p>
+        {% else %}
+        <p>No source-authors found amongst your results</p>
+        {% endif %}
+    {% endif %}
+
+<!--     {% if facet == 'surname' %}
         <h3>Filter by author</h3>
         {% if values|length > 1 %}
         <ul>
@@ -46,7 +78,7 @@
         {% else %}
         <p>No authors found amongst your results</p>
         {% endif %}
-    {% endif %}
+    {% endif %} -->
 
 {% endfor %}
 </div>

@@ -163,6 +163,8 @@ SEARCH_FACETS = [
 
     "short_title",
     "surname",
-    'type',
+    "type",
+    "source_author",
+    "source_title",
 
 ]
