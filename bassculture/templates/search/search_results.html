@@ -8,8 +8,8 @@
                 {% elif result.type == 'tune' %}
                 <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name|title }}</a></h3>
 
-                {% elif result.type == 'item' %}
-                <h3 class="panel-title"> <span class="label label-primary">Item</span> <a href="{{ result.url }}">{{ result.source_title }}</a></h3>
+                {% elif result.type == 'copy' %}
+                <h3 class="panel-title"> <span class="label label-primary">Copy</span> <a href="{{ result.url }}">{{ result.source_title }}</a></h3>
 
                 {% else %}
                 <h3 class="panel-title"> <span class="label label-primary">Author</span> <a href="{{ result.url }}">{{ result.surname }}</a></h3>
