@@ -26,8 +26,11 @@
             <div id="collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
                         {% for tune in content.tunes|dictsort:"start_page" %}
-                <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
                         {% endfor %}
+<!--                         {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
+                        {% endfor %} -->
                 </div>
             </div>
         </div>
@@ -103,6 +106,16 @@
             imageDir: "{{ IIP_SERVER_IMAGE_PATH }}" + "{{ content.id }}",
             enableCanvas: true,
             enableDownload: true
+        });
+    </script>
+    <script type="text/javascript">
+        $('.tune-page-link').click(function(e)
+        {
+            var pageNum = $(this).data('page');
+            var diva = $('#diva-wrapper').data('diva');
+            diva.gotoPageByNumber(pageNum);
+            console.log(pageNum)
+            e.preventDefault();
         });
     </script>
 {% endblock %}
