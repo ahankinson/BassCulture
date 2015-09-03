@@ -13,7 +13,7 @@
     <div class="col-xs-4" style="height: 700px; overflow: scroll;">
 
     <h2>{{ content.source_title }}</h2>
-        <h4>by {{ content.source_author }}</h4>    
+        <h4>by {{ content.source_author }}</h4> 
 <hr />
 <div class="tunes">
     <div class="panel-group" id="accordion">
@@ -25,9 +25,95 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
+                {% if content.id == 1 %}
                         {% for tune in content.tunes|dictsort:"start_page" %}
-                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-10" }})</li>
                         {% endfor %}
+                {% elif content.id == 2 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-3" }})</li>
+                        {% endfor %}
+                {% elif content.id == 3 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-14" }})</li>
+                        {% endfor %}
+                {% elif content.id == 4 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-6" }})</li>
+                        {% endfor %}
+                {% elif content.id == 5 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"8" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-2" }})</li>
+                        {% endfor %}
+                {% elif content.id == 6 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"4" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-1" }})</li>
+                        {% endfor %}
+                {% elif content.id == 7 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"1" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-2" }})</li>
+                        {% endfor %}
+                {% elif content.id == 8 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"-124" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-126" }})</li>
+                        {% endfor %}
+                {% elif content.id == 9 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-4" }})</li>
+                        {% endfor %}
+                {% elif content.id == 10 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-6" }})</li>
+                        {% endfor %}
+                {% elif content.id == 11 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-1" }})</li>
+                        {% endfor %}
+                {% elif content.id == 12 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"3" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-1" }})</li>
+                        {% endfor %}
+                {% elif content.id == 13 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"-40" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-42" }})</li>
+                        {% endfor %}
+                {% elif content.id == 14 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name|title }}</a> (p. {{ tune.start_page|add:"-4" }})</li>
+                        {% endfor %}
+                {% elif content.id == 15 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"7" }}">{{ tune.name|title }}</a> (p. {{ tune.start_page|add:"-3" }})</li>
+                        {% endfor %}
+                {% elif content.id == 16 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"-3" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-6" }})</li>
+                        {% endfor %}
+                {% elif content.id == 17 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-2" }})</li>
+                        {% endfor %}
+                {% elif content.id == 18 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"1" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-2" }})</li>
+                        {% endfor %}
+                {% elif content.id == 19 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"1" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-1" }})</li>
+                        {% endfor %}
+                {% elif content.id == 20 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-4" }})</li>
+                        {% endfor %}
+                {% elif content.id == 21 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-1" }})</li>
+                        {% endfor %}
+                {% elif content.id == 22 %}
+                        {% for tune in content.tunes|dictsort:"start_page" %}
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"0" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-16" }})</li>
+                        {% endfor %}
+                {% endif %}
 <!--                         {% for tune in content.tunes|dictsort:"start_page" %}
                 <li><a href="{{ tune.url }}">{{ tune.name }}</a> (p. {{ tune.start_page }})</li>
                         {% endfor %} -->
