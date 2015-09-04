@@ -31,7 +31,7 @@
                         {% endfor %}
                 {% elif content.id == 2 %}
                         {% for tune in content.tunes|dictsort:"start_page" %}
-                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"2" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-3" }})</li>
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"5" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"0" }})</li>
                         {% endfor %}
                 {% elif content.id == 3 %}
                         {% for tune in content.tunes|dictsort:"start_page" %}
