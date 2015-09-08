@@ -6,7 +6,8 @@
 
     {% if facet == 'type' %}
         {% if values|length > 1 %}
-        <h3>Filter by type</h3>
+
+        <h4><span class="glyphicon glyphicon-filter"></span> Filter by type</h4>
         <ul>
             {% for name, count in values %}
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> ({{ count }})</li>
@@ -18,7 +19,7 @@
 
     {% if facet == 'source_title' %}
         {% if values|length > 1 %}
-        <h3>Filter by source title</h3>
+        <h4><span class="glyphicon glyphicon-book"></span>  Filter by source title</h4>
         <ul>
             {% for name, count in values %}
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
@@ -46,7 +47,7 @@
  -->
     {% if facet == 'source_author' %}
         {% if values|length > 1 %}
-        <h3>Filter by source author</h3>
+        <h4><span class="glyphicon glyphicon-user"></span>  Filter by source author</h4>
 
         <ul>
             {% for name, count in values %}

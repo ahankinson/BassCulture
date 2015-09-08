@@ -3,3 +3,7 @@ body { padding-left: 100px; padding-right: 100px; padding-top: 20px; padding-bot
 svg:not(:root) {
   overflow: inherit; 
 }
+
+span.icon {
+  font-family: 'Glyphicons Halflings';
+}
