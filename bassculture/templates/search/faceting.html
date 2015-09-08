@@ -25,8 +25,6 @@
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
-        {% elif values|length == 1 %}
-        <p>Your search returned only results belonging to the same source-title</p>
         {% endif %}
     {% endif %}
 
@@ -54,8 +52,6 @@
                 <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
-        {% elif values|length == 1 %}
-        <p>Your search only returned only results belonging to the same source-author </p>
         {% endif %}
     {% endif %}
 
