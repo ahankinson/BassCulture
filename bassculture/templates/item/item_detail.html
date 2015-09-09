@@ -190,8 +190,12 @@
             iipServerURL: "{{ IIP_SERVER }}",
             objectData: "{{ DIVA_OBJECT_DATA }}" + "{{ content.id }}.json",
             imageDir: "{{ IIP_SERVER_IMAGE_PATH }}" + "{{ content.id }}",
-            enableCanvas: true,
-            enableDownload: true
+            enableCanvas: false,
+            enableDownload: false,
+            blockMobileMove: false,
+            enableZoomControls: 'buttons',
+            inBookLayout: false,
+            zoomLevel: 3
         });
     </script>
     <script type="text/javascript">
