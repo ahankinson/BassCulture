@@ -27,7 +27,7 @@
                 <div class="panel-body">
                 {% if content.id == 1 %}
                         {% for tune in content.tunes|dictsort:"start_page" %}
-                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-10" }})</li>
+                <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page }}" data-w="200" data-h="200" data-y="20" data-x="20">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-10" }})</li>
                         {% endfor %}
                 {% elif content.id == 2 %}
                         {% for tune in content.tunes|dictsort:"start_page" %}
@@ -195,16 +195,24 @@
             blockMobileMove: false,
             enableZoomControls: 'buttons',
             inBookLayout: false,
-            zoomLevel: 3
+            zoomLevel: 2,
+            enableHighlight: true
         });
     </script>
     <script type="text/javascript">
         $('.tune-page-link').click(function(e)
         {
-            var pageNum = $(this).data('page');
             var diva = $('#diva-wrapper').data('diva');
+            var pageNum = $(this).data('page');
             diva.gotoPageByNumber(pageNum);
             e.preventDefault();
+                regions = [{
+                    'width': $(this).data('w'),
+                    'height': $(this).data('h'),
+                    'ulx': $(this).data('x'),
+                    'uly': $(this).data('y'),
+                }];
+            diva.highlightOnPage(pageNum-1, regions);
         });
     </script>
 {% endblock %}
