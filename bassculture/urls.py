@@ -28,7 +28,7 @@ urlpatterns = patterns('',
 
                        url(r'^items/$', ItemList.as_view(), name="item-list"),
 
-                       url(r'^item/(?P<pk>[a-zA-Z0-9]+)/$',
+                       url(r'^copy/(?P<pk>[a-zA-Z0-9]+)/$',
                            ItemDetail.as_view(), name="item-detail"),
 
                        url(r'^sources/$', SourceList.as_view(),
