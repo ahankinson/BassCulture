@@ -10,12 +10,17 @@
 {% endblock %}
 
 {% block body %}
-    <div class="col-xs-4" style="height: 800px; overflow: scroll;">
 
-    <h2>{{ content.source_title }}</h2>
-    <h4>by {{ content.source_author }}</h4> 
+<div class="col-md-12">
+
+    <h2 class="center"><i>{{ content.source_title }}</i></h2>
+    <h4 class="center">by {{ content.source_author }}</h4> 
 
 <hr />
+
+</div>
+    <div class="col-xs-4" style="height: 800px; overflow: scroll;">
+
 
 
   <ul class="nav nav-tabs">
@@ -219,5 +224,15 @@
                 $(".prev span").text(y);
             });
         });
+    </script>
+    <script src="{% static 'js/verovio-toolkit.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        var vrvToolkit = new verovio.toolkit();
+        $.get('{{ tune.mei_file }}', function (data)
+        {
+            var svg = vrvToolkit.renderData( data + "\n", "" );
+            $("#notation").html(svg);
+        }, 'text');
+
     </script>
 {% endblock %}
