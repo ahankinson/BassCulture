@@ -27,11 +27,11 @@
     </div>
     <div class="row">
     <div class="col-md-8">
-        {% if content.results %}
+        {% if content.results|length > 0 %}
             <div>
                 <hr />
             <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q }}"</p>
+            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q }}"
 
             {% include "search/search_results.html" %}
 
@@ -42,10 +42,8 @@
         {% include "search/faceting.html" %}
 
         </div>
+
     </div>
-        {% else %}
-                <h5>No results found</h5>
-        {% endif %}
 
             <nav>
                 <ul class="pager">
@@ -53,13 +51,16 @@
                     <li class="next {% if not content.next %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
                 </ul>
             </nav>
+        {% else %}
+            <h4>No results found</h4>
+        {% endif %}
 
 {% endblock %}
 
 {% block scripts %}
 <script type="text/javascript">
     // this code manages what happens when a facet link is clicked.
-    $(".facet-link").on('click', function(event)
+    $(".facet-link").on('click', function(e)
     {
         var qstr = window.location.search.replace("?", "");
         var qstr_params = $.parseParams(qstr);
@@ -78,7 +79,7 @@
             }
             window.location.search = qstr + facetQ;
         }
-        event.preventDefault();
+        e.preventDefault();
     });
 </script>
 {% endblock %}
