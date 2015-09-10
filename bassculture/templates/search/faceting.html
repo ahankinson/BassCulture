@@ -1,7 +1,10 @@
 {% load tags %}
 
-<div class="panel panel-default">
+
+{% if content.count > 0 %}
+    <div class="panel panel-default">
     <div class="pane panel-heading"><h4>Narrow your search</h4></div>
+{% endif %}
 
 {% for facet, values in content.facets.items %}
 

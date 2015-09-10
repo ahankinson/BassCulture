@@ -23,23 +23,22 @@
     </div>
     <div class="row">
     <div class="col-md-8">
-        {% if content.results|length > 0 %}
             <div>
                 <hr />
             <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</p><a href="#">Remove filters</a></p>
+            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</p>
 
             {% include "search/search_results.html" %}
 
             </div>
-    </div>
-    <div class="col-md-4">
+            </div>
+                <div class="col-md-4">
 
-        {% include "search/faceting.html" %}
+                {% include "search/faceting.html" %}
 
-    </div>
+                </div>
 
-    </div>
+            </div>
 
             <nav>
                 <ul class="pager">
@@ -47,9 +46,6 @@
                     <li class="next {% if content.next == None %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
                 </ul>
             </nav>
-        {% else %}
-            <h4>No results found</h4>
-        {% endif %}
 
 {% endblock %}
 
