@@ -9,3 +9,5 @@ svg:not(:root) {
 span.icon {
   font-family: 'Glyphicons Halflings';
 }
+
+.disabled { pointer-events: none; }

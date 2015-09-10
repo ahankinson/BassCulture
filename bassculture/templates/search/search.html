@@ -13,10 +13,6 @@
             <form role = "form" id="search-form" action="/search" method="get">
                 <div class="form-group">
                     <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
-<!--                                     <label class="checkbox"> -->
-<!--                 <li><input type="checkbox" id="1" name="t" value="tune" />Tune</label></li>
-                <li><input type="checkbox" id="2" name="a" value="author" />Author</label></li>
-                <li><input type="checkbox" id="3" name="s" value="source" />Tune</label></li> -->
                         <span class="input-group-btn">
                         <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -31,24 +27,24 @@
             <div>
                 <hr />
             <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q }}"
+            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</p><a href="#">Remove filters</a></p>
 
             {% include "search/search_results.html" %}
 
             </div>
-        </div>
-        <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
 
         {% include "search/faceting.html" %}
 
-        </div>
+    </div>
 
     </div>
 
             <nav>
                 <ul class="pager">
-                    <li class="previous {% if not content.previous %}disabled{% endif %}"><a href="{{ content.previous }}"><span aria-hidden="true">&larr;</span> Previous </a></li>
-                    <li class="next {% if not content.next %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
+                    <li class="previous {% if content.previous == None %}disabled{% endif %}"><a href="{{ content.previous }}"><span aria-hidden="true">&larr;</span> Previous </a></li>
+                    <li class="next {% if content.next == None %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
                 </ul>
             </nav>
         {% else %}

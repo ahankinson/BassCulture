@@ -23,7 +23,7 @@
         <h4><span class="glyphicon glyphicon-book"></span>  Filter by source title</h4>
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
         {% endif %}
