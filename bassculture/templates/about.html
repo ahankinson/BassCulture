@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="col-md-12">
+
+    <div class="page-header">
+        <h1>About</h1>
+    </div>
+
+<br />
+
+ <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Summary</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body"><p>
+This database includes over 250 printed sources of Scottish fiddle music, from Bremner's <em>Collection of Scots Reels</em> of 1751 to 1850, omitting sources without basses (because of the bass-led focus of the research project), and publications of songs and airs. The focus is on substantial printed collections, but it also includes a selection of the hundreds of surviving single-sheet publications. Manuscript sources were excluded purely to keep the project to a manageable size, within the time and resources available at this stage. 
+</p>
+<p>
+Finding the limits of the repertoire was a work-in-progress. We began by looking for sources of 'Scottish fiddle music', but the boundaries of this became ever more porous and difficult to define, as Scottish fiddlers were familiar with a more diverse repertoire than our present-day conception of Scottish fiddle music might suggest. Also, the notion of Scottishness in music is difficult to pin down at  a time when the notion of a national culture was only gradually taking shape. 
+</p>
+<p>
+Theoretical models for describing and analysing this music are still in the very early stages of development, so a detailed (or definitive) analysis is both inappropriate and probably impossible. The short notes on the music in each source give
+<ul>
+<li>a summary of the kind of repertoire it contains</li>
+<li>some features of the basslines</li>
+<li>particular points of interest that the research team noted on a brief survey of the contents</li>
+</ul>
+</p>
+</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Research team</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body"><p>Principal Investigator, project management and editor: David McGuinness<br />
+Researcher (post-doctoral), music bibliography & cataloguing: Karen McAulay<br />
+Systems Developer, web implementation: Luca Guariento<br />
+Co-Investigators, oversight and advice: John Butt, Susan Rankin<br />
+Research Administrator, School of Culture and Creative Arts, University of Glasgow: Jeanette Berrie</p>
+
+<p><strong>with</strong></p>
+Systems Developers, systems design: Zoltán Kömives, Neil McDermott<br />
+music encoding: Karen Marshalsay<br />
+MEI and search engine implementation: Andrew Hankinson<br />
+HMS.Scot logo design: Ewan McPherson<br />
+</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Thanks to...</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">University of Glasgow Library Special Collections & Digitisation Unit<br />
+Nicola Cowmeadow and the team at AK Bell Library, Perth & Kinross<br />
+the staff at all the libraries we visited in Scotland for being endlessly patient and helpful: go and visit them, they will be pleased to see you!<br /></div>
+    </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Technologies used</a>
+        </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+            <ul>
+            <li>Django</li>
+            <li>Solr</li>
+            <li>Scorched</li>
+            <li>Diva visualiser</li>
+            <li>iipsrv</li>
+            <li>MEI</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Funding bodies and host institutions</a>
+        </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+        <ul>
+        <li>AHRC</li>
+        <li>University of Glasgow</li>
+        <li>Royal Conservatoire of Scotland</li>
+        <li>University of Cambridge</li>
+        </ul>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Updates</a>
+        </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+<p>initial publication: October 2015
+recent updates [links to updates page]</p>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Copyright information</a>
+        </h4>
+    </div>
+    <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+<p>how you can use this material
+CC-BY licence</p>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Contacts</a>
+        </h4>
+    </div>
+    <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+        <address>
+            <strong>Historical Music of Scotland</strong><br>
+            14 University Gardens<br />
+            Glasgow, UK, G12 8QQ<br />
+            <br />
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>  0141-3303587<br />
+         <span class="glyphicon glyphicon glyphicon-send" aria-hidden="true"></span>
+          <a href="mailto:info@hms.scot">info@hms.scot</a>
+        </address>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

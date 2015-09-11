@@ -7,12 +7,12 @@ from rest_framework.reverse import reverse
 from bassculture.renderers.custom_html_renderer import CustomHTMLRenderer
 
 
-class HomeViewHTMLRenderer(CustomHTMLRenderer):
-    template_name = "index.html"
+class ResourcesViewHTMLRenderer(CustomHTMLRenderer):
+    template_name = "resources.html"
 
 
-class HomeView(GenericAPIView):
-    renderer_classes = (JSONRenderer, HomeViewHTMLRenderer,
+class ResourcesView(GenericAPIView):
+    renderer_classes = (JSONRenderer, ResourcesViewHTMLRenderer,
                         renderers.BrowsableAPIRenderer)
 
     def get(self, request, *args, **kwargs):

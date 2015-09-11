@@ -1,5 +1,40 @@
-{% extends "base.html" %}
+{% load staticfiles %}
 
-{% block body %}
-    <h1>Historical Music of Scotland</h1>
-{% endblock %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% block title %}
+            <title>Bass Culture | Home</title>
+        {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+<div class="container">
+
+<br />
+<br />
+
+
+
+<div class="jumbotron">
+    <h2 class="text-center">Welcome to the Historical Music of Scotland website</h2>
+</div>
+<div>
+
+<p class="center"><img src="static/img/HMS_circle.png" style="width:30%;"></p></div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center"><h3>Phase one of the project is (almost) over! <p><small>Luca is currently fighting in IT-land. He'll be back soon.</small></p></h3>
+    <br />
+    <p>Paragraph of text about what HMS.Scot is intended to be, and how the first phase is the fiddle database</p>
+
+    <a button type="button" class="btn btn-primary" href="/fiddle">
+    Go to the fiddle website!
+    </button></a>
+    </div>
+</div>
+</html>

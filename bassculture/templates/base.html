@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block title %}
             <title>Bass Culture | Home</title>
         {% endblock %}
@@ -16,18 +16,15 @@
         extra styles may be injected by child templates here and will override previous styles
         {% endblock %} -->
     </head>
-    <body>
-        <div class="container-fluid">
-<!--             <div class="row">
-                <div class="col-md-12">
-                    <div class="page-header">
-                        <h1>Bass Culture <small>Scottish Music Extravaganza</small></h1>
-                    </div>
-                </div>
-            </div> -->
-        <img src="/static/img/hms.jpg" style="width:100%;" />
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+
+<body>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p class="center">This website is under construction</p>
+    </div>
+    <div class="container-fluid">
+    <img src="/static/img/hms.jpg" style="width:100%;" />
+        <nav class="navbar navbar-default">
 <!--     Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -41,20 +38,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/authors">List of authors <span class="sr-only">(current)</span></a></li>
-        <li><a href="/sources">List of sources</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li class="active"><a href="/fiddle/authors">List of authors <span class="sr-only">(current)</span></a></li>
+        <li><a href="/fiddle/sources">List of sources</a></li>
+        <li><a href="/fiddle/resources">Resources</a></li>
+        <li><a href="/fiddle/about">About</a></li>
+
     </ul>
 
       <form class="navbar-form navbar-right" role="search">

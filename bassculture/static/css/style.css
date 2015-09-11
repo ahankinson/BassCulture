@@ -11,3 +11,17 @@ span.icon {
 }
 
 .disabled { pointer-events: none; }
+
+.diva-outer {
+
+height: 800px;
+
+}
+
+.search_form {
+    color: #959595;
+    font-size: 12px;
+    font-weight: 700;
+    left: 15px;
+    letter-spacing: 1px;
+    top: 15px;
