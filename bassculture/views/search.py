@@ -68,7 +68,7 @@ class SearchView(GenericAPIView):
             type = result['type']
             pk = result['pk']
             # # This should always be relative to the root, not the current path.
-            result['url'] = request.build_absolute_uri(os.path.join('/', type, pk))
+            result['url'] = request.build_absolute_uri(os.path.join('/fiddle/', type, pk))
             records.append(result)
 
         d = {
