@@ -1,5 +1,5 @@
-body { padding-left: 100px; padding-right: 100px; padding-top: 20px; padding-bottom: 50px;}
-
+/*body { padding-left: 100px; padding-right: 100px; padding-top: 20px; padding-bottom: 50px;}
+*/
 svg:not(:root) {
   overflow: inherit; 
 }

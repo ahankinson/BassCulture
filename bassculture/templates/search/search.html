@@ -2,64 +2,61 @@
 {% load tags %}
 
 {% block body %}
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h2>Search</h2>
+            <h1 class="text-center">Search the HMS database</h1>
             <br />
             <br />
         </div>
-    </div>
+    </div><!--class="row"-->
+
 <div class="row">
 
-<div class="col-md-6">
+<div class="col-md-6 col-md-offset-1">
 <div class="well well-sm">
-    <form role = "form" id="search-form" action="/search" method="get">
+    <form role = "form" id="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
         <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="button">Go!</button>
         </span>
+    </div>
     </form>
-</div></form>
     <br />
     <p>Search for <kbd>*</kbd> to see the entire collection</p>
+
+</div> <!--well well-sm-->
+
+{% if content.params.q != 'None' %}
+
+<br />
+<br />
+
+    <h4>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</h4>
+
+    {% include "search/search_results.html" %}
+
+    <nav>
+        <ul class="pager">
+            <li class="previous {% if content.previous == None %}disabled{% endif %}"><a href="{{ content.previous }}"><span aria-hidden="true">&larr;</span> Previous </a></li>
+            <li class="next {% if content.next == None %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
+        </ul>
+    </nav>
+
+{% endif %}
+
+</div> <!--col-md-6-->
+
+    <div class="col-md-4">
+
+        {% include "search/faceting.html" %}
+
+    </div> <!--col-md-4-->
+
+</div> <!-- row -->
 </div>
-</div><!-- /input-group -->
-<br />
 
-</div><!-- /.col-lg-6 -->
-
-</div><!-- /.row -->
-
-<br />
-
-    <div class="row">
-    <div class="col-md-8">
-    {% if content.params.q != 'None' %}
-            <div>
-                <hr />
-            <h3>Results</h3>
-            <p>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</p>
-
-            {% include "search/search_results.html" %}
-
-            </div>
-            </div>
-                <div class="col-md-4">
-
-                {% include "search/faceting.html" %}
-
-                </div>
-
-            </div>
-
-            <nav>
-                <ul class="pager">
-                    <li class="previous {% if content.previous == None %}disabled{% endif %}"><a href="{{ content.previous }}"><span aria-hidden="true">&larr;</span> Previous </a></li>
-                    <li class="next {% if content.next == None %}disabled{% endif %}"><a href="{{ content.next }}"><span aria-hidden="true">&rarr;</span> Next </a></li>
-                </ul>
-            </nav>
-            {% endif %}
 {% endblock %}
 
 {% block scripts %}

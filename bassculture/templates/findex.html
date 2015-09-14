@@ -2,11 +2,43 @@
 
 {% block body %}
 <div class="container-fluid">
-<div class="jumbotron">
-    <h2>Historical Music of Scotland - phase 1</h2>
+<div class="jumbotron col-md-10 col-md-offset-1">
+    <h3>Historical Music of Scotland - phase 1 <small>(work in progress)</small></h3>
+    <p>This database includes over 250 printed sources of Scottish fiddle music, from Bremner's Collection of Scots Reels of 1751 to 1850, omitting sources without basses (because of the bass-led focus of the research project), and publications of songs and airs.</p>
 </div>
-<div class="col-md-4 text-center"><h3>This is content 1</h3></div>
-<div class="col-md-4 text-center"><h3>This is content 2</h3></div>
-<div class="col-md-4 text-center"><h3>This is content 3</h3></div>
+<div class="col-md-10 col-md-offset-1">
+<p>
+This database includes over 250 printed sources of Scottish fiddle music, from Bremner's <em>Collection of Scots Reels</em> of 1751 to 1850, omitting sources without basses (because of the bass-led focus of the research project), and publications of songs and airs. The focus is on substantial printed collections, but it also includes a selection of the hundreds of surviving single-sheet publications. Manuscript sources were excluded purely to keep the project to a manageable size, within the time and resources available at this stage. 
+</p>
+<p>
+Finding the limits of the repertoire was a work-in-progress. We began by looking for sources of 'Scottish fiddle music', but the boundaries of this became ever more porous and difficult to define, as Scottish fiddlers were familiar with a more diverse repertoire than our present-day conception of Scottish fiddle music might suggest. Also, the notion of Scottishness in music is difficult to pin down at  a time when the notion of a national culture was only gradually taking shape. 
+</p>
+<p>
+Theoretical models for describing and analysing this music are still in the very early stages of development, so a detailed (or definitive) analysis is both inappropriate and probably impossible. The short notes on the music in each source give
+<ul>
+<li>a summary of the kind of repertoire it contains</li>
+<li>some features of the basslines</li>
+<li>particular points of interest that the research team noted on a brief survey of the contents</li>
+</ul>
+</p>
+</div>
+
+<div class="col-md-4 col-md-offset-4 text-center"><h3>Search our collection!</h3>
+
+<div class="well well-sm">
+    <form role = "form" id="search-form" action="/fiddle/search" method="get">
+    <div class="input-group">
+        <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+        </span>
+    </div>
+    </form>
+    <br />
+    <p>Search for <kbd>*</kbd> to see the entire collection</p>
+
+</div> <!--well well-sm-->
+
+</div> <!--col-md-4-->
 </div>
 {% endblock %}

@@ -69,6 +69,7 @@ class SearchView(GenericAPIView):
             pk = result['pk']
             # # This should always be relative to the root, not the current path.
             result['url'] = request.build_absolute_uri(os.path.join('/fiddle/', type, pk))
+            # result['highl'] = response.highlighting
             records.append(result)
 
         d = {

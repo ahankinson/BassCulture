@@ -1,7 +1,13 @@
     {% load tags %}
-    {% for result in content.results %}
+
+{% for result in content.results %}
+
+    {% for value in content.highlighting.values %}
+
         <div class="panel panel-default">
             <div class="panel-heading">
+
+
                 {% if result.type == 'source' %}
                 <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title }}</a></h3>
 
@@ -15,8 +21,12 @@
                 <h3 class="panel-title"> <span class="label label-primary">Author</span> <a href="{{ result.url }}">{{ result.surname }}</a></h3>
                 {% endif %}
 
+
             </div>
+
             <div class="panel-body">
+
+
                 {% if result.type == 'tune' %}
                 <dl>
                     <dt>From: </dt>
@@ -27,7 +37,8 @@
                 {% elif result.type == 'author' %}
                 <dl>
                     <dt>Name: </dt>
-                    <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</dd>
+                    <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}<dd>
+                    <dd>{{ value.biographical_info|safe }}</dd>
                 </dl>
 
                 {% elif result.type == 'source' %}
@@ -35,15 +46,21 @@
                     <dt>Author: </dt>
                     <dd>{{ result.author }}</dd>
                 </dl>
-                
+
                 {% else %}
+
                 <dl>
                     <dt>Author: </dt>
                     <dd>{{ result.source_author }}
+                    <dd>{{ value.seller|safe }}
                     </dd>
                 </dl>
-                {% endif %}
-            </div>
-        </div>
 
+                {% endif %}
+
+
+            </div>
+
+        </div>
+    {% endfor %}
     {% endfor %}
