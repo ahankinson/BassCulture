@@ -46,7 +46,7 @@ urlpatterns = patterns('',
 
                        url(r'^fiddle/resources/$', ResourcesView.as_view(), name="about"),
 
-                       url(r'^admin/', include(admin.site.urls)),
+                       url(r'^fiddle/admin/', include(admin.site.urls)),
                        )
 
 if settings.DEBUG:

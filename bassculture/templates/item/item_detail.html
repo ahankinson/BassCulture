@@ -10,15 +10,14 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="container-fluid">
 <div class="col-md-12">
 
     <h2 class="center"><em>{{ content.source_title }}</em><br /><small> by {{ content.source_author }}</small></h2>
-
-<hr />
-
+<br />
 </div>
-    <div class="col-xs-4" style="height: 871px; overflow: scroll;">
+
+    <div class="col-md-4 col-md-offset-1" style="height: 871px; overflow: scroll;">
 
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tunes-list">Tunes list</a></li>
@@ -163,13 +162,24 @@
 
                 </div>
     </div>
+
   </div>
+
 </div>
+<br />
 
-
-    <div class="col-xs-8" >
+    <div class="col-xs-6" >
         <div id="diva-wrapper"></div>
     </div>
+
+    <div class="col-md-12">
+
+        <br />
+        <br />
+
+    </div>
+</div> <!--container-fluid-->
+
 {% endblock %}
 
 {% block scripts %}

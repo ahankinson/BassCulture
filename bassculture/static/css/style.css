@@ -18,6 +18,24 @@ height: 800px;
 
 }
 
+.header {
+    background-color: #333;
+    border-color: #080808;
+    color:#ccc;
+    text-align:center;
+    height: 40px;
+}
+
+a.head{ color: #ccc; } 
+
+.footer {
+    background-color: #333;
+    border-color: #080808;
+    color:#ccc;
+    text-align:center;
+}
+
+
 .search_form {
     color: #959595;
     font-size: 12px;

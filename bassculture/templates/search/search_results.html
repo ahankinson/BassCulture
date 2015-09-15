@@ -2,8 +2,6 @@
 
     {% for result in content.results %}
 
-    {% for value in content.highlighting.values %}
-
         <div class="panel panel-default">
             <div class="panel-heading">
 
@@ -38,7 +36,6 @@
                 <dl>
                     <dt>Name: </dt>
                     <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}<dd>
-                    <dd>{{ value.biographical_info|safe }}</dd>
                 </dl>
 
                 {% elif result.type == 'source' %}
@@ -52,7 +49,6 @@
                 <dl>
                     <dt>Author: </dt>
                     <dd>{{ result.source_author }}
-                    <dd>{{ value.seller|safe }}
                     </dd>
                 </dl>
 
@@ -63,4 +59,4 @@
 
         </div>
     {% endfor %}
-    {% endfor %}
+

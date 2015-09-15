@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block body %}
+<div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1">
+
     <h2>{{ content.short_title }}</h2>
 
 
@@ -28,18 +31,29 @@
 
     {% if not content.items %}
 
-    <p>Thus source has not been digitised.</p>
+    <p><span class="fa-stack fa-lg">
+  <i class="fa fa-camera fa-stack-1x"></i>
+  <i class="fa fa-ban fa-stack-2x text-danger"></i>
+</span> This source has not been digitised.</p>
 
     {% else %}
 
     {% for item in content.items %}
 
-        <li><a href="{{ item.url }}">{{ content.short_title }}</a> [{{ item.library }}, {{ item.shelfmark }}]</li>
+        <li>
+            <span class="fa-stack fa-lg">
+            <i class="fa fa-camera fa-stack-1x"></i>
+            </span><a href="{{ item.url }}">{{ content.short_title }}</a> [{{ item.library }}, {{ item.shelfmark }}]
+        </li>
 
     </ul>
 
     {% endfor %}
-
     {% endif %}
 
+    <br />
+    <br />
+    <br />
+    </div>
+</div>
 {% endblock %}

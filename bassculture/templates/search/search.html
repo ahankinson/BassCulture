@@ -28,12 +28,34 @@
 
 </div> <!--well well-sm-->
 
+
+
 {% if content.params.q != 'None' %}
 
-<br />
+
+    <h4><br />{{ content.count }} result{{ content.count|pluralize }} found</h4>
 <br />
 
-    <h4>{{ content.count }} result{{ content.count|pluralize }} found for "{{ content.params.q|slash|dquot }}"</h4>
+{% for facet, values in content.facets.items %}
+
+    {% if facet == 'type' %}
+
+        {% if values|length > 1 %}
+
+        <b>Show only results amongst:</b> 
+
+            {% for name, count in values %}
+                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> <span class="badge">{{ count }}</span></button>
+            {% endfor %}
+
+        {% endif %}
+
+    {% endif %}
+
+{% endfor %}
+
+    <br />
+    <br />
 
     {% include "search/search_results.html" %}
 
@@ -44,7 +66,6 @@
         </ul>
     </nav>
 
-{% endif %}
 
 </div> <!--col-md-6-->
 
@@ -57,6 +78,7 @@
 </div> <!-- row -->
 </div>
 
+{% endif %}
 {% endblock %}
 
 {% block scripts %}
@@ -65,7 +87,7 @@
     // this code manages what happens when a facet link is clicked.
     $(".facet-link").on('click', function(e)
     {
-        var qstr = window.location.search.replace("?", "");
+        var qstr = window.location.search.replace("?limit=10&offset=10", "");
         var qstr_params = $.parseParams(qstr);
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');

@@ -69,13 +69,19 @@ class SearchView(GenericAPIView):
             pk = result['pk']
             # # This should always be relative to the root, not the current path.
             result['url'] = request.build_absolute_uri(os.path.join('/fiddle/', type, pk))
-            # result['highl'] = response.highlighting
             records.append(result)
+
+        # highl = []
+        # for result in response:
+        #     for items in response.highlighting:
+        #         result['highl'] = response.highlighting
+        # records.append(result)
 
         d = {
             'records': records,
             'solr_response': response,
             'request': request,
+            # 'highl': highl,
         }
         resp = self.get_paginated_response(d)
 
