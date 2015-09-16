@@ -83,6 +83,7 @@
 
    <!-- tune -->
    <field name="name" type="string" indexed="true" stored="true"/>
+   <field name="start_page" type="string" indexed="true" stored="true"/>
    <field name="alternate_spellings" type="string" indexed="true" stored="true"/>
    <field name="item_pk" type="string" indexed="true" stored="true"/>
 

@@ -61,7 +61,8 @@ def solr_index(sender, instance, created, **kwargs):
         'name': instance.name,
         'source_author': instance.source_author,
         'source_title': instance.source_title,
-        'item_pk': instance.item_pk
+        'item_pk': instance.item_pk,
+        'start_page': instance.start_page,
         }
 
     si.add(d)
