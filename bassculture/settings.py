@@ -165,7 +165,6 @@ SEARCH_FACETS = [
     "surname",
     "firstname",
     "type",
-    "source_author",
     "author",
     "source_title",
 

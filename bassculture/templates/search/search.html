@@ -43,7 +43,7 @@
         {% if values|length > 1 %}
 
             {% for name, count in values %}
-                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> <span class="badge">{{ count }}</span></button>
+                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
             {% endfor %}
 
         {% endif %}
@@ -84,7 +84,8 @@
     // this code manages what happens when a facet link is clicked.
     $(".facet-link").on('click', function(e)
     {
-        var qstr = window.location.search.replace("?limit=10&offset=10", "");
+        var facetOffset = $(this).data('facet-offset');
+        var qstr = window.location.search.replace("?limit=10&offset=" + facetOffset, "");
         var qstr_params = $.parseParams(qstr);
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');
