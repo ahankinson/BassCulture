@@ -30,7 +30,7 @@
 </div> <!--well well-sm-->
 
 
-{% if content.params.q != 'None' %}
+{% if content.params.q != 'fq' %}
 
 
     <h4 class="text-center"><br />
@@ -48,14 +48,14 @@
     </h4>
     <br />
     <div class="well well-sm">
-    {% if request.GET.fq|length == 0 %}
-    <h5>Search within the results</h5>
+    {% if content.params.fq == '*:*' %}
+    <h5>Search within the results (nullifies faceting)</h5>
     {% else %}
-    <h5>Apply new filter or <a href="/fiddle/search/?q={{ request.GET.q }}">reset</a> filters</h5>
+    <h5><a href="/fiddle/search/?q={{ request.GET.q }}">Reset filters</a><br />Apply new filter</h5>
      {% endif %}
     <form role = "form" action="/fiddle/search/" method="get">
         <input type="hidden" name="q" value="{{ request.GET.q }}" />
-        {% if "{{ request.GET.fq|length }}" != '0' %}
+        {% if request.GET.fq|length != 0 %}
         <input type="hidden" name="fq" value="{{ request.GET.fq }}" />
         {% endif %}
     <div class="input-group">
