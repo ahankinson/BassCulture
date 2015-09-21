@@ -4,8 +4,8 @@
 {% block body %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center">Search the HMS database</h1>
+        <div class="col-md-10 col-md-offset-1" >
+            <h1>Search the HMS database</h1>
             <br />
             <br />
         </div>
@@ -15,11 +15,12 @@
 
 <div class="col-md-6 col-md-offset-1">
 <div class="well well-sm">
-    <form role = "form" id="search-form" action="/fiddle/search" method="get">
+    <h5>New search</h5>
+    <form role = "form" var="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
-        <input type="text" name="q" id="search-input" class="form-control" placeholder="Search for...">
+        <input type="text" name="q" var="search-input" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
+            <button class="btn btn-default" type="submit">Go!</button>
         </span>
     </div>
     </form>
@@ -29,12 +30,42 @@
 </div> <!--well well-sm-->
 
 
-
 {% if content.params.q != 'None' %}
 
 
-    <h4><br />{{ content.count }} result{{ content.count|pluralize }} found</h4>
-<br />
+    <h4 class="text-center"><br />
+    {% if request.GET.fq|length != 0 %}
+        {{ content.count }} result{{ content.count|pluralize }} found for
+        {{request.GET.fq}} within "{{ request.GET.q }}"
+
+    {% else %}
+        {{ content.count }} result{{ content.count|pluralize }} found for  
+        "{{ request.GET.q }}"
+    {% endif %}
+
+        
+
+    </h4>
+    <br />
+    <div class="well well-sm">
+    {% if request.GET.fq|length == 0 %}
+    <h5>Search within the results</h5>
+    {% else %}
+    <h5>Apply new filter or <a href="/fiddle/search/?q={{ request.GET.q }}">reset</a> filters</h5>
+     {% endif %}
+    <form role = "form" action="/fiddle/search/" method="get">
+        <input type="hidden" name="q" value="{{ request.GET.q }}" />
+        {% if "{{ request.GET.fq|length }}" != '0' %}
+        <input type="hidden" name="fq" value="{{ request.GET.fq }}" />
+        {% endif %}
+    <div class="input-group">
+        <input type="text" name="fq" class="form-control" placeholder="Filter for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </div>
+    </form>
+</div> <!--well well-sm-->
 
 {% for facet, values in content.facets.items %}
 
@@ -74,6 +105,20 @@
     </div> <!--col-md-4-->
 
 </div> <!-- row -->
+</div>
+
+{% else %}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</div>
+</div>
 </div>
 
 {% endif %}

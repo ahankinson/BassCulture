@@ -50,14 +50,20 @@ class SearchView(GenericAPIView):
         querydict = request.GET
         offset = querydict.get('offset', 0)
 
-        fq = {}
+        if querydict.get('fq'):
+            fq = querydict.get('fq', None)
+        else:
+            fq = '*'
+
+        fcq = {}
         for f in settings.SEARCH_FACETS:
             if querydict.get(f, None):
-                fq[f] = querydict.get(f)
+                fcq[f] = querydict.get(f)
 
         si = scorched.SolrInterface(settings.SOLR_SERVER)
         response = si.query(querydict.get('q')) \
-                     .filter(**fq)\
+                     .filter(fq)\
+                     .filter(**fcq)\
                      .highlight('*')\
                      .paginate(start=int(offset), rows=api_settings.PAGE_SIZE)\
                      .facet_by(fields=settings.SEARCH_FACETS, mincount=1)\

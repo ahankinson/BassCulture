@@ -20,7 +20,7 @@
         <h4><i class="fa fa-book fa-fw"></i>&nbsp; Filter by source title</h4>
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}" data-facet-offset="{{ facet }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ facet }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
 <!--         {% endif %}
@@ -59,7 +59,7 @@
 
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</span></li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</span></li>
             {% endfor %}
         </ul>
 <!--         {% endif %}

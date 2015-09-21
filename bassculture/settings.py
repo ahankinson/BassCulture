@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
+                'django.core.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
                 'bassculture.context_processors.diva_settings'
             ],
@@ -150,14 +151,6 @@ IIP_SERVER = "http://bassculture.info/iipsrv"
 # IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
 IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/wsgi/static/images/"
 DIVA_OBJECT_DATA = "/static/json/"
-
-
-SEARCH_PARAM_MAP = {
-    'q': 'q',
-    'a': 'author',
-    't': 'tune',
-    's': 'source',
-}
 
 SEARCH_FACETS = [
 
