@@ -7,8 +7,9 @@ svg:not(:root) {
 
 .center { text-align: center; } 
 
-span.icon {
-  font-family: 'Glyphicons Halflings';
+.search-title {
+    background-color: #eee;
+
 }
 
 .disabled { pointer-events: none; }

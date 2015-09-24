@@ -1,0 +1,183 @@
+{% load tags %}
+{% load staticfiles %}
+
+{% block body %}
+
+    {% for result in content.results %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+
+                {% if result.type == 'source' %}
+                <h3 class="panel-title"> <span class="label label-primary">Source</span> <a href="{{ result.url }}">{{ result.short_title|title }}</a></h3>
+
+                {% elif result.type == 'tune' %}
+                <h3 class="panel-title"> <span class="label label-primary">Tune</span> <a href="{{ result.url }}">{{ result.name|title }}</a></h3>
+
+                {% elif result.type == 'copy' %}
+                <h3 class="panel-title"> <span class="label label-primary">Copy</span> <a href="{{ result.url }}" >{{ result.source_title }}</a></h3>
+
+                {% else %}
+                <h3 class="panel-title"> <span class="label label-primary">Author</span> <a href="{{ result.url }}">{{ result.surname }}</a></h3>
+                {% endif %}
+
+
+            </div>
+
+            <div class="panel-body">
+
+
+                {% if result.type == 'tune' %}
+
+                <dl>
+                    <dt>From: </dt>
+                    <dd>{{ result.source_title }}, by {{ result.source_author }}</dd>
+
+
+            {% if result.item_pk == '1' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-10" }})</dd>
+
+            {% endif %}
+
+            {% if result.item_pk == '2' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"-5" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"0" }})</dd>
+                </dl>
+
+            {% endif %}
+
+            {% if result.item_pk == '3' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"0" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-14" }})</dd>
+
+            {% endif %}
+
+            {% if result.item_pk == '4' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"0" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-6" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '5' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"8" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-2" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '6' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"4" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-1" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '7' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"1" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-2" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '8' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"-124" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-126" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '9' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"2" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-4" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '10' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"0" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-6" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '11' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"2" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-1" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '12' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"3" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-1" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '13' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"-40" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-42" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '14' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"2" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-4" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '15' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"7" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-3" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '16' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"-3" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-6" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '17' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"2" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-2" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '18' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"1" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"2" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '19' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"1" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-1" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '20' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"2" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-4" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '21' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"0" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-1" }})</dd>
+
+            {% endif %}
+            {% if result.item_pk == '22' %}
+
+                <dd><a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" {% verbatim %} data-page="{{ result.start_page|add:"0" }}" {% endverbatim %}>Go to the digitised copy</a> ( p. {{ result.start_page|add:"-16" }})</dd>
+
+            {% endif %}
+
+                {% elif result.type == 'author' %}
+
+                <dl>
+                    <dt>Name: </dt>
+                    <dd>{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}<dd>
+                </dl>
+
+                {% elif result.type == 'source' %}
+                <dl>
+                    <dt>Author: </dt>
+                    <dd>{{ result.author }}</dd>
+                </dl>
+
+                {% else %}
+
+                <dl>
+                    <dt>Author: </dt>
+                    <dd>{{ result.source_author }}
+                    </dd>
+                </dl>
+
+                {% endif %}
+
+
+            </div>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}
+

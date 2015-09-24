@@ -33,21 +33,39 @@
 {% if content.params.q != 'fq' %}
 
 
-    <h4 class="text-center"><br />
+    <h4 class="text-center">
     {% if request.GET.fq|length != 0 %}
         {{ content.count }} result{{ content.count|pluralize }} found for
-        {{request.GET.fq}} within "{{ request.GET.q }}"
+        {{request.GET.fq}} within "{{ request.GET.q }}"<br /><br />
 
     {% else %}
         {{ content.count }} result{{ content.count|pluralize }} found for  
-        "{{ request.GET.q }}"
+        "{{ request.GET.q }}"<br /><br />
     {% endif %}
 
-        
+
+
+{% for facet, values in content.facets.items %}
+
+    {% if facet == 'type' %}
+
+        {% if values|length > 1 %}
+
+            {% for name, count in values %}
+                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
+            {% endfor %}
+
+        {% endif %}
+
+    {% endif %}
+
+{% endfor %}
 
     </h4>
-    <br />
-    <div class="well well-sm">
+
+<br />
+
+    <div class="well well-sm; col-md-8 col-md-offset-2">
     {% if content.params.fq == '*:*' %}
     <h5>Search within the results (nullifies faceting)</h5>
     {% else %}
@@ -67,25 +85,9 @@
     </form>
 </div> <!--well well-sm-->
 
-{% for facet, values in content.facets.items %}
-
-    {% if facet == 'type' %}
-
-        {% if values|length > 1 %}
-
-            {% for name, count in values %}
-                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
-            {% endfor %}
-
-        {% endif %}
-
-    {% endif %}
-
-{% endfor %}
-
     <br />
     <br />
-
+    <div class="col-md-10">
     {% include "search/search_results.html" %}
 
     <nav>
@@ -95,7 +97,7 @@
         </ul>
     </nav>
 
-
+</div>
 </div> <!--col-md-6-->
 
     <div class="col-md-4">
