@@ -211,7 +211,7 @@
         //     }
 
             var diva = $('#diva-wrapper').data('diva');
-            diva.Events.publish('DocumentDidLoad', function(idx, filename){
+            diva.Events.subscribe('DocumentDidLoad', function(idx, filename){
                     var hash = window.location.hash;
                     hash = hash.slice(1);
                     diva.gotoPageByNumber(hash);
