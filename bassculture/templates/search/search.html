@@ -14,7 +14,6 @@
 <div class="row">
 
 <div class="col-md-6 col-md-offset-1">
-<div class="well well-sm">
     <form role = "form" var="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
         <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
@@ -23,8 +22,6 @@
         </span>
     </div>
     </form>
-
-</div> <!--well well-sm-->
 
 
 {% if content.params.q != 'fq' %}
@@ -61,13 +58,14 @@
     </h4>
 
 <br />
-
+    {% if content.count > 0 %}
     <div class="well well-sm; col-md-8 col-md-offset-2">
-    {% if content.params.fq == '*:*' %}
-    <h5>Search within the results (nullifies faceting)</h5>
-    {% else %}
-    <h5><a href="/fiddle/search/?q={{ request.GET.q }}">Reset filters</a><br />Apply new filter</h5>
-     {% endif %}
+
+        {% if content.params.fq == '*:*' %}
+        <h5>Search within the results (nullifies faceting)</h5>
+        {% else %}
+        <h5><a href="/fiddle/search/?q={{ request.GET.q }}">Reset filters</a><br />Apply new filter</h5>
+        {% endif %}
     <form role = "form" action="/fiddle/search/" method="get">
         <input type="hidden" name="q" value="{{ request.GET.q }}" />
         {% if request.GET.fq|length != 0 %}
@@ -81,10 +79,10 @@
     </div>
     </form>
 </div> <!--well well-sm-->
-
+    {% endif %}
     <br />
     <br />
-    <div class="col-md-10">
+    <div class="col-md-12">
     {% if  content.count > 10 %}
     <h5>Showing {{ content.params.start|add:"10" }} of {{ content.count }} results</h5>
     <br />
