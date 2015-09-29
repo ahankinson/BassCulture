@@ -85,8 +85,10 @@
     <br />
     <br />
     <div class="col-md-10">
+    {% if  content.count > 10 %}
     <h5>Showing {{ content.params.start|add:"10" }} of {{ content.count }} results</h5>
     <br />
+    {% endif %}
     {% include "search/search_results.html" %}
 
     <nav>
