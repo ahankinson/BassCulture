@@ -203,6 +203,17 @@
         });
     </script>
     <script type="text/javascript">
+        var hash = window.location.hash;
+        if(hash){
+            setTimeout(function(){
+            hash = hash.slice(1);
+                var diva = $('#diva-wrapper').data('diva');
+                diva.gotoPageByNumber(hash);},2000);
+            }
+        //     hash = hash.slice(1);
+        //     var diva = $('#diva-wrapper').data('diva');
+        //     diva.gotoPageByNumber(hash);
+        // }
         $('.tune-page-link').click(function(e)
         {
             var diva = $('#diva-wrapper').data('diva');
