@@ -15,17 +15,14 @@
 
 <div class="col-md-6 col-md-offset-1">
 <div class="well well-sm">
-    <h5>New search</h5>
     <form role = "form" var="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
-        <input type="text" name="q" var="search-input" class="form-control" placeholder="Search for...">
+        <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="submit">Go!</button>
         </span>
     </div>
     </form>
-    <br />
-    <p>Search for <kbd>*</kbd> to see the entire collection</p>
 
 </div> <!--well well-sm-->
 
@@ -88,6 +85,8 @@
     <br />
     <br />
     <div class="col-md-10">
+    <h5>Showing {{ content.params.start|add:"10" }} of {{ content.count }} results</h5>
+    <br />
     {% include "search/search_results.html" %}
 
     <nav>
