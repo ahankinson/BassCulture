@@ -212,9 +212,9 @@
             var hash = window.location.hash;
             hash = hash.slice(1);
             if(hash){
-                var diva = $('#diva-wrapper').data('diva');
+                var divaObject = $('#diva-wrapper').data('diva');
                 diva.Events.subscribe('DocumentDidLoad', function(idx, filename){
-                    diva.gotoPageByNumber(hash);
+                    divaObject.gotoPageByNumber(hash);
                 })};
         $('.tune-page-link').click(function(e)
         {
