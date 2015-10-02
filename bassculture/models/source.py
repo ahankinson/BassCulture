@@ -31,6 +31,7 @@ class Source(models.Model):
     rism = models.CharField(max_length=128, blank=True, null=True)
     gore = models.CharField(max_length=128, blank=True, null=True)
     locations = models.TextField(blank=True, null=True)
+    synonyms = models.TextField(blank=True, null=True)
 
     def __str__(self):
             if self.short_title:
@@ -61,7 +62,8 @@ def solr_index(sender, instance, created, **kwargs):
         'full_title': instance.full_title,
         'author': instance.author.full_name,
         'description': instance.description,
-        'publisher': instance.publisher
+        'publisher': instance.publisher,
+        'synonyms': instance.synonyms,
     }
 
     si.add(d)

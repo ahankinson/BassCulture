@@ -56,6 +56,7 @@ class Command(BaseCommand):
             'rism': row['rism'],
             'gore': row['gore'],
             'locations': row['locations'],
+            'synonyms': row['synonyms'],
         }
 
         s = Source(**d)
