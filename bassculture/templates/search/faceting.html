@@ -1,84 +1,47 @@
 {% load tags %}
 
+
+        <h4>Search within the results</h4>
+    <form role = "form" action="/fiddle/search" method="get">
+        <input type="hidden" name="q" value="{{ content.params.q }}" />
+        {% if request.GET.fq|length != 0 %}
+        <input type="hidden" name="fq" value="{{ content.params.fq }}" />
+        {% endif %}
+    <div class="input-group">
+        <input type="text" name="fq" class="form-control" placeholder="Filter for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </div>
+    </form>
+    <br />
+
 {% for facet, values in content.facets.items %}
 
-<!--     {% if facet == 'type' %}
-        {% if values|length > 1 %}
-
-        <h4><i class="fa fa-filter"></i>&nbsp; Filter by type</h4>
-        <ul>
-            {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name|capfirst }} </a> ({{ count }})</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    {% endif %} -->
-
-
     {% if facet == 'source_title' %}
-<!--         {% if values|length > 1 %} -->
+        {% if values|length > 1 %}
         <h4><i class="fa fa-book fa-fw"></i>&nbsp; Filter by source title</h4>
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ facet }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ facet }}" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
-<!--         {% endif %}
- -->    {% endif %}
-
-<!--     {% if facet == 'short_title' %}
-        <h3>Filter sources</h3>
-        {% if values|length > 1 %}
-        <ul>
-            {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</li>
-            {% endfor %}
-        </ul>
-        {% elif values|length == 1 %}
-        <p>Your search only returned only results belonging to the same source </p>
-        {% else %}
-        <p>No sources found amongst your results</p>
         {% endif %}
     {% endif %}
- -->
-<!--     {% if facet == 'source_author' %}
-        {% if values|length > 0 %}
-        <h4><span class="glyphicon glyphicon-user"></span>  Filter by source author (in digitised items only)</h4>
 
-        <ul>
-            {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|ampersand }}">{{ name }} </a> ({{ count }})</span></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    {% endif %} -->
 
     {% if facet == 'author' %}
-<!--         {% if values|length > 1 %}
- -->        <h4><i class="fa fa-user"></i>&nbsp; Filter by source author (in all the sources)</h4>
-
-        <ul>
-            {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ content.params.start }}">{{ name }} </a> ({{ count }})</span></li>
-            {% endfor %}
-        </ul>
-<!--         {% endif %}
- -->    {% endif %}
-
-<!--     {% if facet == 'surname' %}
-        <h3>Filter by author</h3>
         {% if values|length > 1 %}
+        <h4><i class="fa fa-user"></i>&nbsp; Filter by source author (in all the sources)</h4>
+
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}">{{ name }} </a> ({{ count }})</li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}">{{ name }} </a> ({{ count }})</span></li>
             {% endfor %}
         </ul>
-        {% elif values|length == 1 %}
-        <p>Your search returned only results belonging to the same author</p>
-        {% else %}
-        <p>No authors found amongst your results</p>
         {% endif %}
-    {% endif %} -->
+    {% endif %}
+
 
 {% endfor %}
 </div>

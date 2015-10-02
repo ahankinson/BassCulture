@@ -24,18 +24,25 @@
     </form>
 
 
-{% if content.params.q != 'fq' %}
+{% if request.GET.q %}
 
 <br />
 
     <h4 class="text-center">
+
     {% if request.GET.fq|length != 0 %}
-        {{ content.count }} result{{ content.count|pluralize }} found for
-        {{request.GET.fq}} within "{{ request.GET.q }}"<br /><br />
+        {% if content.count > 10 %}
+        {{ content.count }} filtered result{{ content.count|pluralize }} found<br /><a class="h5" href="/fiddle/search/?q={{ request.GET.q }}">[Reset filters]</a><br /><br />
+        {% else %}
+        {{ content.count }} result{{ content.count|pluralize }} found<br /><br />
+        {% endif %}
 
     {% else %}
-        {{ content.count }} result{{ content.count|pluralize }} found for  
-        "{{ request.GET.q }}"<br /><br />
+        {% if  content.count > 10 %}
+        {{ content.count }} result{{ content.count|pluralize }} found<br /><br />
+        {% else %}
+        {{ content.count }} result{{ content.count|pluralize }} found<br /><br />
+        {% endif %}
     {% endif %}
 
 
@@ -47,7 +54,7 @@
         {% if values|length > 1 %}
 
             {% for name, count in values %}
-                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
+                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}" facet-limit="{{ content.limit }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
             {% endfor %}
 
         {% endif %}
@@ -57,37 +64,8 @@
 {% endfor %}
 
     </h4>
-
-<br />
-    {% if content.count > 0 %}
-    <div class="well well-sm; col-md-8 col-md-offset-2">
-
-        {% if content.params.fq == '*:*' %}
-        <h5>Search within the results (nullifies faceting)</h5>
-        {% else %}
-        <h5><a href="/fiddle/search/?q={{ request.GET.q }}">Reset filters</a><br />Apply new filter</h5>
-        {% endif %}
-    <form role = "form" action="/fiddle/search/" method="get">
-        <input type="hidden" name="q" value="{{ request.GET.q }}" />
-        {% if request.GET.fq|length != 0 %}
-        <input type="hidden" name="fq" value="{{ request.GET.fq }}" />
-        {% endif %}
-    <div class="input-group">
-        <input type="text" name="fq" class="form-control" placeholder="Filter for...">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Go!</button>
-        </span>
-    </div>
-    </form>
-</div> <!--well well-sm-->
-    {% endif %}
     <br />
-    <br />
-    <div class="col-md-12">
-    {% if  content.count > 10 %}
-    <h5>Showing {{ content.params.start|add:"10" }} of {{ content.count }} results</h5>
-    <br />
-    {% endif %}
+    <div class="col-md-12" id="searchResults">
     {% include "search/search_results.html" %}
 
     <nav>
@@ -99,13 +77,16 @@
 
 </div>
 </div> <!--col-md-6-->
+    
+    {% if content.count %}
 
-    <div class="col-md-4">
+    <div class="col-md-4" id="facets">
 
         {% include "search/faceting.html" %}
 
     </div> <!--col-md-4-->
 
+    {% endif %}
 </div> <!-- row -->
 </div>
 
@@ -132,7 +113,8 @@
     $(".facet-link").on('click', function(e)
     {
         var facetOffset = $(this).data('facet-offset');
-        var qstr = window.location.search.replace("?limit=10&offset=" + facetOffset, "");
+        var facetLimit = $(this).data('facet-limit');
+        var qstr = window.location.search.replace("?limit=" + facetLimit + "&offset=" + facetOffset, "");
         var qstr_params = $.parseParams(qstr);
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');

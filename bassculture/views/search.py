@@ -30,8 +30,10 @@ class SearchResultsPagination(LimitOffsetPagination):
             ('previous', self.get_previous_link()),
             ('results', data['records']),
             ('facets', self.solr_response.facet_counts.facet_fields),
+            ('facets_queries', self.solr_response.facet_counts.facet_queries),
             ('params', self.solr_response.params),
             ('highlighting', self.solr_response.highlighting),
+            ('limit', self.limit),
 
         ]))
 
@@ -55,19 +57,20 @@ class SearchView(GenericAPIView):
             if querydict.get(f, None):
                 fcq[f] = querydict.get(f)
 
-        if querydict.get('fq'):
+        fq = {}
+        if querydict.get('fq', None):
             fq = querydict.get('fq')
         else:
             fq = '*'
 
         si = scorched.SolrInterface(settings.SOLR_SERVER)
-        response = si.query(querydict.get('q', 'fq')) \
+        response = si.query(querydict.get('q')) \
                      .filter(**fcq)\
                      .filter(fq)\
                      .highlight('*')\
                      .paginate(start=int(offset), rows=api_settings.PAGE_SIZE)\
                      .facet_by(fields=settings.SEARCH_FACETS, mincount=1)\
-                     .execute()
+                     .execute()\
 
         records = []
         for result in response:
