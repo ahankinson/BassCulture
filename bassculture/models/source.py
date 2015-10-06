@@ -31,7 +31,8 @@ class Source(models.Model):
     rism = models.CharField(max_length=128, blank=True, null=True)
     gore = models.CharField(max_length=128, blank=True, null=True)
     locations = models.TextField(blank=True, null=True)
-    synonyms = models.TextField(blank=True, null=True)
+    synonyms = models.CharField(max_length=256, blank=True,
+                                null=True)
 
     def __str__(self):
             if self.short_title:
