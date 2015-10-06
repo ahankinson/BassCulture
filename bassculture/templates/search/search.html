@@ -34,7 +34,7 @@
         {% if content.count > 10 %}
         {{ content.count }} filtered result{{ content.count|pluralize }} found<br /><a class="h5" href="/fiddle/search/?q={{ request.GET.q }}">[Reset filters]</a><br /><br />
         {% else %}
-        {{ content.count }} result{{ content.count|pluralize }} found<br /><br />
+            {{ content.count }} result{{ content.count|pluralize }} found<br /><br />
         {% endif %}
 
     {% else %}

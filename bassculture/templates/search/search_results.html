@@ -7,11 +7,22 @@
 
                 {% if result.type == 'source' %}
                     <h4><a class="search-title" href="{{ result.url }}">{{ result.short_title|title }}</a></h4>
-                    <p><span class="label label-primary">Source</span><b> Author: </b> {{ result.author }}</p><br />
+                    <p><span class="label label-primary">Source</span><b> Author: </b> {{ result.author }}</p>
+                    <p id="highlighting_source">{% if result.highlighted_string.full_title %}
+                    <b>Full title:</b> ...{{ result.highlighted_string.full_title|safe|squares1|squares2|squares3|squares4|slashn}}...
+                    {% endif %}
+                    {% if result.highlighted_string.description %}
+                    <b>Description:</b> ...{{ result.highlighted_string.description|safe|squares1|squares2|squares3|squares4|slashn}}...<br />
+                    {% else %}
+                    <br/>
+                    {% endif %}<br/>
 
                 {% elif result.type == 'copy' %}
                     <h4><a class="search-title" href="{{ result.url }}" >{{ result.source_title }}</a></h4>
-                    <p><span class="label label-primary">Digitised copy</span><b> Author: </b> {{ result.source_author }} </p><br />
+                    <p><span class="label label-primary">Digitised copy</span><b> Author: </b> {{ result.source_author }} </p>
+                        <p id="highlighting_copy">{% if result.highlighted_string.seller %}
+                        <b>Seller:</b> {{ result.highlighted_string.seller|safe|squares1|squares2|squares3|squares4|slashn}}<br />
+                        {% endif %}<br/>
 
                 {% elif result.type == 'tune' %}
 
@@ -20,125 +31,134 @@
 
             {% if result.item_pk == '1' %}
 
-                <a href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" id="resultTune"  data-page="{{ result.start_page }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-10" }})</p><br />
+                <a href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" id="resultTune"  data-page="{{ result.start_page }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-10" }})<br />
 
             {% endif %}
 
             {% if result.item_pk == '2' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-5' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-5" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"0" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-5' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-5" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"0" }})<br />
 
             {% endif %}
 
             {% if result.item_pk == '3' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-14" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-14" }})<br />
 
             {% endif %}
 
             {% if result.item_pk == '4' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})<br />
 
             {% endif %}
             {% if result.item_pk == '5' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'8' }}" class="tune-page-link" data-page="{{ result.start_page|add:"8" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'8' }}" class="tune-page-link" data-page="{{ result.start_page|add:"8" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})<br />
 
             {% endif %}
             {% if result.item_pk == '6' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'4' }}" class="tune-page-link" data-page="{{ result.start_page|add:"4" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'4' }}" class="tune-page-link" data-page="{{ result.start_page|add:"4" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})<br />
 
             {% endif %}
             {% if result.item_pk == '7' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})<br />
 
             {% endif %}
             {% if result.item_pk == '8' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-124' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-124" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-126" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-124' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-124" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-126" }})<br />
 
             {% endif %}
             {% if result.item_pk == '9' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})<br />
 
             {% endif %}
             {% if result.item_pk == '10' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:"0" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})<br />
 
             {% endif %}
             {% if result.item_pk == '11' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})<br />
 
             {% endif %}
             {% if result.item_pk == '12' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'3' }}" class="tune-page-link" data-page="{{ result.start_page|add:"3" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'3' }}" class="tune-page-link" data-page="{{ result.start_page|add:"3" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})<br />
 
             {% endif %}
             {% if result.item_pk == '13' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-40' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-40" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-42" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-40' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-40" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-42" }})<br />
 
             {% endif %}
             {% if result.item_pk == '14' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})<br />
 
             {% endif %}
             {% if result.item_pk == '15' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'7' }}" class="tune-page-link" data-page="{{ result.start_page|add:"7" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-3" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'7' }}" class="tune-page-link" data-page="{{ result.start_page|add:"7" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-3" }})<br />
 
             {% endif %}
             {% if result.item_pk == '16' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-3' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-3" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'-3' }}" class="tune-page-link" data-page="{{ result.start_page|add:"-3" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-6" }})<br />
 
             {% endif %}
             {% if result.item_pk == '17' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-2" }})</p>
 
             {% endif %}
             {% if result.item_pk == '18' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"2" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"2" }})<br />
 
             {% endif %}
             {% if result.item_pk == '19' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'1' }}" class="tune-page-link" data-page="{{ result.start_page|add:"1" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})<br />
 
             {% endif %}
             {% if result.item_pk == '20' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'2' }}" class="tune-page-link" data-page="{{ result.start_page|add:"2" }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-4" }})<br />
 
             {% endif %}
 
             {% if result.item_pk == '21' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-1" }})<br />
 
             {% endif %}
 
             {% if result.item_pk == '22' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-16" }})</p><br />
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}#{{ result.start_page|add:'0' }}" class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-16" }})</p>
 
             {% endif %}
+
+                <span id="highlighting_tune">{% if result.highlighted_string.alternate_spellings %}
+                <b>Alternate spellings:</b> {{ result.highlighted_string.alternate_spellings|safe}}<br />
+                {% endif %}</span><br />
 
 
                 {% else %}
 
                 <h4><a href="{{ result.url }}">{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</a></h4>
-                <p><span class="label label-primary">Author</span></p><br />
+                <p id="highlighting_author" ><span class="label label-primary">Author</span>
+                {% if result.highlighted_string.biographical_info %}
+                ...{{ result.highlighted_string.biographical_info|safe|squares1|squares2|squares3|squares4|slashn}}...<br />
+                        {% endif %}<br/>
+
+                <br />
 
                 {% endif %}
 

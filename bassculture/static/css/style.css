@@ -98,7 +98,45 @@ a.head{ color: #ccc; }
 
 #resultTune {
 
-    margin-left: 41px;
+    margin-left: 40px;
     padding: 0px;
     background-color: #eee;
+}
+
+#highlighting_tune {
+    margin-left: 40px;
+}
+
+#highlighting_tune em {
+    background-color: #DAA520;
+
+}
+
+#highlighting_author {
+
+}
+
+#highlighting_author em {
+    background-color: #DAA520;
+
+}
+
+#highlighting_source {
+    margin-left: 65px !important;
+    margin-right: 40px !important;
+}
+
+#highlighting_source em {
+    background-color: #DAA520;
+
+}
+
+#highlighting_copy {
+    margin-left: 102px !important;
+    margin-right: 40px !important;
+}
+
+#highlighting_copy em {
+    background-color: #DAA520;
+
 }

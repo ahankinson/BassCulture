@@ -16,3 +16,32 @@ def slash(value):
 @register.filter()
 def dquot(value):
     return value.replace("\"", "")
+
+
+@register.filter()
+def asterisk(value):
+    return value.replace("*:*", "")
+
+
+@register.filter(is_safe=True)
+def squares1(value):
+    return value.replace("['", "")
+
+
+@register.filter(is_safe=True)
+def squares2(value):
+    return value.replace("']", "")
+
+
+@register.filter(is_safe=True)
+def squares3(value):
+    return value.replace("\"]", "")
+
+
+@register.filter(is_safe=True)
+def squares4(value):
+    return value.replace("[\"", "")
+
+@register.filter(is_safe=True)
+def slashn(value):
+    return value.replace("\\n", "")
