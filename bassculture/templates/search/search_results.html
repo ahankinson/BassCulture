@@ -6,15 +6,14 @@
     {% for result in content.results %}
 
                 {% if result.type == 'source' %}
-                    <h4><a class="search-title" href="{{ result.url }}">{{ result.short_title|title }}</a></h4>
+                    <h4><a class="search-title" href="{{ result.url }}">{{ result.short_title|title|etc }}</a></h4>
                     <p><span class="label label-primary">Source</span><b> Author: </b> {{ result.author }}</p>
-                    <p id="highlighting_source">{% if result.highlighted_string.full_title %}
-                    <b>Full title:</b> ...{{ result.highlighted_string.full_title|safe|squares1|squares2|squares3|squares4|slashn}}...
+                    <p id="highlighting_source">
+                    {% if result.highlighted_string.full_title %}
+                    <b>Full title:</b> ...{{ result.highlighted_string.full_title|safe|squares1|squares2|squares3|squares4|slashn}}...<br/>
                     {% endif %}
                     {% if result.highlighted_string.description %}
                     <b>Description:</b> ...{{ result.highlighted_string.description|safe|squares1|squares2|squares3|squares4|slashn}}...<br />
-                    {% else %}
-                    <br/>
                     {% endif %}<br/>
 
                 {% elif result.type == 'copy' %}
@@ -26,7 +25,7 @@
 
                 {% elif result.type == 'tune' %}
 
-                    <h4><a class="search-title" href="{{ result.url }}">{{ result.name|title }}</a></h4>
+                    <h4><a class="search-title" href="{{ result.url }}">{{ result.name|title|etc }}</a></h4>
                     <p><span class="label label-primary">Tune</span><b>   From: </b> {{ result.source_title }}, by {{ result.source_author }}<br />
 
             {% if result.item_pk == '1' %}
@@ -145,8 +144,8 @@
 
             {% endif %}
 
-                <span id="highlighting_tune">{% if result.highlighted_string.alternate_spellings %}
-                <b>Alternate spellings:</b> {{ result.highlighted_string.alternate_spellings|safe}}<br />
+                <p id="highlighting_tune">{% if result.highlighted_string.alternate_spellings %}
+                <b>Alternate spellings:</b> {{ result.highlighted_string.alternate_spellings|safe|squares1|squares2|squares3|squares4|slashn}}<br />
                 {% endif %}</span><br />
 
 
