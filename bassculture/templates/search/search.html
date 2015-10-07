@@ -119,6 +119,7 @@
         var qstr_params = $.parseParams(qstr);
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');
+
         if (!(facetName in qstr_params))
         {
             var facetQ = facetName + "=" + facetValue;
