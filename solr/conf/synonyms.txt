@@ -26,5 +26,6 @@ Television, Televisions, TV, TVs
 
 # Synonym mappings can be used for spelling correction too
 pixima => pixma
-Compleate,Complete
-
+mckintosh,mackintosh,macintosh,mcintosh
+macglashan,mcglashan
+Macintyre,Mcintyre
