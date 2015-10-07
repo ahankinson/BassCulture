@@ -45,3 +45,8 @@ def squares4(value):
 @register.filter(is_safe=True)
 def slashn(value):
     return value.replace("\\n", "")
+
+
+@register.filter(is_safe=True)
+def etc(value):
+    return value.replace("&C", "&c")
