@@ -28,7 +28,12 @@ height: 800px;
     height: 40px;
 }
 
-a.head{ color: #ccc; } 
+a.head {
+
+    color: #ccc;
+    margin-left: 110px;
+
+} 
 
 .footer {
     background-color: #333;
@@ -47,6 +52,11 @@ a.head{ color: #ccc; }
     top: 15px;
 }
 
+#banner {
+
+    margin-left: 120px;
+
+}
 
 #searchResults h4 {
     font-size: 16px;
@@ -104,7 +114,8 @@ a.head{ color: #ccc; }
 }
 
 #highlighting_tune {
-    margin-left: 40px;
+    margin-left: 54px !important;
+    margin-right: 40px !important;
 }
 
 #highlighting_tune em {

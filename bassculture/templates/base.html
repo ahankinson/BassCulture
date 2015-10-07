@@ -20,17 +20,33 @@
     </head>
 
 
-<nav class="header">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="col-md-2"><p></p><a href="/" class="head"><i class="fa fa-home fa-2x"></i>
-</a>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+    <li class="col-md-1"><a href="/fiddle" class="head"><i class="fa fa-home fa-2x"></i><span class="sr-only">(current)</span></a></li>
+    <li class="col-md-1"><a class="head" href="/fiddle/about" >about</a></li>
+    <li class="col-md-1"><a class="head" href="/fiddle/search" >search</a></li>
+    </ul>
+
+    </div>
+
+    </div>
     </div>
     </div>
   </div>
 </nav>
-
-
-    <img src="/static/img/hms.jpg" style="width:100%;" />
+  <div class="container-fluid">
+    <img class="col-md-10 col-md-offset-1" src="/static/img/hms.jpg" style="width:83%;" />
+    </div>
 
             {% block body %}
             {% endblock %}

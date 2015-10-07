@@ -68,7 +68,7 @@
    <field name="author" type="string" indexed="true" stored="true" />
    <field name="description" type="text_general" indexed="true" stored="true"/>
    <field name="orientation" type="string"/>
-   <field name="synonyms" type="text_general" indexed="true" stored="true" />
+   <field name="variants" type="text_general" indexed="true" stored="true" />
 
     <!-- item -->
    <field name="folder" type="string" indexed="true" stored="false"/>
