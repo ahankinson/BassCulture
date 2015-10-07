@@ -115,6 +115,7 @@
         var facetOffset = $(this).data('facet-offset');
         var facetLimit = $(this).data('facet-limit');
         var qstr = window.location.search.replace("?limit=" + facetLimit + "&offset=" + facetOffset, "");
+        var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
         var qstr_params = $.parseParams(qstr);
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');
