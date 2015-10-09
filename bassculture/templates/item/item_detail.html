@@ -13,7 +13,7 @@
 <div class="container-fluid">
 <div class="col-md-12">
 
-    <h2 class="center"><em>{{ content.source_title }}</em><br /><small> by {{ content.source_author }}</small></h2>
+    <h2 class="text-center"><em>{{ content.source_title }}</em><br /><small> by {{ content.source_author }}</small></h2>
 <br />
 </div>
 
@@ -204,18 +204,13 @@
     </script>
     <script type="text/javascript">
 
-        //     setTimeout(function(){
-        //     hash = hash.slice(1);
-        //         var diva = $('#diva-wrapper').data('diva');
-        //         diva.gotoPageByNumber(hash);},2000);
-        //     }
-            var hash = window.location.hash;
-            hash = hash.slice(1);
-            if(hash){
-                var divaObject = $('#diva-wrapper').data('diva');
-                diva.Events.subscribe('DocumentDidLoad', function(idx, filename){
-                    divaObject.gotoPageByNumber(hash);
-                })};
+            var divaObject = $('#diva-wrapper').data('diva')
+            diva.Events.subscribe('DocumentDidLoad', function(idx, filename) {
+                if(sessionStorage.gotoPage) {
+                divaObject.gotoPageByNumber(sessionStorage.gotoPage);
+            }
+        });
+                
         $('.tune-page-link').click(function(e)
         {
             var diva = $('#diva-wrapper').data('diva');

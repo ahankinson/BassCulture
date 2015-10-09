@@ -116,7 +116,7 @@
         var facetLimit = $(this).data('facet-limit');
         var qstr = window.location.search.replace("?limit=" + facetLimit + "&offset=" + facetOffset, "");
         var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
-        var qstr_params = $.parseParams(qstr);
+        var qstr_params = $.parseParams(qstr); 
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');
 
@@ -135,5 +135,15 @@
         }
         e.preventDefault();
     });
+</script>
+<script type="text/javascript">
+
+    sessionStorage.setItem('gotoPage', null);
+
+    $(".tune-page-link").click(function() {
+        var pageNum = $(this).data('page');
+        sessionStorage.gotoPage = pageNum;
+        });
+
 </script>
 {% endblock %}
