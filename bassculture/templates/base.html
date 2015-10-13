@@ -20,33 +20,11 @@
     </head>
 
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-    <li class="col-md-1"><a href="/fiddle" class="head"><i class="fa fa-home fa-2x"></i><span class="sr-only">(current)</span></a></li>
-    <li class="col-md-1"><a class="head" href="/fiddle/about" >about</a></li>
-    <li class="col-md-1"><a class="head" href="/fiddle/search" >search</a></li>
-    </ul>
+{% include 'navbar.html' %}
 
-    </div>
 
-    </div>
-    </div>
-    </div>
-  </div>
-</nav>
-  <div class="container-fluid">
-    <img class="col-md-10 col-md-offset-1" src="/static/img/hms.jpg" style="width:83%;" />
-    </div>
+    <a href="/fiddle/"><img class="center-block img-responsive" src="/static/img/hms_scot.png" style="width:87%;" /></a>
+
 
             {% block body %}
             {% endblock %}
@@ -67,20 +45,20 @@
   <div class="container-fluid">
   <br />
   <br />
-    <div class="col-md-2"><p>
-    <img src="/static/img/rcs.png" style="width:60%;"></img></p>
+    <div class="col-xs-2"><p>
+    <img class="center-block img-responsive" src="/static/img/rcs.png" style="width:60%;"></img></p>
     </div>
-    <div class="col-md-2"><p>
-    <img src="/static/img/uc.png" style="width:90%;"></img></p>
+    <div class="col-xs-2"><p>
+    <img class="center-block img-responsive" src="/static/img/uc.png" style="width:90%;"></img></p>
     </div>
-    <div class="col-md-2"><p>
-    <img src="/static/img/ug.png" style="width:70%;"></img></p>
+    <div class="col-xs-2"><p>
+    <img class="center-block img-responsive" src="/static/img/ug.png" style="width:70%;"></img></p>
     </div>
-    <div class="col-md-2"><p>
-    <img src="/static/img/bassc.png" style="width:100%;"></img></p>
+    <div class="col-xs-2"><p>
+    <img class="center-block img-responsive" src="/static/img/bassc.png" style="width:100%;"></img></p>
     </div>
-    <div class="col-md-2">
-    <img src="/static/img/AHRC.png" style="width:50%;"></img></p>
+    <div class="col-xs-2">
+    <img class="center-block img-responsive" src="/static/img/AHRC.png" style="width:50%;"></img></p>
     </div>
     </div>
     <br />

@@ -14,7 +14,7 @@
         <p><b>Full title:</b> {{ content.full_title }}</p>
         <p><b>Author:</b> <a href="{{content.author.url}}">{{ content.author.firstname }} {{ content.author.surname }} {{ content.author.extrainfo }}</a></p>
         <p><b>Description:</b> {{ content.description|linebreaks }}</p>
-        <p><b>Notes:</b> {{ content.source_notes|urlize }}</p>
+        <p><b>Notes:</b> {{ content.source_notes|urlize|linebreaks }}</p>
         <p><b>Printer:</b> {{ content.printer }}</p>
         <p><b>Edition:</b> {{ content.edition }}</p>
         <p><b>Orientation:</b> {{ content.orientation }}</p>
@@ -22,8 +22,37 @@
         <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
         <p><b>RISM:</b> {{ content.rism }}</p>
         <p><b>Gore:</b> {{ content.gore }}</p>
-        <p><b>Locations:</b> {{ content.locations|linebreaks }}</p>
+        <p><b>Locations:</b>
+        <a data-toggle="collapse" href="#sigla">
+            (Show the sigla expansions)</a>
+            <div id="sigla" class="panel-collapse collapse">
+                <div>
+                    Here goes the list with all the sigla
+                </div>
+            </div>
+        </p><p>{{ content.locations|linebreaks }}</p>
 
+<!-- </div> -->
+
+<!-- <div class="col-md-4 col-md-offset-1">
+     <div class="panel panel-default"> -->
+<!--         <div class="panel-heading"> -->
+<!--             <p class="panel-title"> -->
+<!--             <a data-toggle="collapse" href="#sigla">
+            Show the sigla expansions &darr;</a>
+            </p> -->
+<!--         </div> -->
+<!--         <div id="sigla" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>
+                Here goes the list with all the sigla
+                </p>
+            </div>
+        </div> -->
+<!--     </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-10 col-md-offset-1"> -->
 
     <ul>
     
@@ -31,10 +60,11 @@
 
     {% if not content.items %}
 
-    <p><span class="fa-stack fa-lg">
-  <i class="fa fa-camera fa-stack-1x"></i>
-  <i class="fa fa-ban fa-stack-2x text-danger"></i>
-</span> This source has not been digitised.</p>
+    <p>
+        <span class="fa-stack fa-lg">
+        <i class="fa fa-camera fa-stack-1x"></i>
+        <i class="fa fa-ban fa-stack-2x text-danger"></i>
+        </span> This source has not been digitised.</p>
 
     {% else %}
 
@@ -54,6 +84,8 @@
     <br />
     <br />
     <br />
-    </div>
+
 </div>
+</div>
+
 {% endblock %}
