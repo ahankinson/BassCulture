@@ -5,14 +5,42 @@
 {% endblock %}
 
 {% block body %}
+
+<div class="container-fluid">
+<div class="col-md-10 col-md-offset-1">
+
     <h1>Authors List</h1>
 
-    <table class='table'>
+Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href="#D">D</a> | <a href="#E">E</a> | <a href="#F">F</a> | <a href="#G">G</a> | <a href="#H">H</a> | <a href="#J">J</a> | <a href="#K">K</a> | <a href="#L">L</a> | <a href="#M">M</a> | <a href="#N">N</a> | <a href="#O">O</a> | <a href="#P">P</a> | <a href="#R">R</a> | <a href="#S">S</a> | <a href="#T">T</a> | <a href="#W">W</a> | <a href="#Y">Y</a> | <a href="#[">[</a>
+
+<br/>
+<br/>
+<br/>
+
+{% regroup content by surname.0 as authors %}
+<div class="panel panel-default">
+<ul>
+    {% for author in authors %}
+    <div class="panel-heading"><a name="{{ author.grouper|first }}">{{ author.grouper }}</div>
+        <ul class="list-group">
+        {% for item in author.list %}
+            <li class="list-group-item"><a href="{{ item.url }}">{{ item.surname }}, {{ item.firstname }} {{ item.extrainfo }}</a></li>
+        {% endfor %}
+    </ul>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+<!--     <table class='table'>
         {% for author in content %}
         <tr>
             <td><a href="{{ author.url }}">{{ author.surname }}, {{ author.firstname }} {{ author.extrainfo }}</a></td>
         </tr> 
         {% endfor %}
-    </table>
+    </table> -->
 
+
+</div>
+</div>
 {% endblock %}

@@ -20,7 +20,7 @@ class AuthorDetailHTMLRenderer(CustomHTMLRenderer):
 
 class AuthorList(generics.ListCreateAPIView):
     model = Author
-    queryset = Author.objects.all()
+    queryset = Author.objects.order_by('surname')
     serializer_class = AuthorListSerializer
     renderer_classes = (JSONRenderer,
                         AuthorListHTMLRenderer, BrowsableAPIRenderer)
