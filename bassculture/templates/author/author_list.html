@@ -19,7 +19,7 @@ Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href=
 
 {% regroup content by surname.0 as authors %}
 <div class="panel panel-default">
-<ul>
+
     {% for author in authors %}
     <div class="panel-heading"><a name="{{ author.grouper|first }}">{{ author.grouper }}</div>
         <ul class="list-group">
@@ -27,9 +27,8 @@ Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href=
             <li class="list-group-item"><a href="{{ item.url }}">{{ item.surname }}, {{ item.firstname }} {{ item.extrainfo }}</a></li>
         {% endfor %}
     </ul>
-    </li>
     {% endfor %}
-</ul>
+
 </div>
 
 <!--     <table class='table'>
