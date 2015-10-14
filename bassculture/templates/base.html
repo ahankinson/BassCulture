@@ -23,11 +23,14 @@
 {% include 'navbar.html' %}
 
 
-    <a href="/fiddle/"><img class="center-block img-responsive" src="/static/img/hms_scot.png" style="width:87%;" /></a>
+<div class="col-md-10 col-md-offset-1">
+    <a href="/fiddle/"><img class="center-block img-responsive" srcset="/static/img/hms_scot_lg.png 1200w, /static/img/hms_scot_sm.png 800w" alt="hms.scot"></a>
+</div>
 
 
             {% block body %}
             {% endblock %}
+
 
         <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
         <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
@@ -63,8 +66,6 @@
     </div>
     <br />
     <br />
-</div>
-
 </div>
 
 </html>
