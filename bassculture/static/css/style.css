@@ -1,3 +1,29 @@
+body { font-family:"Open Sans",sans-serif; color:#333; font-size:13px;
+             margin:0; padding:0; width:100%; background:#f7f6f2;  letter-spacing: .1px;
+             overflow-x:hidden; overflow-y:scroll; line-height:1.428571429; overflow-x: hidden;}
+
+.back-to-top {
+    position: fixed;
+    bottom: 19em;
+    right: 30px;
+    text-decoration: none;
+    color: #000000;
+    background-color: rgba(235, 235, 235, 0.80);
+    font-size: 13px;
+    padding: 1em;
+    display: none;
+    z-index: 1000;
+}
+
+.back-to-top:hover {    
+    background-color: rgba(135, 135, 135, 0.50);
+}
+
+.dropdown-menu {
+
+    min-width: 60px;
+}
+
 .navbar-toggle .icon-bar {
     border-radius: 1px;
     display: block;
@@ -491,7 +517,7 @@ height: 800px;
     float: left;
     margin-top: 0;
     padding: 30px;
-    background-color: #fff;
+    background-color: rgba(230, 230, 230, 0.6);
 }
 
 #resultTune {

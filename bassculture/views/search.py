@@ -72,6 +72,9 @@ class SearchView(GenericAPIView):
                      .execute()\
 
 
+        # the following code augments the result documentation
+        # with the highlighted output for each result id
+
         for d in response:
             d['highlighted_string'] = response.highlighting[d['id']]
         results_list = response

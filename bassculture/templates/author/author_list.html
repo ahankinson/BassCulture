@@ -8,14 +8,48 @@
 
 <div class="container-fluid">
 <div class="col-md-10 col-md-offset-1">
-
-    <h1>Authors List</h1>
-
-Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href="#D">D</a> | <a href="#E">E</a> | <a href="#F">F</a> | <a href="#G">G</a> | <a href="#H">H</a> | <a href="#J">J</a> | <a href="#K">K</a> | <a href="#L">L</a> | <a href="#M">M</a> | <a href="#N">N</a> | <a href="#O">O</a> | <a href="#P">P</a> | <a href="#R">R</a> | <a href="#S">S</a> | <a href="#T">T</a> | <a href="#W">W</a> | <a href="#Y">Y</a> | <a href="#[">[</a>
+    <h1>List of all the authors</h1>
 
 <br/>
+
+<div class="dropdown">
+
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Jump to<span class="caret"></span>
+  </button>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><a href="#A">A</a></li>
+        <li><a href="#B">B</a></li>
+        <li><a href="#C">C</a></li>
+        <li><a href="#D">D</a></li>
+        <li><a href="#E">E</a></li>
+        <li><a href="#F">F</a></li>
+        <li><a href="#G">G</a></li>
+        <li><a href="#H">H</a></li>
+        <li><a href="#J">J</a></li>
+        <li><a href="#K">K</a></li>
+        <li><a href="#L">L</a></li>
+        <li><a href="#M">M</a></li>
+        <li><a href="#N">N</a></li>
+        <li><a href="#O">O</a></li>
+        <li><a href="#P">P</a></li>
+        <li><a href="#R">R</a></li>
+        <li><a href="#S">S</a></li>
+        <li><a href="#T">T</a></li>
+        <li><a href="#W">W</a></li>
+        <li><a href="#Y">Y</a></li>
+        <li><a href="#[">[</a></li>
+    </ul>
+
+</div>
+
+
+
+<!-- Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href="#D">D</a> | <a href="#E">E</a> | <a href="#F">F</a> | <a href="#G">G</a> | <a href="#H">H</a> | <a href="#J">J</a> | <a href="#K">K</a> | <a href="#L">L</a> | <a href="#M">M</a> | <a href="#N">N</a> | <a href="#O">O</a> | <a href="#P">P</a> | <a href="#R">R</a> | <a href="#S">S</a> | <a href="#T">T</a> | <a href="#W">W</a> | <a href="#Y">Y</a> | <a href="#[">[</a> -->
+
 <br/>
-<br/>
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up fa-lg"></i> Back to top</a>
 
 {% regroup content by surname.0 as authors %}
 <div class="panel panel-default">
@@ -28,7 +62,6 @@ Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href=
         {% endfor %}
     </ul>
     {% endfor %}
-
 </div>
 
 <!--     <table class='table'>
@@ -38,8 +71,29 @@ Jump to: <a href="#A">A</a> | <a href="#B">B</a> | <a href="#C">C</a> | <a href=
         </tr> 
         {% endfor %}
     </table> -->
-
-
 </div>
 </div>
+{% endblock %}
+{% block scripts %}
+
+<script>
+$(document).ready(function() {
+    var offset = 220;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+            jQuery('.back-to-top').fadeIn(duration);
+        } else {
+            jQuery('.back-to-top').fadeOut(duration);
+        }
+    });
+    
+    jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+    })
+});
+
+</script>
 {% endblock %}
