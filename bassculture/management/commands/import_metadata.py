@@ -77,7 +77,7 @@ class Command(BaseCommand):
             'dimensions': row['dimensions'],
             'library': row['library_name'],
             'shelfmark': row['shelfmark'],
-            'item_notes': row['internal_notes'],
+            'item_notes': row['item_notes'],
             'source': self.source,
             'seller': row['sold'],
         }
