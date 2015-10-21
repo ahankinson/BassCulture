@@ -148,8 +148,7 @@ MEDIA_URL = "/uploads/"
 
 SOLR_SERVER = "http://localhost:8983/solr/HMS/"
 IIP_SERVER = "http://bassculture.info/iipsrv"
-# IIP_SERVER_IMAGE_PATH = "/srv/webapps/BassCulture/bassculture/static/images/"
-IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/wsgi/static/images/"
+IIP_SERVER_IMAGE_PATH = "/mnt/diskpack/www/html/bassculture.info/www/hms.scot_images/"
 DIVA_OBJECT_DATA = "/static/json/"
 
 SEARCH_FACETS = [

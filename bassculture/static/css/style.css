@@ -1,6 +1,99 @@
-body { font-family:"Open Sans",sans-serif; color:#333; font-size:13px;
+body { font-family:"Open Sans",sans-serif; color:#333; font-size:14px;
              margin:0; padding:0; width:100%; background:#f7f6f2;  letter-spacing: .1px;
              overflow-x:hidden; overflow-y:scroll; line-height:1.428571429; overflow-x: hidden;}
+
+.row {
+    margin-left:0;
+    margin-right:0;
+}
+
+.container-fluidit {
+
+	margin-left: 9%;
+	margin-right: 9%;
+	margin-bottom: 30px;
+
+}
+.row .sp {
+   min-height:170px;
+   margin-bottom:10px;
+   border-bottom:3px #eee solid;
+}
+
+.editor {
+   border-right:3px #eee solid;
+}
+
+.pane-label {
+  position: absolute;
+  z-index: 99;
+  padding: 0;
+  font-size: 80%;
+  opacity: .4;
+  right: 15px;
+  bottom: 15px;
+  margin: 0;
+}
+
+@media (max-width: 939px) { 
+
+	.row .sp {
+    	width:48.62% !important;
+      	
+	}
+
+}
+
+@media (max-width: 767px) { 
+
+	.row .sp {
+    	width:100% !important;
+        height:auto !important;
+	}
+
+}
+
+@media (max-width: 1200px) { 
+	.row .sp {
+    	width:49.62% !important;
+      	
+	}
+}
+
+@media (max-width: 767px) { 
+
+	.row .sp {
+    	width:100% !important;
+        height:auto !important;
+	}
+
+}
+
+.cont {
+	width:100%;
+}
+
+
+.inner {
+	overflow-y:auto;
+    overflow-x:hidden;
+    height:100%;
+}
+
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+
+
+
+#sidebar {
+       width: 49%;
+}
+#dyncontent {
+width: 100%;
+        float: left;
+}
 
 .back-to-top {
     position: fixed;
@@ -509,12 +602,22 @@ height: 800px;
     padding: 10px;
     background-color: #eee;
 }
+  
+.ui-resizable-helper { border: 1px dotted gray; }
+.ui-resizable-handle {
+    border-left: 1px ridge;
+    cursor: col-resize;
+}
+    
+.ui-resizable-s {
+	visibility: hidden;
+}
 
 #itemDetails {
     border: 2px solid #92c2e8;
     border-radius: 4px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.15);
-    float: left;
+    float: none;
     margin-top: 0;
     padding: 30px;
     background-color: rgba(230, 230, 230, 0.6);
