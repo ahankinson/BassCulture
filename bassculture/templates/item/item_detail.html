@@ -10,14 +10,18 @@
 {% endblock %}
 
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluidit">
+
 <div class="col-md-12">
 
     <h2 class="text-center"><em>{{ content.source_title }}</em><br /><small> by {{ content.source_author }}</small></h2>
 <br />
 </div>
 
-    <div class="col-md-4 col-md-offset-1" id="itemDetails" style="height: 858px; overflow: scroll;">
+<div class="cont">
+    <div class="row">
+        <div class="col-sm-6 sp editor">
+            <div class="inner" id="itemDetails" style="height: 858px; overflow: scroll;">
 
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tunes-list">Tunes list</a></li>
@@ -116,7 +120,8 @@
                 <li><a href="#" class="tune-page-link" data-page="{{ tune.start_page|add:"0" }}">{{ tune.name }}</a> (p. {{ tune.start_page|add:"-16" }})</li>
                 {% endfor %}
             {% endif %}
-    </div>
+    </div><!--tunes-list-->
+    
     <div id="copy-detail" class="tab-pane fade">
       <h3>Copy detail</h3>
 <!--                 <div class="panel-body"> -->
@@ -160,17 +165,17 @@
                     <h4>Gore</h4>
                     <p>{{ content.source_gore }}</p>
 
-<!--                 </div> -->
-    </div>
-
-  </div>
-
-</div>
-<br />
-
-    <div class="col-xs-6" >
-        <div id="diva-wrapper"></div>
-    </div>
+</div><!--copy-detail-->
+</div><!--tab-content-->
+</div><!--inner-->
+</div><!--sp editor-->
+        
+        <div class="col-sm-6 sp">
+            <div class="inner" id="diva-wrapper"></div>
+        </div>
+        
+    </div> <!--row-->
+</div> <!--cont-->
 
     <div class="col-md-12">
 
@@ -178,6 +183,7 @@
         <br />
 
     </div>
+
 </div> <!--container-fluid-->
 
 {% endblock %}
@@ -248,5 +254,46 @@
             $("#notation").html(svg);
         }, 'text');
 
+    </script>
+    <script>
+	$(window).bind("resize", function(event){
+  		if (this == event.target) {
+			$('.sp').removeAttr('style');
+    	}
+	});
+
+	$('.editor').resizable({
+    	handles: 'e, s',
+		minWidth:100,
+  		maxWidth:900,
+  		resize:function(event,ui){
+    		var x=ui.element.outerWidth();
+    		var y=ui.element.outerHeight();
+    		var ele=ui.element;
+     		var factor = $(this).parent().width()-x;
+      		var f2 = $(this).parent().width() * .02999;
+      		console.log(f2);
+      		$.each(ele.siblings(),function(idx,item){
+          
+        		ele.siblings().eq(idx).css('height',y+'px');
+          		//ele.siblings().eq(idx).css('width',(factor-41)+'px');
+        		ele.siblings().eq(idx).width((factor-f2)+'px');
+
+      		});
+    	}
+	});
+
+	$('.sp:not(.editor)').resizable({
+    	handles: 's',
+  		resize:function(event,ui){
+    	
+    		var y=ui.element.outerHeight();
+    		var ele=ui.element;
+     	
+      		$.each(ele.siblings(),function(idx,item){
+        		ele.siblings().eq(idx).css('height',y+'px');
+      		});
+    	}
+	});
     </script>
 {% endblock %}
