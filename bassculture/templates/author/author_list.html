@@ -14,10 +14,10 @@
 
 <div class="dropdown">
 
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Jump to<span class="caret"></span>
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownAuthors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Jump to<span class="caret"></span>
   </button>
 
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <ul class="dropdown-menu" aria-labelledby="dropdownAuthors">
         <li><a href="#A">A</a></li>
         <li><a href="#B">B</a></li>
         <li><a href="#C">C</a></li>
@@ -38,7 +38,7 @@
         <li><a href="#T">T</a></li>
         <li><a href="#W">W</a></li>
         <li><a href="#Y">Y</a></li>
-        <li><a href="#[">[</a></li>
+        <li><a href="#[">[  ]</a></li>
     </ul>
 
 </div>
@@ -49,18 +49,28 @@
 
 <br/>
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up fa-lg"></i> Back to top</a>
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up fa-lgq"></i> Back to top</a>
 
 {% regroup content by surname.0 as authors %}
 <div class="panel panel-default">
 
     {% for author in authors %}
-    <div class="panel-heading"><a name="{{ author.grouper|first }}">{{ author.grouper }}</div>
-        <ul class="list-group">
+    {% if author.grouper|first != '[' %}
+
+    <div class="panel-heading">
+    <a name="{{ author.grouper|first }}">{{ author.grouper }}</div>
+
+    {% else %}
+    <div class="panel-heading">
+    <a name="{{ author.grouper|first }}">[  ]</div>
+    {% endif %}
+
+    <ul class="list-group">
         {% for item in author.list %}
             <li class="list-group-item"><a href="{{ item.url }}">{{ item.surname }}, {{ item.firstname }} {{ item.extrainfo }}</a></li>
         {% endfor %}
-    </ul>
+        </ul>
+
     {% endfor %}
 </div>
 

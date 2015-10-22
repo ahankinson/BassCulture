@@ -123,35 +123,60 @@
     </div><!--tunes-list-->
     
     <div id="copy-detail" class="tab-pane fade">
-      <h3>Copy detail</h3>
+      <h3>Copy details</h3>
+      <br />
 <!--                 <div class="panel-body"> -->
 
-                    <h4>Seller</h4>
-                    <p>{{ content.seller }}</p>
+                    {% if content.seller %}
 
-                    <h4>Item notes</h4>
-                    <p>{{ content.item_notes }}</p>
+                        <h4>Seller</h4>
+                        <p>{{ content.seller }}</p>
+
+                    {% endif %}
+
+                    {% if content.item_notes %}
+
+                        <h4>Item notes</h4>
+                        <p>{{ content.item_notes }}</p>
+
+                    {% endif %}
 
                     <h4>Publisher</h4>
                     <p>{{ content.source_publisher }}</p>
 
-                    <h4>Printer</h4>
-                    <p>{{ content.source_printer }}</p>
+                    {% if content.source_printer %}
+
+                        <h4>Printer</h4>
+                        <p>{{ content.source_printer }}</p>
+
+                    {% endif %}
 
                     <h4>Date</h4>
                     <p>{{ content.source_date }}</p>
 
-                    <h4>RISM</h4>
-                    <p>{{ content.source_rism }}</p>
+                    {% if content.source_rism%}
+
+                        <h4>RISM</h4>
+                        <p>{{ content.source_rism }}</p>
+
+                    {% endif %}
 
                     <h4>Pagination</h4>
                     <p>{{ content.pagination }}</p>
 
-                    <h4>Orientation</h4>
-                    <p>{{ content.source_orientation }}</p>
+                    {% if content.source_orientation %}
 
-                    <h4>Dimensions</h4>
-                    <p>{{ content.dimensions }}</p>
+                        <h4>Orientation</h4>
+                        <p>{{ content.source_orientation }}</p>
+
+                    {% endif %}
+
+                    {% if content.dimensions %}
+
+                        <h4>Dimensions</h4>
+                        <p>{{ content.dimensions }}</p>
+
+                    {% endif %}
 
                     <h4>Shelfmark</h4>
                     <p>{{ content.shelfmark }}</p>
@@ -162,8 +187,13 @@
                     <h4>Edition</h4>
                     <p>{{ content.source_edition }}</p>
 
-                    <h4>Gore</h4>
-                    <p>{{ content.source_gore }}</p>
+                    {% if content.source_gore%}
+
+                        <h4>Gore</h4>
+                        <p>{{ content.source_gore }}</p>
+
+                    {% endif %}
+
 
 </div><!--copy-detail-->
 </div><!--tab-content-->

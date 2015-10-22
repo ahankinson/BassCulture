@@ -1,6 +1,26 @@
-body { font-family:"Open Sans",sans-serif; color:#333; font-size:14px;
-             margin:0; padding:0; width:100%; background:#f7f6f2;  letter-spacing: .1px;
-             overflow-x:hidden; overflow-y:scroll; line-height:1.428571429; overflow-x: hidden;}
+body { 
+
+    font-family:"Open Sans",sans-serif;
+    color:#333; font-size:14px;
+    margin:0;
+    padding:0;
+    width:100%;
+    background:#f7f6f2;
+    letter-spacing: .1px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    line-height:1.428571429;
+    overflow-x: hidden;
+
+}
+
+#fiddlehome {
+
+    margin-top: 50px;
+    opacity: 0.6;
+    margin-bottom: 60px;
+
+}
 
 .row {
     margin-left:0;
@@ -9,9 +29,9 @@ body { font-family:"Open Sans",sans-serif; color:#333; font-size:14px;
 
 .container-fluidit {
 
-	margin-left: 9%;
-	margin-right: 9%;
-	margin-bottom: 30px;
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-bottom: 30px;
 
 }
 .row .sp {
@@ -37,45 +57,47 @@ body { font-family:"Open Sans",sans-serif; color:#333; font-size:14px;
 
 @media (max-width: 939px) { 
 
-	.row .sp {
-    	width:48.62% !important;
-      	
-	}
+    .row .sp {
+        width:48.62% !important;
+    
+    }
 
 }
 
 @media (max-width: 767px) { 
 
-	.row .sp {
-    	width:100% !important;
+    .row .sp {
+        width:100% !important;
         height:auto !important;
-	}
+    }
 
 }
 
 @media (max-width: 1200px) { 
-	.row .sp {
-    	width:49.62% !important;
-      	
-	}
+    .row .sp {
+        width:49.62% !important;
+
+    }
 }
 
 @media (max-width: 767px) { 
 
-	.row .sp {
-    	width:100% !important;
+    .row .sp {
+        width:100% !important;
         height:auto !important;
-	}
+    }
 
 }
 
 .cont {
-	width:100%;
+
+    width:100%;
+
 }
 
 
 .inner {
-	overflow-y:auto;
+    overflow-y:auto;
     overflow-x:hidden;
     height:100%;
 }
@@ -90,9 +112,12 @@ body { font-family:"Open Sans",sans-serif; color:#333; font-size:14px;
 #sidebar {
        width: 49%;
 }
+
 #dyncontent {
-width: 100%;
-        float: left;
+
+    width: 100%;
+    float: left;
+
 }
 
 .back-to-top {
@@ -127,11 +152,13 @@ width: 100%;
 .navbar-toggle .icon-bar + .icon-bar {
     margin-top: 4px;
 }
+
 @media (min-width: 768px) {
-.navbar-toggle {
-    display: none;
+    .navbar-toggle {
+        display: none;
+    }
 }
-}
+
 .navbar-nav {
     margin: 7.5px -15px;
 }
