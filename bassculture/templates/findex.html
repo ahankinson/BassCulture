@@ -2,30 +2,20 @@
 
 {% block body %}
 <div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1">
 
-<div class="row">
+    {% block title %}
+        <title>hms | home</title> 
+    {% endblock %}
 
-    <div class="col-md-3 col-md-offset-1">
-    <div class="shadow">
-    <img src="/static/img/Ca12-x-_56_0005.jpg" class="img-responsive center-block" id="fiddlehome" style="width:74%;">
-    </div>
-    </div>
+<!--     <div class="page-header">
+        <h1>About</h1>
+    </div> -->
 
-    <div class="col-md-4 text-center">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h4>Search our collection using the form below, or browse using the top menu at the top of this page </h4>
+<br />
 
-    <div class="well well-sm">
-
+    <div class="col-md-6 col-md-offset-3 well well-sm">
+    <h2>Search the HMS database!</h2>
     <form role = "form" var="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
         <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
@@ -38,16 +28,164 @@
     <p>Search for <kbd>*</kbd> to see the entire collection</p>
 
     </div> <!--well well-sm-->
-</div> <!--col-md-4-->
-
-    <div class="col-md-3">
-    <div class="shadow">
-    <img src="/static/img/06_Campbell_1-005.jpg" class="img-responsive center-block" id="fiddlehome" style="width:70%;"></p>
-    </div>
     </div>
 
-</div> <!--col-md-4-->
-
+<div class="col-md-10 col-md-offset-1">
+<h2>About the project</h2>
+<br />
+ <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fa fa-info-circle"></i> Summary</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body"><p>
+This database includes over 200 printed sources of Scottish fiddle music from before 1850. It omits publications of songs and airs, and because of its bass-led focus, sources without basslines. Most of the sources are substantial printed collections, but the database also includes some of the hundreds of surviving single-sheet publications. Manuscript sources were excluded purely to keep the project to a manageable size at this stage. 
+</p>
+<p>
+Finding the limits of the repertoire to be included was work-in-progress. We began by looking for sources of 'Scottish fiddle music', but the boundaries of this became ever more porous and difficult to define. In the past, Scottish fiddlers were familiar with a more diverse repertoire than our present-day conception of Scottish fiddle music might suggest. Also, the notion of Scottishness in music is difficult to pin down in a period when the notion of a national culture was only gradually taking shape. 
+</p>
+<p>
+Theoretical models for describing and analysing this music are still in their very early stages, so a detailed (or definitive) analysis is both inappropriate and probably impossible. The short notes on the music in each source give
+<ul>
+<li>a summary of the kind of repertoire it contains</li>
+<li>some features of the basslines</li>
+<li>particular points of interest that the research team noted on a brief survey of the contents</li>
+</ul>
+</p>
 </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><i class="fa fa-users"></i>
+        Research team</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body"><p>Principal Investigator, project management and editor: David McGuinness<br />
+Researcher (post-doctoral), music bibliography & cataloguing: Karen McAulay<br />
+Systems Developer, web implementation: Luca Guariento<br />
+Co-Investigators, oversight and advice: John Butt, Susan Rankin<br />
+Research Administrator, School of Culture and Creative Arts, University of Glasgow: Jeanette Berrie</p>
 
+<p><strong>with</strong></p>
+Systems Developers, systems design: Zoltán Kömives, Neil McDermott<br />
+music encoding: Karen Marshalsay<br />
+MEI and search engine implementation: Andrew Hankinson<br />
+HMS.Scot logo design: Ewan McPherson<br />
+</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><i class="fa fa-thumbs-o-up"></i> Thanks to...</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">University of Glasgow Library Special Collections & Digitisation Unit<br />
+Nicola Cowmeadow and the team at AK Bell Library, Perth & Kinross<br />
+the staff at all the libraries we visited in Scotland for being endlessly patient and helpful: <br />
+go and visit them, they will be pleased to see you!<br /></div>
+    </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><i class="fa fa-terminal"></i> Technologies used</a>
+        </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+            <ul>
+            <li>Web framework: <a target="_blank" href="https://www.djangoproject.com/">Django</a></li>
+            <li><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a></li>
+            <li><a target="_blank" href="http://jquery.com/">jQuery</a></li>
+            <li>Search platform: <a target="_blank" href="https://lucene.apache.org/solr/">Apache Lucene Solr</a></li>
+            <li>Database: <a target="_blank" href="http://www.mysql.com/">MySQL</a></li>
+            <li>Image server: <a target="_blank" href="http://iipimage.sourceforge.net/">IIPImage</a></li>
+            <li>Image viewer: <a target="_blank" href="http://ddmal.github.io/diva.js/">diva.js</a></li>
+            <li>Incipits of the tunes have been transcribed with <a href="www.sibelius.com/" target="_blank">Sibelius</a> and exported to <a target="_blank" href="http://music-encoding.org/">.mei</a> files using the <a href="https://github.com/music-encoding/sibmei" target="_blank ">sibmei plugin</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"><i class="fa fa-university"></i>
+Funding bodies and host institutions</a>
+        </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+        <ul>
+        <li>Arts and Humanities Research Council</li>
+        <li>University of Glasgow</li>
+        <li>Royal Conservatoire of Scotland</li>
+        <li>University of Cambridge</li>
+        </ul>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><i class="fa fa-refresh"></i>
+ Updates</a>
+        </h4>
+    </div>
+    <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+<p>initial publication: October 2015</p>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7"><i class="fa fa-copyright"></i>
+ Copyright information</a>
+        </h4>
+    </div>
+    <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+        <i class="fa fa-creative-commons"></i>
+<p>how you can use this material
+[how to cite information from the database]<br />
+[how to credit images from the sources]<br />
+[commercial use prohibited]</p>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8"><i class="fa fa-envelope"></i> Contacts</a>
+        </h4>
+    </div>
+    <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+        <address>
+        <i class="fa fa-map-pin"></i>
+            <strong>Historical Music of Scotland</strong><br>
+            Music, School of Culture and Creative Arts<br />
+            14 University Gardens<br />
+            Glasgow, Scotland,<br />
+            G12 8QH<br />
+            <br />
+            <i class="fa fa-phone fa-fw"></i>0141-330 3587<br />
+            <i class="fa fa-paper-plane fa-fw"></i>
+<a href="mailto:info@hms.scot">info@hms.scot</a>
+        </address>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}

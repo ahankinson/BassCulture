@@ -4,11 +4,33 @@
 <div class="container-fluid">
     <div class="col-md-10 col-md-offset-1">
 
-    <div class="page-header">
+    {% block title %}
+        <title>hms | home</title> 
+    {% endblock %}
+
+<!--     <div class="page-header">
         <h1>About</h1>
-    </div>
+    </div> -->
 
 <br />
+
+    <div class="col-md-6 col-md-offset-3 well well-sm">
+
+    <form role = "form" var="search-form" action="/fiddle/search" method="get">
+    <div class="input-group">
+        <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </div>
+    </form>
+    <br />
+    <p>Search for <kbd>*</kbd> to see the entire collection</p>
+
+    </div> <!--well well-sm-->
+    </div>
+
+<div class="col-md-10 col-md-offset-1">
 
  <div class="panel-group" id="accordion">
   <div class="panel panel-default">
@@ -17,7 +39,7 @@
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><i class="fa fa-info-circle"></i> Summary</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
+    <div id="collapse1" class="panel-collapse collapse">
       <div class="panel-body"><p>
 This database includes over 200 printed sources of Scottish fiddle music from before 1850. It omits publications of songs and airs, and because of its bass-led focus, sources without basslines. Most of the sources are substantial printed collections, but the database also includes some of the hundreds of surviving single-sheet publications. Manuscript sources were excluded purely to keep the project to a manageable size at this stage. 
 </p>
@@ -79,12 +101,14 @@ go and visit them, they will be pleased to see you!<br /></div>
     <div id="collapse4" class="panel-collapse collapse">
         <div class="panel-body">
             <ul>
-            <li>Django</li>
-            <li>Solr</li>
-            <li>Scorched</li>
-            <li>Diva visualiser</li>
-            <li>iipsrv</li>
-            <li>MEI</li>
+            <li>Web framework: <a target="_blank" href="https://www.djangoproject.com/">Django</a></li>
+            <li><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a></li>
+            <li><a target="_blank" href="http://jquery.com/">jQuery</a></li>
+            <li>Search platform: <a target="_blank" href="https://lucene.apache.org/solr/">Apache Lucene Solr</a></li>
+            <li>Database: <a target="_blank" href="http://www.mysql.com/">MySQL</a></li>
+            <li>Image server: <a target="_blank" href="http://iipimage.sourceforge.net/">IIPImage</a></li>
+            <li>Image viewer: <a target="_blank" href="http://ddmal.github.io/diva.js/">diva.js</a></li>
+            <li>Incipits of the tunes have been transcribed with <a href="www.sibelius.com/" target="_blank">Sibelius</a> and exported to <a target="_blank" href="http://music-encoding.org/">.mei</a> files using the <a href="https://github.com/music-encoding/sibmei" target="_blank ">sibmei plugin</li>
             </ul>
         </div>
     </div>

@@ -25,12 +25,14 @@
 
                 {% elif result.type == 'tune' %}
 
-                    <h4><a class="search-title" href="{{ result.url }}">{{ result.name|title|etc }}</a></h4>
-                    <p><span class="label label-primary">Tune</span><b>   From: </b> {{ result.source_title }}, by {{ result.source_author }}<br />
+<!--                     <h4><a class="search-title" href="{{ result.url }}">{{ result.name|title|etc }}</a></h4> -->
+                    <h4>{{ result.name|title|etc }}</h4>
+
+                    <p><span class="label label-primary">Tune</span><b>   From: </b>{{ result.source_title }}, by {{ result.source_author }}<br />
 
             {% if result.item_pk == '1' %}
 
-                <a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" id="resultTune"  data-page="{{ result.start_page }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-10" }})<br />
+                <a href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" id="resultTune" data-page="{{ result.start_page }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-10" }})<br />
 
             {% endif %}
 
@@ -140,7 +142,7 @@
 
             {% if result.item_pk == '22' %}
 
-                <a id="resultTune" href="{% url 'item-detail' result.item_pk %} class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-16" }})</p>
+                <a id="resultTune" href="{% url 'item-detail' result.item_pk %}" class="tune-page-link" data-page="{{ result.start_page|add:'0' }}">Go to the digitised copy</a> (p. {{ result.start_page|add:"-16" }})</p>
 
             {% endif %}
 
@@ -151,11 +153,12 @@
 
                 {% else %}
 
-                <h4><a href="{{ result.url }}">{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</a></h4>
-                <p id="highlighting_author" ><span class="label label-primary">Author</span>
+                <h4><a class="search-title" href="{{ result.url }}">{{ result.firstname }} {{ result.surname }} {{ result.extrainfo }}</a></h4>
+                <p><span class="label label-primary">Author</span>
+                <p id="highlighting_author">
                 {% if result.highlighted_string.biographical_info %}
-                ...{{ result.highlighted_string.biographical_info|safe|squares1|squares2|squares3|squares4|slashn}}...<br />
-                        {% endif %}<br/>
+                <b>Biograhical info:</b> ...{{ result.highlighted_string.biographical_info|safe|squares1|squares2|squares3|squares4|slashn}}...
+                {% endif %}<br/>
 
                 <br />
 

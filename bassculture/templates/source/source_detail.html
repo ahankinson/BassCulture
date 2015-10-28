@@ -1,35 +1,108 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Bass Culture | {{ content.short_title }}</title>
+<title>hms | {{ content.short_title }}</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-fluid">
+
+<div class="col-md-12">
+
+    <h2 class="text-center"><em>{{ content.short_title }}</em><br /><small> by {{ content.author.firstname }} {{ content.author.surname }} {{ content.author.extrainfo }}</small></h2>
+<br />
+<br />
+</div>
+
     <div class="col-md-10 col-md-offset-1">
 
-    <h2>{{ content.short_title }}</h2>
-
-
         <p><b>Full title:</b> {{ content.full_title }}</p>
-        <p><b>Author:</b> <a href="{{content.author.url}}">{{ content.author.firstname }} {{ content.author.surname }} {{ content.author.extrainfo }}</a></p>
-        <p><b>Description:</b> {{ content.description|linebreaks }}</p>
-        <p><b>Notes:</b> {{ content.source_notes|urlize|linebreaks }}</p>
-        <p><b>Printer:</b> {{ content.printer }}</p>
-        <p><b>Edition:</b> {{ content.edition }}</p>
-        <p><b>Orientation:</b> {{ content.orientation }}</p>
+        {% if content.printer %}
+        <p><b>Publisher:</b> {{ content.publisher }}
+            <p><b>Printer:</b> {{ content.printer }}</p>
+        {% endif %}
+        {% if content.edition %}
+            <p><b>Edition:</b> {{ content.edition }}</p>
+        {% endif %}
+        {% if content.orientation %}
+            <p><b>Orientation:</b> {{ content.orientation }}</p>
+        {% endif %}
         <p><b>Date:</b> {{ content.date }}</p>
+        {% if content.link %}
         <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
-        <p><b>RISM:</b> {{ content.rism }}</p>
-        <p><b>Gore:</b> {{ content.gore }}</p>
+        {% endif %}
+        {% if content.rism %}
+            <p><b>RISM:</b> {{ content.rism }}</p>
+        {% endif %}
+        {% if content.gore %}
+            <p><b>Gore:</b> {{ content.gore }}</p>
+        {% endif %}
+        {% if content.description %}
+            <p><b>Description:</b> {{ content.description|urlize|linebreaks }}</p>
+        {% endif %}
+        <p><b>Notes:</b> {{ content.source_notes|safe|urlize|linebreaks }}</p>
         <p><b>Locations:</b>
-        <a data-toggle="collapse" href="#sigla">
-            (Show the sigla expansions)</a>
+
+        <a class="sigla collapsed" data-toggle="collapse" data-target="#sigla"></a>
+        <div id="sigla" class="collapse"> 
+            <dl class="dl-horizontal">
+                        <dt>GB-A</dt> <dd>Aberdeen University Library</dd>
+                        <dt>GB-Bu</dt> <dd>Birmingham University Library</dt>
+                        <dt>GB-Cu</dt> <dd>Cambridge University Library</dt>
+                        <dt>GB-DUcl</dt> <dd>Dundee Central Library (Wighton Collection)</dd>
+                        <dt>GB-En</dt> <dd>National Library of Scotland, Edinburgh</dd>
+                        <dt>GB-Ep</dt> <dd>Edinburgh City Library</dd>
+                        <dt>GB-Eu</dt> <dd>Edinburgh University Library</dd>
+                        <dt>GB-Gm</dt> <dd>Mitchell Library, Glasgow</dd>
+                        <dt>GB-Grc</dt> <dd>Royal Conservatoire of Scotland, Glasgow</dt>
+                        <dt>GB-Gu</dt> <dd>University of Glasgow Library</dd>
+                        <dt>GB-Lam</dt> <dd>Royal Academy of Music, London</dd>
+                        <dt>GB-Lbl</dt> <dd>British Library, London</dd>
+                        <dt>GB-Lcm</dt> <dd>Royal College of Music, London</dd>
+                        <dt>GB-Lcs</dt> <dd>Vaughan Williams Memorial Library, Cecil Sharp House, London</dd>
+                        <dt>GB-Mp</dt> <dd>Manchester Public Library</dd>
+                        <dt>GB-Mr</dt> <dd>anchester University Library</dd>
+                        <dt>GB-NTu</dt> <dd>Newcastle University Library</dd>
+                        <dt>GB-Ob</dt> <dd>Bodleian Library, University of Oxford</dt>
+                        <dt>GB-P</dt> <dd>A K Bell Library, Perth</dd>
+                        <dt>GB-SA</dt> <dd>Saint Andrews University Library</dt>
+                        <dt>GB-SHE</dt> <dd>Sheffield University Library</dd>
+                        <dt>IRL-Dtc</dt> <dd>Trinity College Dublin</dd>
+                    </dl>
+
+        </div>
+
+        <!-- <a data-toggle="collapse" href="#sigla">
+            (Sigla expansions)</a>
             <div id="sigla" class="panel-collapse collapse">
                 <div>
-                    Here goes the list with all the sigla
+                    <dl class="dl-horizontal">
+                        <dt>GB-A</dt> <dd>Aberdeen University Library</dd>
+                        <dt>GB-Bu</dt> <dd>Birmingham University Library</dt>
+                        <dt>GB-Cu</dt> <dd>Cambridge University Library</dt>
+                        <dt>GB-DUcl</dt> <dd>Dundee Central Library (Wighton Collection)</dd>
+                        <dt>GB-En</dt> <dd>National Library of Scotland, Edinburgh</dd>
+                        <dt>GB-Ep</dt> <dd>Edinburgh City Library</dd>
+                        <dt>GB-Eu</dt> <dd>Edinburgh University Library</dd>
+                        <dt>GB-Gm</dt> <dd>Mitchell Library, Glasgow</dd>
+                        <dt>GB-Grc</dt> <dd>Royal Conservatoire of Scotland, Glasgow</dt>
+                        <dt>GB-Gu</dt> <dd>University of Glasgow Library</dd>
+                        <dt>GB-Lam</dt> <dd>Royal Academy of Music, London</dd>
+                        <dt>GB-Lbl</dt> <dd>British Library, London</dd>
+                        <dt>GB-Lcm</dt> <dd>Royal College of Music, London</dd>
+                        <dt>GB-Lcs</dt> <dd>Vaughan Williams Memorial Library, Cecil Sharp House, London</dd>
+                        <dt>GB-Mp</dt> <dd>Manchester Public Library</dd>
+                        <dt>GB-Mr</dt> <dd>anchester University Library</dd>
+                        <dt>GB-NTu</dt> <dd>Newcastle University Library</dd>
+                        <dt>GB-Ob</dt> <dd>Bodleian Library, University of Oxford</dt>
+                        <dt>GB-P</dt> <dd>A K Bell Library, Perth</dd>
+                        <dt>GB-SA</dt> <dd>Saint Andrews University Library</dt>
+                        <dt>GB-SHE</dt> <dd>Sheffield University Library</dd>
+                        <dt>IRL-Dtc</dt> <dd>Trinity College Dublin</dd>
+                    </dl>
+
                 </div>
-            </div>
+            </div> -->
         </p><p>{{ content.locations|linebreaks }}</p>
 
 <!-- </div> -->

@@ -1,6 +1,0 @@
-#Written by CorePropertiesLocator
-#Thu Oct 01 10:33:48 UTC 2015
-name=HMS
-config=solrconfig.xml
-schema=schema.xml
-dataDir=data

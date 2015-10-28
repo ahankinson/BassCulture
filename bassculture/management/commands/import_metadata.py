@@ -18,7 +18,7 @@ class Command(BaseCommand):
         Source.objects.all().delete()
 
         with open(location) as csvfile:
-            reader = csv.DictReader(csvfile)
+            reader = csv.DictReader(csvfile, dialect='excel')
             for row in reader:
                 self.author = None
                 self.source = None

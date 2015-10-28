@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container-fluid">
+
+<div class="row">
+
+    <div class="hidden-sm hidden-xs col-md-3 col-xs-offset-1">
+    <div class="shadow">
+    <img src="/static/img/Ca12-x-_56_0005.jpg" class="img-responsive center-block" id="fiddlehome" style="width:74%;">
+    </div>
+    </div>
+
+    <div class="col-md-4 text-center bottom-align-text">
+
+    <h4>Search our collection using the form below, or browse using the top menu at the top of this page </h4>
+
+    <div class="well well-sm">
+
+    <form role = "form" var="search-form" action="/fiddle/search" method="get">
+    <div class="input-group">
+        <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </div>
+    </form>
+    <br />
+    <p>Search for <kbd>*</kbd> to see the entire collection</p>
+
+    </div> <!--well well-sm-->
+</div> <!--col-md-4-->
+
+    <div class="hidden-sm hidden-xs col-md-3">
+    <div class="shadow">
+    <img src="/static/img/06_Campbell_1-005.jpg" class="img-responsive center-block" id="fiddlehome" style="width:70%;"></p>
+    </div>
+    </div>
+
+</div> <!--col-md-4-->
+
+</div>
+
+{% endblock %}
