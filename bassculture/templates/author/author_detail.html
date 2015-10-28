@@ -12,7 +12,7 @@
     <h2>{{ content.full_name }}</h2>
     <h3>Biographical info</h3>
         <p>
-          {{ content.biographical_info }}
+          {{ content.biographical_info|safe }}
         </p>
 
     <h3>Sources authored by {{ content.full_name }}</h3>

@@ -38,7 +38,7 @@
             <p><b>Gore:</b> {{ content.gore }}</p>
         {% endif %}
         {% if content.description %}
-            <p><b>Description:</b> {{ content.description|urlize|linebreaks }}</p>
+            <p><b>Description:</b> {{ content.description|safe|urlize|linebreaks }}</p>
         {% endif %}
         <p><b>Notes:</b> {{ content.source_notes|safe|urlize|linebreaks }}</p>
         <p><b>Locations:</b>

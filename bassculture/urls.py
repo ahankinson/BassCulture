@@ -7,7 +7,6 @@ from bassculture.views.fhome import FhomeView
 from bassculture.views.about import AboutView
 from bassculture.views.bibliography import BibliographyView
 from bassculture.views.sigla import SiglaView
-from bassculture.views.autoco import AutocoView
 from bassculture.views.source import SourceList, SourceDetail
 from bassculture.views.author import AuthorList, AuthorDetail
 from bassculture.views.tune import TuneList, TuneDetail
@@ -51,8 +50,6 @@ urlpatterns = patterns('',
                        url(r'^fiddle/references/bibliography/$', BibliographyView.as_view(), name="bibliography"),
 
                        url(r'^fiddle/references/sigla/$', SiglaView.as_view(), name="sigla"),
-
-                       url(r'^fiddle/autoco/$', AutocoView.as_view(), name='autoco'),
 
                        url(r'^fiddle/admin/', include(admin.site.urls)),
                        )
