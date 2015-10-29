@@ -9,7 +9,7 @@
 
 <div class="col-md-12">
 
-    <h2 class="text-center"><em>{{ content.short_title }}</em><br /><small> by {{ content.author.firstname }} {{ content.author.surname }} {{ content.author.extrainfo }}</small></h2>
+    <h2 class="text-center"><em>{{ content.short_title }}</em><br /><small> by <a href="{{ content.author.url }}">{{ content.author.firstname }} {{ content.author.surname }} {{ content.author.extrainfo }}</a></small></h2>
 <br />
 <br />
 </div>
@@ -17,30 +17,42 @@
     <div class="col-md-10 col-md-offset-1">
 
         <p><b>Full title:</b> {{ content.full_title }}</p>
-        {% if content.printer %}
         <p><b>Publisher:</b> {{ content.publisher }}
+        {% if content.printer %}
             <p><b>Printer:</b> {{ content.printer }}</p>
         {% endif %}
+        {% for item in content.items %}
+        <p><b>Seller:</b> {{ item.seller }}
+        {% endfor %}</p>
         {% if content.edition %}
             <p><b>Edition:</b> {{ content.edition }}</p>
         {% endif %}
+        <p><b>Date:</b> {{ content.date }}</p>
+        {% if content.description %}
+            <p><b>Description:</b> {{ content.description|safe|urlize|linebreaks }}</p>
+        {% endif %}
+        <p><b>Notes:</b> {{ content.source_notes|safe|urlize|linebreaks }}</p>
+        {% for item in content.items %}
+        <p><b>Pages:</b> {{ item.pagination }}
+        {% endfor %}</p>
         {% if content.orientation %}
             <p><b>Orientation:</b> {{ content.orientation }}</p>
         {% endif %}
-        <p><b>Date:</b> {{ content.date }}</p>
-        {% if content.link %}
-        <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
-        {% endif %}
+        {% for item in content.items %}
+        <p><b>Dimensions:</b> {{ item.dimensions }}
+        {% endfor %}</p>
         {% if content.rism %}
             <p><b>RISM:</b> {{ content.rism }}</p>
         {% endif %}
         {% if content.gore %}
             <p><b>Gore:</b> {{ content.gore }}</p>
         {% endif %}
-        {% if content.description %}
-            <p><b>Description:</b> {{ content.description|safe|urlize|linebreaks }}</p>
+        {% if content.link %}
+        <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
         {% endif %}
-        <p><b>Notes:</b> {{ content.source_notes|safe|urlize|linebreaks }}</p>
+        {% if content.author.biographical_info %}
+            <p><b>Biographical info:</b> {{ content.author.biographical_info }}</p>
+        {% endif %}
         <p><b>Locations:</b>
 
         <a class="sigla collapsed" data-toggle="collapse" data-target="#sigla"></a>

@@ -17,7 +17,6 @@ class SourceAuthorSerializer(serializers.HyperlinkedModelSerializer):
 class SourceItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Item
-        exclude = ('source',)
 
 
 class SourceDetailSerializer(serializers.HyperlinkedModelSerializer):

@@ -14,7 +14,7 @@
 
 <div class="col-md-12">
 
-    <h2 class="text-center"><em>{{ content.source_title }}</em><br /><small> by {{ content.source_author }}</small></h2>
+    <h2 class="text-center"><em>{{ content.source_title }}</em><br /><small> by <a href="/fiddle/author/{{ content.item_authorid }}">{{ content.source_author }}</a></small></h2>
 <br />
 </div>
 
@@ -121,26 +121,11 @@
                 {% endfor %}
             {% endif %}
     </div><!--tunes-list-->
-    
+
     <div id="copy-detail" class="tab-pane fade">
       <h3>Copy details</h3>
       <br />
 <!--                 <div class="panel-body"> -->
-
-                    {% if content.seller %}
-
-                        <h4>Seller</h4>
-                        <p>{{ content.seller }}</p>
-
-                    {% endif %}
-
-                    {% if content.item_notes %}
-
-                        <h4>Item notes</h4>
-                        <p>{{ content.item_notes }}</p>
-
-                    {% endif %}
-
                     <h4>Publisher</h4>
                     <p>{{ content.source_publisher }}</p>
 
@@ -151,17 +136,36 @@
 
                     {% endif %}
 
-                    <h4>Date</h4>
-                    <p>{{ content.source_date }}</p>
+                    {% if content.seller %}
 
-                    {% if content.source_rism%}
-
-                        <h4>RISM</h4>
-                        <p>{{ content.source_rism }}</p>
+                        <h4>Seller</h4>
+                        <p>{{ content.seller }}</p>
 
                     {% endif %}
 
-                    <h4>Pagination</h4>
+                    <h4>Edition</h4>
+                    <p>{{ content.source_edition }}</p>
+
+                    <h4>Date</h4>
+                    <p>{{ content.source_date }}</p>
+
+                    <h4>Library</h4>
+                    <p>{{ content.library }}</p>
+
+                    <h4>Shelfmark</h4>
+                    <p>{{ content.shelfmark }}</p>
+
+                    <h4>Description</h4>
+                    <p>{{ content.source_description|safe }}</p>
+
+                    {% if content.item_notes %}
+
+                        <h4>Item notes</h4>
+                        <p>{{ content.item_notes }}</p>
+
+                    {% endif %}
+
+                    <h4>Pages</h4>
                     <p>{{ content.pagination }}</p>
 
                     {% if content.source_orientation %}
@@ -178,19 +182,31 @@
 
                     {% endif %}
 
-                    <h4>Shelfmark</h4>
-                    <p>{{ content.shelfmark }}</p>
+                    {% if content.source_rism%}
 
-                    <h4>Library</h4>
-                    <p>{{ content.library }}</p>
+                        <h4>RISM</h4>
+                        <p>{{ content.source_rism }}</p>
 
-                    <h4>Edition</h4>
-                    <p>{{ content.source_edition }}</p>
+                    {% endif %}
 
-                    {% if content.source_gore%}
+                    {% if content.source_gore %}
 
                         <h4>Gore</h4>
                         <p>{{ content.source_gore }}</p>
+
+                    {% endif %}
+
+                    {% if content.item_biographicalinfo %}
+
+                    <h4>Biographical info</h4>
+                    <p>{{ content.item_biographicalinfo }}</p>
+
+                    {% endif %}
+
+                    {% if content.source_locations %}
+
+                        <h4>Other locations</h4>
+                        <p>{{ content.source_locations|linebreaks }}</p>
 
                     {% endif %}
 
@@ -199,7 +215,7 @@
 </div><!--tab-content-->
 </div><!--inner-->
 </div><!--sp editor-->
-        
+
         <div class="col-sm-6 sp">
             <div class="inner" id="diva-wrapper"></div>
         </div>

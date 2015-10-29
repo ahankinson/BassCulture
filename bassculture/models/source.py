@@ -40,6 +40,14 @@ class Source(models.Model):
             else:
                 return "{0}".format(self.id)
 
+    @property
+    def source_biographicalinfo(self):
+        return "{0}".format(self.author.biographical_info)
+
+    @property
+    def source_authorid(self):
+        return "{0}".format(self.author.id)
+
 
 @receiver(post_save, sender=Source)
 def solr_index(sender, instance, created, **kwargs):

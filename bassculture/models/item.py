@@ -15,11 +15,23 @@ class Item(models.Model):
     shelfmark = models.CharField(max_length=128)
     item_notes = models.TextField(blank=True, null=True)
     source = models.ForeignKey("bassculture.Source", related_name="items")
-    seller = models.TextField()
+    seller = models.TextField(blank=True, null=True)
 
     @property
     def source_title(self):
         return "{0}".format(self.source.short_title)
+
+    @property
+    def item_biographicalinfo(self):
+        return "{0}".format(self.source.source_biographicalinfo)
+
+    @property
+    def item_authorid(self):
+        return "{0}".format(self.source.source_authorid)
+
+    @property
+    def source_locations(self):
+        return "{0}".format(self.source.locations)
 
     @property
     def source_author(self):
@@ -36,6 +48,10 @@ class Item(models.Model):
     @property
     def source_edition(self):
         return "{0}".format(self.source.edition)
+
+    @property
+    def source_description(self):
+        return "{0}".format(self.source.description)
 
     @property
     def source_printer(self):
