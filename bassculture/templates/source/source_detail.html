@@ -27,11 +27,15 @@
         {% if content.edition %}
             <p><b>Edition:</b> {{ content.edition }}</p>
         {% endif %}
+        {% if content.date %}
         <p><b>Date:</b> {{ content.date }}</p>
+        {% endif %}
         {% if content.description %}
             <p><b>Description:</b> {{ content.description|safe|urlize|linebreaks }}</p>
         {% endif %}
+        {% if  content.source_notes %}
         <p><b>Notes:</b> {{ content.source_notes|safe|urlize|linebreaks }}</p>
+        {% endif %}
         {% for item in content.items %}
         <p><b>Pages:</b> {{ item.pagination }}
         {% endfor %}</p>
@@ -51,7 +55,7 @@
         <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
         {% endif %}
         {% if content.author.biographical_info %}
-            <p><b>Biographical info:</b> {{ content.author.biographical_info }}</p>
+            <p><b>Biographical info:</b> {{ content.author.biographical_info|safe }}</p>
         {% endif %}
         <p><b>Locations:</b>
 

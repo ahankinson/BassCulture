@@ -1,20 +1,24 @@
 {% load tags %}
-
+{% load staticfiles %}
 
         <h4>Search within the results</h4>
-    <form role = "form" action="/fiddle/search" method="get">
-        <input type="hidden" name="q" value="{{ content.params.q }}" />
-        {% if request.GET.fq|length != 0 %}
-        <input type="hidden" name="fq" value="{{ content.params.fq }}" />
+
+
+
+    <form role = "form" id="filter" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}" action="/fiddle/search/" method="get">
+        {% if request.GET.q == '*' %}
+        <input type="hidden" name="q" value="*" />
         {% endif %}
     <div class="input-group">
-        <input type="text" name="fq" class="form-control" placeholder="Filter for...">
+        <input type="text" name="fq" id="fq" class="form-control" placeholder="Filter for...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="submit">Go!</button>
         </span>
     </div>
     </form>
+
     <br />
+
 
 {% for facet, values in content.facets.items %}
 
@@ -45,3 +49,29 @@
 
 {% endfor %}
 </div>
+
+{% block scripts %}
+
+<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/bassculture.js' %}" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#filter").submit(function(event) {
+        event.preventDefault();       
+        $this = $(this);
+        var fq = $('#fq').val();
+        var facetOffset = $(this).data('facet-offset');
+        var facetLimit = $(this).data('facet-limit');
+        var qstr = window.location.search.replace("?limit=10" + "&offset=" + facetOffset + "&", "");
+        var url = qstr + '&fq=' + fq;
+        window.location.search = url;
+    });
+});
+
+</script>
+{% endblock %}

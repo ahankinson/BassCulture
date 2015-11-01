@@ -57,7 +57,7 @@ class SearchView(GenericAPIView):
                 fcq[f] = querydict.get(f)
 
         fq = {}
-        if querydict.get('fq', None):
+        if querydict.get('fq'):
             fq = querydict.get('fq')
         else:
             fq = '*'

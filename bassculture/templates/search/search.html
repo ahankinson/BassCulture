@@ -53,7 +53,7 @@
         {% if values|length > 1 %}
 
             {% for name, count in values %}
-                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}" facet-limit="{{ content.limit }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
+                <button class="btn btn-primary facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name }}" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}">{{ name|capfirst }} </a> <span class="badge"> {{ count }}</span></button>
             {% endfor %}
 
         {% endif %}
