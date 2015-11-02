@@ -258,9 +258,10 @@
 
             var divaObject = $('#diva-wrapper').data('diva')
             diva.Events.subscribe('DocumentDidLoad', function(idx, filename) {
-                if(sessionStorage.gotoPage) {
-                divaObject.gotoPageByNumber(sessionStorage.gotoPage);
+                if(sessionStorage.gotoPageByNumber) {
+                divaObject.gotoPageByNumber(sessionStorage.gotoPageByNumber);
             }
+            window.sessionStorage.clear();
         });
                 
         $('.tune-page-link').click(function(e)
@@ -275,7 +276,7 @@
                     'ulx': $(this).data('x'),
                     'uly': $(this).data('y'),
                 }];
-            diva.highlightOnPage(pageNum-1, regions);
+            diva.highlightOnPage(pgNum-1, regions);
         });
     </script>
     <script>

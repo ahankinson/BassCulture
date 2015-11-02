@@ -145,12 +145,33 @@
 </script>
 <script type="text/javascript">
 
-    sessionStorage.setItem('gotoPage', null);
+    sessionStorage.setItem('gotoPageByNumber', null);
 
     $(".tune-page-link").click(function() {
         var pageNum = $(this).data('page');
-        sessionStorage.gotoPage = pageNum;
+        sessionStorage.gotoPageByNumber = pageNum;
         });
+
+</script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $("#filter").submit(function(event) {
+        event.preventDefault();       
+        $this = $(this);
+        var fq = $('#fq').val();
+        var facetOffset = $(this).data('facet-offset');
+        var facetLimit = $(this).data('facet-limit');
+        var qstr = window.location.search.replace("?limit=10" + "&offset=" + facetOffset + "&", "");
+        var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
+        if (qstr.includes('fq=')) {
+            var url = qstr + '&' + fq;
+        } else {
+            var url = qstr + '&fq=' + fq;
+        };
+        window.location.search = url;
+    });
+});
 
 </script>
 {% endblock %}

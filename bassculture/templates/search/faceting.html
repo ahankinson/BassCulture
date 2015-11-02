@@ -49,30 +49,3 @@
 
 {% endfor %}
 </div>
-
-{% block scripts %}
-
-<script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
-
-<script type="text/javascript">
-
-$(document).ready(function() {
-    $("#filter").submit(function(event) {
-        event.preventDefault();       
-        $this = $(this);
-        var fq = $('#fq').val();
-        var facetOffset = $(this).data('facet-offset');
-        var facetLimit = $(this).data('facet-limit');
-        var qstr = window.location.search.replace("?limit=10" + "&offset=" + facetOffset + "&", "");
-        var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
-        if (qstr.includes('fq=')) {
-            var url = qstr + '&' + fq;
-        } else {
-            var url = qstr + '&fq=' + fq;
-        };
-        window.location.search = url;
-    });
-});
-
-</script>
-{% endblock %}
