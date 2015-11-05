@@ -12,6 +12,7 @@ from bassculture.views.author import AuthorList, AuthorDetail
 from bassculture.views.tune import TuneList, TuneDetail
 from bassculture.views.item import ItemList, ItemDetail
 from bassculture.views.search import SearchView
+from bassculture.views.api import autocomplete
 
 urlpatterns = patterns('',
 
@@ -52,6 +53,10 @@ urlpatterns = patterns('',
                        url(r'^fiddle/references/sigla/$', SiglaView.as_view(), name="sigla"),
 
                        url(r'^fiddle/admin/', include(admin.site.urls)),
+                       url(r'^fiddle/api/autocomplete/$', autocomplete, name='autocomplete'),
+
+
+
                        )
 
 if settings.DEBUG:

@@ -16,7 +16,7 @@
 <div class="col-md-6 col-md-offset-1">
     <form role = "form" var="search-form" action="/fiddle/search" method="get">
     <div class="input-group">
-        <input type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
+        <input id="autocomplete" type="text" name="q" var="search-input" class="form-control" placeholder="New search...">
         <span class="input-group-btn">
             <button class="btn btn-default" type="submit">Go!</button>
         </span>
@@ -171,6 +171,15 @@ $(document).ready(function() {
         };
         window.location.search = url;
     });
+});
+
+</script>
+<script type="text/javascript">
+    $(function() {
+  $("#autocomplete").autocomplete({
+    source: "/fiddle/api/autocomplete",
+    minLength: 1,
+  });
 });
 
 </script>

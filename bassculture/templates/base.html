@@ -42,6 +42,15 @@
         <!-- Scripts go at the end of the page so that all elements are loaded and ready on the DOM -->
 
         {% block scripts %}
+<script type="text/javascript">
+    $(function() {
+  $("#autocomplete").autocomplete({
+    source: "/fiddle/api/autocomplete",
+    minLength: 1,
+  });
+});
+
+</script>
         {% endblock %}
 
     </body>

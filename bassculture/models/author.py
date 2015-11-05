@@ -19,13 +19,10 @@ class Author(models.Model):
 
     @property
     def full_name(self):
-        if self.firstname:
             return u"{0} {1} {2}".format(self.firstname,
                                          self.surname,
                                          self.extrainfo)
-        else:
-            return u"{0}".format(self.surname)
-
+            
 
 @receiver(post_save, sender=Author)
 def solr_index(sender, instance, created, **kwargs):

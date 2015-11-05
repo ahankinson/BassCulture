@@ -14,6 +14,15 @@ body {
 
 }
 
+.ui-autocomplete {
+    max-height: 50%;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    width: 35%;
+
+}
+
 .hmshome {
 
     margin-bottom: 30;
