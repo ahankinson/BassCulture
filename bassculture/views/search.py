@@ -4,7 +4,9 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.compat import OrderedDict
+# from rest_framework.compat import OrderedDict
+import collections
+from collections import OrderedDict
 from rest_framework.settings import api_settings
 import scorched
 
