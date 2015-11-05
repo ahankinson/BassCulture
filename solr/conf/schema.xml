@@ -54,7 +54,6 @@
    <field name="updated" type="date" indexed="true" stored="true"/>
 
     <!-- author -->
-    <field name="author_id" type="string" indexed="true" stored="true"/>
     <field name="firstname" type="string" indexed="true" stored="true"/>
     <field name="extrainfo" type="string" indexed="true" stored="true"/>
     <field name="biographical_info" type="text_general" indexed="true" stored="true"/>
@@ -86,6 +85,7 @@
    <field name="name" type="string" indexed="true" stored="true"/>
    <field name="start_page" type="string" indexed="true" stored="true"/>
    <field name="alternate_spellings" type="text_general" indexed="true" stored="true"/>
+   <field name="tune_author" type="string" indexed="true" stored="true"/>
    <field name="item_pk" type="string" indexed="true" stored="true"/>
 
   <!-- attribute "name" is the name of this schema and is only used for display purposes.

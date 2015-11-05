@@ -35,7 +35,7 @@ class Item(models.Model):
 
     @property
     def source_author(self):
-        return "{0}".format(self.source.author)
+        return "{0}".format(self.source.the_author)
 
     @property
     def source_date(self):

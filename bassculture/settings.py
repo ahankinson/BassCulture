@@ -154,10 +154,9 @@ DIVA_OBJECT_DATA = "/static/json/"
 SEARCH_FACETS = [
 
     "short_title",
-    "surname",
-    "firstname",
     "type",
-    "author",
+    "tune_author",
     "source_title",
+    "source_author",
 
 ]

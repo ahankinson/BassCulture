@@ -45,6 +45,12 @@ class Source(models.Model):
         return "{0}".format(self.author.biographical_info)
 
     @property
+    def the_author(self):
+            return u"{0} {1} {2}".format(self.author.firstname,
+                                         self.author.surname,
+                                         self.author.extrainfo)
+
+    @property
     def source_authorid(self):
         return "{0}".format(self.author.id)
 

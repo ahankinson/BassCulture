@@ -27,14 +27,13 @@
         <h4><i class="fa fa-book fa-fw"></i>&nbsp; Filter by source title</h4>
         <ul>
             {% for name, count in values %}
-                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ facet }}" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}">{{ name }} </a> ({{ count }})</li>
+                <li><a class="facet-link" href="#" data-facet-name="{{ facet }}" data-facet-value="{{ name|urlencode|iriencode }}" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}">{{ name }} </a> ({{ count }})</li>
             {% endfor %}
         </ul>
         {% endif %}
-    {% endif %}
 
+    {% elif facet == 'tune_author' and 'source_author' %}
 
-    {% if facet == 'author' %}
         {% if values|length > 1 %}
         <h4><i class="fa fa-user"></i>&nbsp; Filter by source author (in all the sources)</h4>
 
