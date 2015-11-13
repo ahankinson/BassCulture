@@ -120,9 +120,11 @@
     $(".facet-link").on('click', function(e)
     {
         var facetOffset = $(this).data('facet-offset');
-        var facetLimit = $(this).data('facet-limit');
-        var qstr = window.location.search.replace("?limit=" + facetLimit + "&offset=" + facetOffset, "");
-        var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
+        // if limit it <10 this doesn't work because in the address bar there is alwas 10 regardless of the limit parameter for the last page of results
+        // var facetLimit = $(this).data('facet-limit');
+
+        var qstr = window.location.search.replace("?limit=10&offset=" + facetOffset, "");
+        var qstr = window.location.search.replace("&limit=10&offset=" + facetOffset, "");
         var qstr_params = $.parseParams(qstr); 
         var facetName = $(this).data('facet-name');
         var facetValue = $(this).data('facet-value');
@@ -160,10 +162,10 @@ $(document).ready(function() {
         event.preventDefault();       
         $this = $(this);
         var fq = $('#fq').val();
-        var facetOffset = $(this).data('facet-offset');
-        var facetLimit = $(this).data('facet-limit');
-        var qstr = window.location.search.replace("?limit=10" + "&offset=" + facetOffset + "&", "");
-        var qstr = window.location.search.replace("&limit=" + facetLimit + "&offset=" + facetOffset, "");
+        var Offset = $(this).data('offset');
+        // var Limit = $(this).data('limit');
+        var qstr = window.location.search.replace("&limit=10&offset=" + Offset, "");
+        var qstr = window.location.search.replace("?limit=10&offset=" + Offset, "");
         if (qstr.includes('fq=')) {
             var url = qstr + '&' + fq;
         } else {

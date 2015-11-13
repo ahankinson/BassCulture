@@ -5,7 +5,7 @@
 
 
 
-    <form role = "form" id="filter" data-facet-offset="{{ content.params.start }}" data-facet-limit="{{ content.limit }}" action="/fiddle/search/" method="get">
+    <form role = "form" id="filter" data-offset="{{ content.params.start }}" data-limit="{{ content.limit }}" action="/fiddle/search/" method="get">
         {% if request.GET.q == '*' %}
         <input type="hidden" name="q" value="*" />
         {% endif %}
@@ -35,7 +35,7 @@
     {% elif facet == 'tune_author' and 'source_author' %}
 
         {% if values|length > 1 %}
-        <h4><i class="fa fa-user"></i>&nbsp; Filter by source author (in all the sources)</h4>
+        <h4><i class="fa fa-user"></i>&nbsp; Filter by author</h4>
 
         <ul>
             {% for name, count in values %}
