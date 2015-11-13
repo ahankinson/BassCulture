@@ -22,7 +22,7 @@ class Author(models.Model):
             return u"{0} {1} {2}".format(self.firstname,
                                          self.surname,
                                          self.extrainfo)
-            
+    
 
 @receiver(post_save, sender=Author)
 def solr_index(sender, instance, created, **kwargs):
