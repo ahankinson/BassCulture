@@ -9,16 +9,7 @@ from bassculture.models.tune import Tune
 from bassculture.models.source import Source
 
 
-def load_author(file_path):
-    "this loads drugs from pipe delimited file with headers"
-    reader = csv.DictReader(open(file_path))
-    for row in reader:
-        author = Author(firstname=row['firstname'], surname=row['surname'])
-        author.save()
-
-
 def autocomplete(request):
-#    if request.is_ajax():
         q = request.GET.get('term', '')
         authors = Author.objects.filter(surname__istartswith=q)[:400]
         results = []
@@ -37,11 +28,11 @@ def autocomplete(request):
         for tune in tunes:
             tune_JSON = {}
             tune_JSON = tune.name
+        # .split() removes extra white spaces in the title of the tunes
+            " ".join(tune_JSON.split())
             results.append(tune_JSON)
-        #list(set) removes duplicate items from the list (e.g. 8 N. Gows)
+        # list(set) removes duplicate items from the list (e.g. 8 N. Gows)
         results = list(set(results))
         data = json.dumps(results)
-#    else:
-#        data = 'fail'
         mimetype = 'application/json'
         return HttpResponse(data, mimetype)
