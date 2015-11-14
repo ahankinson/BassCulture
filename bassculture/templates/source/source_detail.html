@@ -52,7 +52,7 @@
             <p><b>Gore:</b> {{ content.gore }}</p>
         {% endif %}
         {% if content.link %}
-        <p><b>Link:</b><a href="{{ content.link }}"> {{ content.link_label }}</a></p>
+        <p><b>Link: </b><a href="{{ content.link }}" target="_blank">{{ content.link_label }}</a></p>
         {% endif %}
         {% if content.author.biographical_info %}
             <p><b>Biographical info:</b> {{ content.author.biographical_info|safe }}</p>
