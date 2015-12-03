@@ -20,7 +20,7 @@ class TuneList(generics.ListCreateAPIView):
     queryset = Tune.objects.all()
     serializer_class = TuneListSerializer
     renderer_classes = (JSONRenderer, TuneListHTMLRenderer, BrowsableAPIRenderer)
-
+    
 
 class TuneDetail(generics.RetrieveUpdateDestroyAPIView):
     model = Tune

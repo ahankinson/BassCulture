@@ -2,9 +2,15 @@
 
 
 {% block body %}
+<div class="container-fluid">
+<div class="col-md-10 col-md-offset-1">
+<h1>List of all the tunes</h1>
+<br/>
 <ul>
 {% for tune in content %}
     <li><a href="{{ tune.url }}"> {{ tune.name|title }}</a></li>
 {% endfor %}
 </ul>
+<div>
+</div>
 {% endblock %}

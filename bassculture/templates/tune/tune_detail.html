@@ -2,8 +2,15 @@
 {% load staticfiles %}
 
 {% block body %}
+
+<div class="container-fluid">
+<div class="col-md-10 col-md-offset-1">
+
     {{ content.name|title }}
     <div id="notation"></div>
+
+</div>
+</div>
 {% endblock %}
 
 {% block scripts %}
